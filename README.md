@@ -1,5 +1,8 @@
 # ClaimsCompass
-A service to optimize the creditors insurance claims process through categorizing claims by complexity and urgency, and through a dashboard allowing employees responsible for processing claims to view key details and GPT-generated claims insights at a glance.
+Created by Andrew Xie, Derek Hyunh, Krisha Kalsi, Maryam Taj, and Pratibha Thakur, along with the help of the University of Toronto's Technology Leadership Initiative professors and teaching assistants.
+
+A service to optimize the creditors insurance claims processing through categorizing claims by complexity and urgency, and through a dashboard allowing employees responsible for processing claims to view key details and GPT-generated claims insights at a glance.
+Our dashboard-based web application provided an alternative to the existing 'Queue-based' claims processing system. It will allow Securian employees to prioritise the most urgent and complex claims which require more attention and resources while simultaneously keeping track of more straightforward claims.
 
 1. [Installation](#installation)
 2. [Usage](#usage)
@@ -44,7 +47,7 @@ Links to or explanations of project documentation.
 
 ## License<a name="license"></a>
 
-Information about the project's license.
+'MIT License' is a permissive, open-source software license. It allows users to use, copy, modify, merge, publish, distribute, sublicense, and sell copies of the software, provided that the license and copyright notice must be included in all copies or substantial portions of this MIT-licensed software
 
 ## Roadmap<a name="roadmap"></a>
 
