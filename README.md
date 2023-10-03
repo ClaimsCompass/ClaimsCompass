@@ -1,2 +1,81 @@
 # ClaimsCompass
 A service to optimize the creditors insurance claims process through categorizing claims by complexity and urgency, and through a dashboard allowing employees responsible for processing claims to view key details and GPT-generated claims insights at a glance.
+
+1. [Installation](#installation)
+    1.1 [PostgreSQL Setup](#postgres-setup)
+    1.2 [Java Spring Boot Setup](#spring-boot-setup)
+2. [Usage](#usage)
+3. [Features](#features)
+4. [Contributing](#contributing)
+5. [Documentation](#documentation)
+6. [License](#license)
+7. [Roadmap](#roadmap)
+8. [Credits](#credits)
+9. [Support](#support)
+10. [Examples or Screenshots](#examples-or-screenshots)
+11. [FAQ](#faq)
+12. [Contact Information](#contact-information)
+
+## Installation<a name="installation"></a>
+
+Instructions on how to install and configure the project.
+
+### PostgreSQL Setup<a name="postgres-setup"></a>
+
+Instructions on how to set up PostgreSQL for this project.
+
+### Java Spring Boot Setup<a name="spring-boot-setup"></a>
+
+Instructions on how to set up Java Spring Boot for this project.
+
+## Usage<a name="usage"></a>
+
+Examples and explanations of how to use the project.
+
+## Features<a name="features"></a>
+
+List of the key features of the project.
+
+## Contributing<a name="contributing"></a>
+
+Information on how to contribute to the project.
+
+## Documentation<a name="documentation"></a>
+
+Links to or explanations of project documentation.
+
+## License<a name="license"></a>
+
+Information about the project's license.
+
+## Roadmap<a name="roadmap"></a>
+
+Outline of the project's future plans and development goals.
+
+## Credits<a name="credits"></a>
+
+Acknowledgments for contributors, libraries, or tools.
+
+## Support<a name="support"></a>
+
+Information on seeking help and reporting issues.
+
+## Examples or Screenshots<a name="examples-or-screenshots"></a>
+
+Visuals or links to live demos if applicable.
+
+## FAQ<a name="faq"></a>
+
+Answers to frequently asked questions.
+
+## Contact Information<a name="contact-information"></a>
+
+Ways to contact project maintainers.
+
+## Acknowledgments<a name="acknowledgments"></a>
+
+Special thanks or acknowledgments.
+
+## Changelog<a name="changelog"></a>
+
+A record of changes and updates to the project.
