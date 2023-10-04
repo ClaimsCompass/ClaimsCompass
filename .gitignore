@@ -2,6 +2,9 @@
 .idea
 .iml
 
+# React + Node + npm stuff
+node_modules/
+
  Compiled class file
 *.class
 
@@ -28,3 +31,6 @@ hs_err_pid*
 # Mac specific
 .DS_Store
 
+
+# Maven stuff
+target/
