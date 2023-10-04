@@ -1,23 +1,30 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 function Box() {
 
-    const [isProcessed, setIsProcessed] = useState(false);
+    const [message, setMessage] = useState('');
+    const newEmployeeName = "Maryam";
+    const newEmployeeLastName = "Taj"
 
-    const handleButtonClick = () => {
-        setIsProcessed(true);
+    const handleButtonClick = async () => {
+        try {
+            const response = await axios.post('/employees', {
+                firstName: newEmployeeName,
+                lastName: newEmployeeLastName
+            });
+            setMessage(response.data);
+        } catch (error) {
+            console.error('Error:', error);
+        }
     };
 
     return (
         <div className="container">
             <div className="empty-box"></div>
             <div className="button-and-form-container">
-                {isProcessed ? (
-                    <div className="done-text">Processed!</div>
-                ) : (
-                    <button className="custom-button" onClick={handleButtonClick}>
-                        Process
-                    </button>
-                )}
+                <button className="custom-button" onClick={handleButtonClick}>
+                    Process
+                </button>
                 <div className="form-box">
                     <div className="category-indicator">Express</div>
                     <form>

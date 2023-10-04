@@ -4,6 +4,7 @@
 
 # React + Node + npm stuff
 node_modules/
+out/
 
  Compiled class file
 *.class
