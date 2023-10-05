@@ -1,21 +1,36 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+
+
 function Box() {
 
     const [message, setMessage] = useState('');
-    const newEmployeeName = "Maryam";
-    const newEmployeeLastName = "Taj"
+   const [employeeData, setEmployeeData] = useState({
+      firstName: 'John',
+      lastName: 'Doe',
+   });
+    const firstNames = ["Mike", "Paul", "Derek", "Maryam", "Pratibha", "Krisha", "Andrew", "John"];
+    const lastNames = ["Gries","McCarthy", "Thakur", "Taj", "Xie", "Huynh", "Kalsi", "Doe"];
+    let x = Math.floor(Math.random() * 7);
+    let y = Math.floor(Math.random() * 7);
+    const newEmployeeName = firstNames[x];
+    const newEmployeeLastName = lastNames[y];
+
 
     const handleButtonClick = async () => {
         try {
-            const response = await axios.post('/employees', {
+            await axios.post('/employees', {
                 firstName: newEmployeeName,
                 lastName: newEmployeeLastName
             });
-            setMessage(response.data);
+            const response = await axios.get('employee')
+            setEmployeeData(response.data);
+            //setMessage(response.data);
         } catch (error) {
             console.error('Error:', error);
         }
+
+
     };
 
     return (
@@ -30,11 +45,11 @@ function Box() {
                     <form>
                         <div className="form-group">
                             <label>First Name:</label>
-                            <span>John</span>
+                            <span>{employeeData.firstName}</span>
                         </div>
                         <div className="form-group">
                             <label>Last Name:</label>
-                            <span>Doe</span>
+                            <span>{employeeData.lastName}</span>
                         </div>
                         <div className="form-group">
                             <label>Amount:</label>
