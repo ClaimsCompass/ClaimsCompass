@@ -5,10 +5,8 @@ import axios from 'axios';
 function Box() {
 
     const [message, setMessage] = useState('');
-   const [employeeData, setEmployeeData] = useState({
-      firstName: 'John',
-      lastName: 'Doe',
-   });
+    const [employeeFirstName, setEmployeeFirstName] = useState("John");
+    const [employeeLastName, setEmployeeLastName] = useState("Doe");
     const firstNames = ["Mike", "Paul", "Derek", "Maryam", "Pratibha", "Krisha", "Andrew", "John"];
     const lastNames = ["Gries","McCarthy", "Thakur", "Taj", "Xie", "Huynh", "Kalsi", "Doe"];
     let x = Math.floor(Math.random() * 7);
@@ -23,8 +21,9 @@ function Box() {
                 firstName: newEmployeeName,
                 lastName: newEmployeeLastName
             });
-            const response = await axios.get('employee')
-            setEmployeeData(response.data);
+            const response = await axios.get('/employee')
+            setEmployeeFirstName(response.data.firstName);
+            setEmployeeLastName(response.data.lastName);
             //setMessage(response.data);
         } catch (error) {
             console.error('Error:', error);
@@ -45,11 +44,11 @@ function Box() {
                     <form>
                         <div className="form-group">
                             <label>First Name:</label>
-                            <span>{employeeData.firstName}</span>
+                            <span>{employeeFirstName}</span>
                         </div>
                         <div className="form-group">
                             <label>Last Name:</label>
-                            <span>{employeeData.lastName}</span>
+                            <span>{employeeLastName}</span>
                         </div>
                         <div className="form-group">
                             <label>Amount:</label>

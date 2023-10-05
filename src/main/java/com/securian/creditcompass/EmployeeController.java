@@ -21,10 +21,15 @@ public class EmployeeController {
   }
 
   @GetMapping("/employee")
-  public Optional<Employee> findLastEmployee() {
-    long last = this.employeeRepository.count();
-    int l = (int)last;
-    return this.employeeRepository.findById(l - 1);
+  public Employee findLastEmployee() {
+    Iterable<Employee> allEmps =  this.employeeRepository.findAll();
+    java.util.Iterator<Employee> it = allEmps.iterator();
+    Employee curEmployee = new Employee("G", "G");
+
+    while (it.hasNext()) {
+      curEmployee = it.next();
+    }
+    return curEmployee;
   }
 
   @PostMapping("/employees")
