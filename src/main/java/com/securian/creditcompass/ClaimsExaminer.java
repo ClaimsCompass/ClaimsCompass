@@ -8,11 +8,13 @@ public class ClaimsExaminer {
 
     private String username;
     private String password;
+    private String firstName;
 
 
-    public ClaimsExaminer(String username, String password) {
+    public ClaimsExaminer(String username, String password, String firstName) {
         this.username = username;
         this.password = password;
+        this.firstName = firstName;
     }
 
     public String getUsername() {
@@ -21,6 +23,10 @@ public class ClaimsExaminer {
 
     public String getPassword() {
         return this.password;
+    }
+
+    public String getFirstName() {
+        return this.firstName;
     }
 
 }
