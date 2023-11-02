@@ -17,7 +17,9 @@ public class Claim {
 
     private Float claimAmt;
 
-    private Claimant claimant;
+    private Integer complexityScore; // the two scores will need to be added after, can not be initialized
+
+    private Integer urgencyScore; // a date perhaps?
 
 
     // Hibernate expects entities to have a no-arg constructor,
@@ -28,7 +30,6 @@ public class Claim {
         this.claimType = claimType;
         this.claimDetails = claimDetails;
         this.claimAmt = claimAmt;
-        this.claimant = claimant;
     }
 
     public Integer getId() {
@@ -44,4 +45,13 @@ public class Claim {
     }
 
     public Float getClaimAmt() { return this.claimAmt; }
+
+    public Integer getComplexityScore() {return this.complexityScore;}
+
+    public Integer getUrgencyScore() {return this.urgencyScore;}
+
+    public void setComplexityScore(Integer score){this.complexityScore = score;}
+
+    public void setUrgencyScore(Integer score){this.urgencyScore = score;}
+
 }
