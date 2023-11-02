@@ -1,6 +1,6 @@
-package com.securian.creditcompass;
+package com.securian.creditcompass.Claim;
 
+import com.securian.creditcompass.Claim.Claim;
 import com.securian.creditcompass.CrudRepository;
-import com.securian.creditcompass.Claim;
 
 public interface ClaimRepository extends CrudRepository<Claim, Integer> {}

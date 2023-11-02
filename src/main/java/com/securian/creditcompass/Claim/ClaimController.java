@@ -1,11 +1,10 @@
-package com.securian.creditcompass;
+package com.securian.creditcompass.Claim;
 
+import com.securian.creditcompass.Claimant.Claimant;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Optional;
 
 @RestController
 public class ClaimController {
@@ -24,7 +23,8 @@ public class ClaimController {
     public Claim findLastClaim() {
         Iterable<Claim> allClaims =  this.claimRepository.findAll();
         java.util.Iterator<Claim> it = allClaims.iterator();
-        Claim curClaim = new Claim("NULL", "NULL", -1f);
+        Claim curClaim = new Claim("NULL", "NULL", -1f, new Claimant("NULL", "NULL")); // This will not work at the moment since we're not sure if we
+        //want the claimant in claim or claim in claimant (more to discuss)
 
         while (it.hasNext()) {
             curClaim = it.next();
