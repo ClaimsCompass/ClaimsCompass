@@ -1,15 +1,23 @@
-package com.securian.creditcompass;
+package com.securian.creditcompass.ClaimsExaminer;
 import jakarta.persistence.*;
 
 
 @Entity
 @Table(name = "claimsExaminer")
-public class ClaimsExaminer {
+class ClaimsExaminer {
 
-    private String username;
-    private String password;
-    private String firstName;
+    private final String username;
+    private final String password;
+    private final String firstName;
 
+    @Id
+    private Long id;
+
+    public ClaimsExaminer() {
+        this.username = null;
+        this.password = null;
+        this.firstName = null;
+    }
 
     public ClaimsExaminer(String username, String password, String firstName) {
         this.username = username;
@@ -18,15 +26,23 @@ public class ClaimsExaminer {
     }
 
     public String getUsername() {
-        return this.username;
+        return username;
     }
 
+
     public String getPassword() {
-        return this.password;
+        return password;
     }
 
     public String getFirstName() {
-        return this.firstName;
+        return firstName;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
 }

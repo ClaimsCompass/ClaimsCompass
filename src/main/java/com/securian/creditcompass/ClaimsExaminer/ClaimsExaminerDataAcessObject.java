@@ -14,8 +14,8 @@ public class ClaimsExaminerDataAcessObject implements ClaimsExaminerDataAccessIn
     public static void main(String[] args) {
         ClaimsExaminerDataAcessObject examinerObj = new ClaimsExaminerDataAcessObject();
         Connection con=connect_to_db("ClaimsCompassMain","securian","hello");
-//        examinerObj.read(con,"claims_examiner", "janeDoe");
-//        examinerObj.delete(con, "claims_examiner", "johnDoe");
+        examinerObj.read(con,"claims_examiner", "janeDoe");
+        examinerObj.delete(con, "claims_examiner", "johnDoe");
 
     }
     public static Connection connect_to_db(String dbname, String user, String pass)

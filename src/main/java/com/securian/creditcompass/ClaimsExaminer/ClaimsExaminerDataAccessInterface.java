@@ -1,12 +1,12 @@
-package com.securian.creditcompass;
+package com.securian.creditcompass.ClaimsExaminer;
 
 import java.sql.Connection;
 import java.util.List;
 
-public interface DataAccessInterface {
+public interface ClaimsExaminerDataAccessInterface {
 
     // This method allows you to create a new record in the database containing
-    // all of the claimsExaminer's attributes.
+    // the claimsExaminer's attributes.
     // It returns the id of the record created in the database.
     String create();
 
