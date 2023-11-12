@@ -1,7 +1,15 @@
 package entities;
 import jakarta.persistence.*;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.NoArgsConstructor;
 
+
+
+@Getter
+@NoArgsConstructor
+@Setter
 @Entity
 @Table(name = "claimsExaminer")
 public class ClaimsExaminer {
@@ -13,27 +21,11 @@ public class ClaimsExaminer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    public ClaimsExaminer(String username, String password, String firstName) {
+    public ClaimsExaminer(String username, String password, String firstName, Long id) {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
+        this.id = id;
     }
-
-    public ClaimsExaminer() {
-
-    }
-
-    public String getUsername() {
-        return this.username;
-    }
-
-    public String getPassword() {
-        return this.password;
-    }
-
-    public String getFirstName() {
-        return this.firstName;
-    }
-    public Long getId() {return this.id;}
 
 }
