@@ -1,4 +1,4 @@
-package com.securian.creditcompass;
+package Employee_demo;
 import jakarta.persistence.*;
 
 
