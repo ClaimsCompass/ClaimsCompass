@@ -6,24 +6,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class LoginController {
-    private final LoginAuthService loginAuthService;
+    private final LoginService loginService;
 
-    public LoginController(LoginAuthService loginAuthService) {
-        this.loginAuthService = loginAuthService;
+    public LoginController(LoginService loginService) {
+
+        this.loginService = loginService;
     }
 
     @PostMapping ("/login")
-    public Boolean Examiner(@RequestParam(value = "username") String username, @RequestParam(value = "password") String password) {
-        return loginAuthService.authenticateExaminer(username, password);
+    public String login(@RequestParam(value = "username") String username, @RequestParam(value = "password") String password) {
+        return loginService.authenticate(username, password);
     }
 
-//    @PostMapping("/login")
-//    public String loginOutcome(LoginDTO loginOutputData) {
-//        if (loginAuthService.authenticateExaminer(loginOutputData.getUsername(), loginOutputData.getPassword())) {
-//            return "Login Successful!";
-//        } else {
-//            return "Invalid input.";
-//        }
-//
-//    }
 }
