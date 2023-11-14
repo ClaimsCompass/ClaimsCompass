@@ -1,4 +1,4 @@
-package entities;
+package com.securian.creditcompass.entities;
 import jakarta.persistence.*;
 
 import lombok.Getter;

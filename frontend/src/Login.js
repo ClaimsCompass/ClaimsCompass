@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import IncorrectCredentialsBox from "./IncorrectCredentialsBox";
 
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [message, setMessage] = useState('');
 
     const handleLogin = async () => {
         try {
-            const response = await axios.post('/login', {
+            const response = await axios.post('http://localhost:8080/login', {
                 username,
                 password,
             });
-            console.log('Login successful:', response.data);
+            setMessage(response.data)
         } catch (error) {
-            console.error('Login failed:', error.message);
+            console.error('Login failed:', error);
         }
     };
 
@@ -31,6 +33,8 @@ const Login = () => {
             </label>
             <br />
             <button onClick={handleLogin}>Login</button>
+            <br />
+            <IncorrectCredentialsBox text={message} />
         </div>
     );
 };

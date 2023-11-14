@@ -1,6 +1,6 @@
-package Login;
+package com.securian.creditcompass.login;
 
-import entities.ClaimsExaminer;
+import com.securian.creditcompass.entities.ClaimsExaminer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 

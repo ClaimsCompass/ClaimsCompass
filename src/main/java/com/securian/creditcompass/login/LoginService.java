@@ -1,6 +1,6 @@
-package Login;
+package com.securian.creditcompass.login;
 
-import entities.ClaimsExaminer;
+import com.securian.creditcompass.entities.ClaimsExaminer;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
 
@@ -13,17 +13,18 @@ public class LoginService {
 
     public String authenticate(String username, String password){
         Optional<ClaimsExaminer> optionalExaminer = loginRepository.findByUsername(username);
-        if (examiner.isPresent()){ // if username input is a valid username in the database, see if password matches.
+        if (optionalExaminer.isPresent()){
             ClaimsExaminer examiner = optionalExaminer.get();
-            String dbPassword = examinerAuth.getPassword();
+
+            String dbPassword = examiner.getPassword();
+
             if( dbPassword.equals(password)){
-                return "Success.";
+                return "Logging you in....";
+            } else {
+                return "Incorrect credentials.";
             }
-            }
-        return "Failure";
-        // Find the if there exists a claims examiner with the inputted username in the database
-        // If a claim examiner exists in the database
-        //
+        }
+        return "Incorrect credentials.";
     }
 
 }
