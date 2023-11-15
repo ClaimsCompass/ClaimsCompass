@@ -1,6 +1,7 @@
 package com.securian.creditcompass.Claim;
 import com.securian.creditcompass.Claimant.Claimant;
 import jakarta.persistence.*;
+import java.time.LocalDateTime;
 
 
 @Entity
@@ -21,6 +22,10 @@ public class Claim {
 
     private Integer urgencyScore; // a date perhaps?
 
+    private Double totalScore;
+
+    private LocalDateTime creationDateTime;
+
 
     // Hibernate expects entities to have a no-arg constructor,
     // though it does not necessarily have to be public.
@@ -30,6 +35,7 @@ public class Claim {
         this.claimType = claimType;
         this.claimDetails = claimDetails;
         this.claimAmt = claimAmt;
+        this.creationDateTime = LocalDateTime.now();
     }
 
     public Integer getId() {
@@ -53,5 +59,11 @@ public class Claim {
     public void setComplexityScore(Integer score){this.complexityScore = score;}
 
     public void setUrgencyScore(Integer score){this.urgencyScore = score;}
+
+    public LocalDateTime getCreationDateTime(){return this.creationDateTime;}
+
+    public void calculateTotalScore(){
+        this.totalScore = this.complexityScore * 0.1 + this.urgencyScore;
+    }
 
 }
