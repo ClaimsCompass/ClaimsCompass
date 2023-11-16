@@ -1,4 +1,4 @@
-package com.securian.creditcompass.Claim;
+package com.securian.creditcompass.entities;
 import com.securian.creditcompass.Claimant.Claimant;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;

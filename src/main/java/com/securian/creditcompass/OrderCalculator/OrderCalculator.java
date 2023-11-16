@@ -1,10 +1,6 @@
 package com.securian.creditcompass.OrderCalculator;
 
-import com.securian.creditcompass.Claim.Claim;
-import com.securian.creditcompass.Claimant.Claimant;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.securian.creditcompass.entities.Claim;
 
 import java.util.Comparator;
 import java.util.Iterator;
