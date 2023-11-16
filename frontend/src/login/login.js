@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import IncorrectCredentialsBox from "./IncorrectCredentialsBox";
+import IncorrectCredentialsBox from "./incorrectCredentialsBox";
 
 const Login = () => {
     const [username, setUsername] = useState('');
@@ -22,19 +22,20 @@ const Login = () => {
     return (
         <div>
             <h1>Login</h1>
-            <label>
-                Username:
-                <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-            </label>
-            <br />
-            <label>
-                Password:
-                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-            </label>
-            <br />
+            <br/>
+            <div className="input-container">
+                <label htmlFor="username">Username: </label>
+                <input type="text" id="username" name="username" placeholder="Enter your username." value={username} onChange={(e) => setUsername(e.target.value)}/>
+            </div>
+            <br/>
+            <div className="input-container">
+                <label htmlFor="password">Password: </label>
+                <input type="password" id="password" name="password" placeholder="Enter your password." value={password} onChange={(e) => setPassword(e.target.value)}/>
+            </div>
+            <br/>
             <button onClick={handleLogin}>Login</button>
             <br />
-            <IncorrectCredentialsBox text={message} />
+            <p> {message} </p>
         </div>
     );
 };
