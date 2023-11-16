@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class ClaimController {
 
@@ -15,11 +17,14 @@ public class ClaimController {
         this.claimRepository = claimRepository;
     }
     @GetMapping("/claims")
-    public Iterable<Claim> findClaims() {
-        return this.claimRepository.findAll();
+    public List<Claim> findClaims() {
+        return (List<Claim>) this.claimRepository.findAll();
     }
 
-    @GetMapping("/claim")
+    @GetMapping("/processedClaims")
+    public List<Claim> findProcessedClaims() {return (List<Claim>) this.claimRepository.findAll();}
+
+    @GetMapping("/claims")
     public Claim findLastClaim() {
         Iterable<Claim> allClaims =  this.claimRepository.findAll();
         java.util.Iterator<Claim> it = allClaims.iterator();
