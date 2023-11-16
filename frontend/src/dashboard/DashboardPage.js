@@ -1,6 +1,6 @@
 import React from 'react';
 import Table from './Table'; // Import the Table component
-import '../resources/static/dashboard.css'; // Import your CSS file
+import './dashboard.css'; // Import your CSS file
 
 const DashboardPage = () => {
     const claimDetailsArray = [

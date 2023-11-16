@@ -1,0 +1,86 @@
+/* Import Montserrat font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif; /* Add Montserrat font to all text */
+    background-color: #F2F5F7;
+}
+
+table {
+    border-collapse: collapse; /* Remove padding between columns */
+    width: 80%; /* Add space to left and right of table*/
+    margin: 0 auto; /* Centre table horizontally*/
+}
+
+/* Change row background on hover */
+tr:hover {
+    background-color: #E7EEDE; /* Light grey background color */
+}
+
+th, td {
+    padding: 8px; /* Add 8 pixels of padding on all sides of text in cells */
+}
+
+th {
+    text-align: left;
+    background-color: #FBFBFB;
+    height: 2.5em;
+}
+
+/* Adjust the width of specific columns */
+.claim-id {
+    width: 25%;
+}
+
+.claim-amount {
+    width: 15%;
+}
+
+.date-received {
+    width: 15%;
+}
+
+.claim-type {
+    width: 15%;
+}
+
+.urgency {
+    width: 15%;
+}
+
+.complexity {
+    width: 15%;
+}
+
+/* Style for 'Urgency' and 'Complexity' columns */
+.button-value {
+    display: inline-block;
+    padding: 4px 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.button-value.high {
+    background-color: #FFCCCC; /* Light red background */
+    color: #B10000; /* Dark red text color */
+}
+
+.button-value.medium {
+    background-color: #ffdd43; /* Light yellow background */
+    color: #be7200; /* Dark yellow text color */
+}
+
+.button-value.low {
+    background-color: #C2F0C2; /* Light green background */
+    color: #008000; /* Dark green text color */
+}
+
+/* Add extra padding to the left of the "Claim ID" column */
+.th.claim-id.extra-padding,
+td.claim-id.extra-padding {
+    padding-left: 20px; /* Adjust the value as needed for extra left padding */
+}
+
+th.claim-id-header.extra-padding {
+    padding-left: 20px; /* Adjust the value as needed for extra left padding */
+}

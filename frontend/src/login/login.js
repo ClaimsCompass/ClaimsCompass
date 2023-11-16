@@ -14,6 +14,7 @@ const Login = () => {
                 password,
             });
             setMessage(response.data)
+            history.push("/dashboard");
         } catch (error) {
             console.error('Login failed:', error);
         }
@@ -21,6 +22,7 @@ const Login = () => {
 
     return (
         <div>
+
             <h1>Login</h1>
             <br/>
             <div className="input-container">
