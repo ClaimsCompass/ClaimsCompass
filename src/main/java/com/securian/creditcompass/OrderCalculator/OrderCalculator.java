@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -42,8 +43,13 @@ public class OrderCalculator implements Iterable<Claim>{
         }
     }
     public OrderCalculator(List<Claim> claims) {
+
         this.claims = claims;
+        calculateScores(this.claims);
+        this.orderedClaims = orderClaims(this.claims);
     }
+
+    public List<Claim> getOrderedClaims(){return this.orderedClaims;}
 
     private void calculateScores(List<Claim> claims){
         for (Claim claim : claims){
@@ -63,6 +69,7 @@ public class OrderCalculator implements Iterable<Claim>{
 
     }
     private List<Claim> orderClaims(List<Claim> claims){
-
+        claims.sort(Comparator.comparingDouble(Claim::getTotalScore).reversed());
+        return claims;
     }
 }
