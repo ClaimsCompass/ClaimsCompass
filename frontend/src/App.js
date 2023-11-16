@@ -1,5 +1,6 @@
 import React from 'react';
 import Login from "./login/login";
+import Table from "./dashboard/Table";
 import SecurianLogo from './login/securianLogo.png'
 
 function App() {
