@@ -21,17 +21,72 @@ Our dashboard-based web application provided an alternative to the existing 'Que
 
 Instructions on how to install and configure the project.
 
+Prerequisites: Have a working installation of postgresql and Java 17 SDK and JDK.
+Optional steps for installing postgres are included in case they are not available.
+
 ### PostgreSQL Setup<a name="postgres-setup"></a>
+1. If you don't have it, install postgresql using your favourite package manager, version should be
+15+.
 
-Instructions on how to set up PostgreSQL for this project.
+OSX
+```sh
+brew install postgresql@15
+```
 
-### Java Spring Boot Setup<a name="spring-boot-setup"></a>
+Ubuntu
+```sh
+sudo apt-get install postgresql-15
+```
 
-Instructions on how to set up Java Spring Boot for this project.
+If you would like, you can also let the postgres service run on boot:
+
+Linux (with systemd)
+```sh
+sudo systemctl enable postgresql
+```
+
+Or manually initialize it:
+```
+sudo systemctl start postgresql
+```
+
+You can check that this has been successfully done by running:
+
+```
+sudo systemctl start postgresql
+```
+
+2. Create a user that matches our database owner (for now just make it "securian", and keep password
+  as "hello".
+3. Create a table that matches the one we will use (will be named "claimsdb")
+```sh
+# For mac + linux
+sudo -u postgres psql
+
+# Should be in postgres prompt now
+postgres=#CREATE USER securian WITH PASSWORD 'hello';
+postgres=#CREATE DATABASE claims_db OWNER securian;
+```
+    * If you see something like "Ident authentication failed for user securian" after trying to run psql, you will need to change one of the config files for postgres. 
+    * Follow this stack overflow answer https://stackoverflow.com/questions/18664074/getting-error-peer-authentication-failed-for-user-postgres-when-trying-to-ge
+
+### Java Setup<a name="java-setup"></a>
+Assuming you have the proper version installed for Java, all you need to do is run the jar file,
+which is currently located in `targets/` and named `creditcompass-0.0.1-SNAPSHOT.jar` (subject to change). To do so, all you need to do is run the following command in the project's root 
+directory:
+
+NOTE: You should have a postgresql daemon running, see the steps above to ensure that.
+
+```sh
+java -jar creditcompass-0.0.1-SNAPSHOT.jar
+```
+
+and the app should be running on the standard 8080 port, which you can access by entering
+`localhost:8080` in your web browser of choice. 
 
 ## Usage<a name="usage"></a>
+In order to 
 
-Examples and explanations of how to use the project.
 
 ## Features<a name="features"></a>
 
