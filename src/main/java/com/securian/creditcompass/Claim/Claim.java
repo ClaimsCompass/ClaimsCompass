@@ -26,7 +26,7 @@ public class Claim {
 
     private LocalDateTime creationDateTime;
 
-    private boolean processed;
+    private Boolean processed;
 
 
     // Hibernate expects entities to have a no-arg constructor,
@@ -68,6 +68,8 @@ public class Claim {
     public void calculateTotalScore(){
         this.totalScore = this.complexityScore * 0.1 + this.urgencyScore;
     }
+
+    public double getTotalScore(){return this.totalScore;}
 
     public boolean isProcessed(){return this.processed;}
 
