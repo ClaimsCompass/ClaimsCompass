@@ -6,6 +6,12 @@ body {
     background-color: #F2F5F7;
 }
 
+h2 {
+    font-size: 2em;
+    font-family: "Fira Code", sans-serif;
+    margin: 10px;
+}
+
 table {
     border-collapse: collapse; /* Remove padding between columns */
     width: 80%; /* Add space to left and right of table*/

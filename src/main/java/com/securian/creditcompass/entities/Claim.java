@@ -12,20 +12,28 @@ public class Claim {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    @Column(name = "claimType")
     private String claimType;
 
+    @Column(name = "claimDetails")
     private String claimDetails;
 
+    @Column(name = "claimAmt")
     private Float claimAmt;
 
+    @Column(name = "complexityScore")
     private Integer complexityScore; // the two scores will need to be added after, can not be initialized
 
+    @Column(name = "urgencyScore")
     private Integer urgencyScore; // a date perhaps?
 
+    @Column(name = "totalScore")
     private Double totalScore;
 
+    @Column(name = "creationDateTime")
     private LocalDateTime creationDateTime;
 
+    @Column(name = "processed")
     private Boolean processed;
 
 
@@ -33,13 +41,14 @@ public class Claim {
     // though it does not necessarily have to be public.
     public Claim() {}
 
-    public Claim(String claimType, String claimDetails, Float claimAmt, Claimant claimant) {
-        this.claimType = claimType;
-        this.claimDetails = claimDetails;
-        this.claimAmt = claimAmt;
-        this.creationDateTime = LocalDateTime.now();
-        this.processed = false;
-    }
+//    public Claim(String claimType, String claimDetails, Float claimAmt, Claimant claimant) {
+//        this.claimType = claimType;
+//        this.claimDetails = claimDetails;
+//        this.claimAmt = claimAmt;
+//        this.creationDateTime = LocalDateTime.now();
+//        this.processed = false;
+//        this.urgencyScore = 0;
+//    }
 
     public Integer getId() {
         return this.id;
@@ -49,9 +58,7 @@ public class Claim {
         return this.claimType;
     }
 
-    public String getClaimDetails() {
-        return this.claimDetails;
-    }
+    public String getClaimDetails() {return this.claimDetails;}
 
     public Float getClaimAmt() { return this.claimAmt; }
 

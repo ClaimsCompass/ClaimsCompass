@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import SecurianLogo from './securianLogo.png';
 import { useNavigate } from "react-router-dom";
@@ -8,6 +8,13 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
     const navigate = useNavigate();
+
+    // useEffect(() => {
+    //     if (message === 'Logging you in...') {
+    //         navigate('/dashboard');
+    //     }
+    // }, [message, navigate]);
+
     const handleLogin = async () => {
         try {
             const response = await axios.post('http://localhost:8080/login', {

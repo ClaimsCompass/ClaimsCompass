@@ -1,14 +1,18 @@
 package com.securian.creditcompass.Dashboard;
 
 import com.securian.creditcompass.entities.Claim;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class RenderDashboardService {
 
-    public List<List<Object>> findAll(List<Claim> claimList) {
+    public List<List<Object>> findAttributes(List<Claim> claimList) {
         List<List<Object>> allClaimsAttributes = new ArrayList<>();
+
 
         for (Claim claim : claimList) {
             List<Object> claimAttributes = new ArrayList<>();
