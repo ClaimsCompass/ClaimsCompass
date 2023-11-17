@@ -49,12 +49,11 @@ public class OrderCalculator implements Iterable<Claim>{
 
     private void calculateScores(List<Claim> claims){
         for (Claim claim : claims){
-            int score = claim.getComplexityScore();
             Duration duration = Duration.between(claim.getCreationDateTime(), LocalDateTime.now());
             int interval = (int) Math.floorDiv(duration.toHours(), 6);
             int urgencyScore = claim.getUrgencyScore();
             int newUrgencyScore = 0;
-            for (int i = urgencyScore; i > 0; i--){
+            for (int i = urgencyScore; i < interval; i++){
                 newUrgencyScore++;
             }
             if (newUrgencyScore > urgencyScore){
