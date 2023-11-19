@@ -2,6 +2,7 @@
   "name": "claimspage",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -14,7 +15,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "watch": "webpack --watch -d --output ./target/classes/static/built/bundle.js"
+    "watch": "webpack --watch -d --output ./target/classes/static/built/bundle.js",
+    "start": "react-scripts start"
   },
   "eslintConfig": {
     "extends": [
