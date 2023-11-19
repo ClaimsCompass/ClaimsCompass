@@ -67,8 +67,8 @@ sudo -u postgres psql
 postgres=#CREATE USER securian WITH PASSWORD 'hello';
 postgres=#CREATE DATABASE claims_db OWNER securian;
 ```
-    * If you see something like "Ident authentication failed for user securian" after trying to run psql, you will need to change one of the config files for postgres. 
-    * Follow this stack overflow answer https://stackoverflow.com/questions/18664074/getting-error-peer-authentication-failed-for-user-postgres-when-trying-to-ge
+* If you see something like "Ident authentication failed for user securian" after trying to run psql, you will need to change one of the config files for postgres. 
+* Follow this stack overflow answer https://stackoverflow.com/questions/18664074/getting-error-peer-authentication-failed-for-user-postgres-when-trying-to-ge
 
 ### Java Setup<a name="java-setup"></a>
 Assuming you have the proper version installed for Java, all you need to do is run the jar file,
@@ -85,8 +85,7 @@ and the app should be running on the standard 8080 port, which you can access by
 `localhost:8080` in your web browser of choice. 
 
 ## Usage<a name="usage"></a>
-In order to 
-
+Usage of the project.
 
 ## Features<a name="features"></a>
 
