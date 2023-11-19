@@ -38,8 +38,6 @@ public class Claim {
 
     private ClaimState currentState;
 
-    // Existing methods...
-
 
     // Hibernate expects entities to have a no-arg constructor,
     // though it does not necessarily have to be public.
@@ -53,6 +51,11 @@ public class Claim {
 //        this.processed = false;
 //        this.urgencyScore = 0;
 //    }
+    public Claim(String claimType, String claimDetails, Float claimAmt) {
+        this.claimType = claimType;
+        this.claimDetails = claimDetails;
+        this.claimAmt = claimAmt;
+    }
 
     public Integer getId() {
         return this.id;
