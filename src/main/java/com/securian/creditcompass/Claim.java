@@ -36,6 +36,8 @@ public class Claim {
     @Column(name = "processed")
     private Boolean processed;
 
+    private ClaimState currentState;
+
 
     // Hibernate expects entities to have a no-arg constructor,
     // though it does not necessarily have to be public.
