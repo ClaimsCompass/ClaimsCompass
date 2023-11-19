@@ -29,4 +29,7 @@ public class ClaimsExaminer {
         return this.firstName;
     }
 
+    public void assignClaim(Claim claim) {
+    }
+
 }
