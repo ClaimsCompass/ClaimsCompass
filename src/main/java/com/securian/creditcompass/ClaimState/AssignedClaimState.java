@@ -1,4 +1,7 @@
-package com.securian.creditcompass;
+package com.securian.creditcompass.ClaimState;
+
+import com.securian.creditcompass.Claim;
+import com.securian.creditcompass.ClaimsExaminer;
 
 public class AssignedClaimState implements ClaimState {
     @Override
@@ -10,11 +13,19 @@ public class AssignedClaimState implements ClaimState {
     @Override
     public void calculateScore(Claim claim) {
         // Logic specific to calculating a score for a claim in the 'Assigned' state
-        System.out.println("Cannot calculate scores for a claim that is already assigned.");
+        int complexityScore = claim.getComplexityScore();
+        int urgencyScore = claim.getUrgencyScore();
+
+        claim.setComplexityScore(complexityScore);
+        claim.setUrgencyScore(urgencyScore);
+
+        claim.calculateTotalScore();
+
+        System.out.println("Scores calculated for the new claim.");
     }
 
     @Override
-    public void processClaim(Claim claim) {
+    public void changeToProcessed(Claim claim) {
         // Logic specific to processing a claim in the 'Assigned' state
         claim.processClaim();
         System.out.println("Claim processed.");

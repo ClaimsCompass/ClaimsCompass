@@ -1,4 +1,7 @@
-package com.securian.creditcompass;
+package com.securian.creditcompass.ClaimState;
+
+import com.securian.creditcompass.Claim;
+import com.securian.creditcompass.ClaimsExaminer;
 
 public class ProcessedClaimState implements ClaimState {
     @Override
@@ -14,7 +17,7 @@ public class ProcessedClaimState implements ClaimState {
     }
 
     @Override
-    public void processClaim(Claim claim) {
+    public void changeToProcessed(Claim claim) {
         // Logic specific to processing a claim in the 'Processed' state
         System.out.println("Cannot process a claim that is already processed.");
     }

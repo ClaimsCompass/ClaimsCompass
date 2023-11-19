@@ -1,5 +1,5 @@
 package com.securian.creditcompass;
-import com.securian.creditcompass.Claimant.Claimant;
+import com.securian.creditcompass.ClaimState.ClaimState;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
@@ -37,6 +37,8 @@ public class Claim {
     private Boolean processed;
 
     private ClaimState currentState;
+
+    // Existing methods...
 
 
     // Hibernate expects entities to have a no-arg constructor,
@@ -80,7 +82,24 @@ public class Claim {
 
     public double getTotalScore(){return this.totalScore;}
 
-    public boolean isProcessed(){return this.processed;}
+    public boolean isProcessed(){
+        return this.processed;
+    }
 
-    public boolean processClaim(){return this.processed = true;}
+    public void processClaim(){
+        currentState.changeToProcessed(this);
+        this.processed = true;
+    }
+
+    public void assignToClaimsExaminer(ClaimsExaminer examiner) {
+        currentState.assignToClaimsExaminer(examiner, this);
+    }
+
+    public void calculateScore() {
+        currentState.calculateScore(this);
+    }
+
+    public void changeToProcessed() {
+        currentState.changeToProcessed(this);
+    }
 }

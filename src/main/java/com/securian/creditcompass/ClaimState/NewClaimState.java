@@ -1,4 +1,7 @@
-package com.securian.creditcompass;
+package com.securian.creditcompass.ClaimState;
+
+import com.securian.creditcompass.Claim;
+import com.securian.creditcompass.ClaimsExaminer;
 
 public class NewClaimState implements ClaimState {
     @Override
@@ -23,7 +26,7 @@ public class NewClaimState implements ClaimState {
     }
 
     @Override
-    public void processClaim(Claim claim) {
+    public void changeToProcessed(Claim claim) {
         // Logic specific to processing a claim in the 'New' state
         // For a new claim, processing may not involve any action
         System.out.println("Cannot process a claim that is still new.");
