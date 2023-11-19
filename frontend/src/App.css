@@ -1,0 +1,112 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Login Page */
+.container {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: lightgrey;
+}
+
+.login-logo-box {
+  flex: 1;
+  margin-right: 10px;
+
+}
+
+.login-logo-box img {
+  width: 50vw;
+  height: auto;
+}
+
+.login-box {
+  flex: 1;
+  height: 70vh;
+  padding: 20px;
+  margin-right: 5vw;
+  background-color: whitesmoke;
+  border-radius: 15px 50px 30px;
+}
+
+h1 {
+  font-size: 5em;
+  font-family: "Fira Code", sans-serif;
+  margin: 0px;
+}
+
+.input-container {
+  margin-right: 10px;
+  width: 100%;
+}
+
+.input-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 2em;
+  font-family: "Fira Code", sans-serif;
+  color: #333;
+}
+
+.input-container input {
+  width: 100%;
+  border: 1px solid #ccc;
+  font-size: 2em;
+  font-family: "Fira Code", sans-serif;
+}
+
+button {
+  font-size: 3em;
+  color: whitesmoke;
+  justify-content: center;
+  width: 100%;
+  background-color: green;
+}
+
+.incorrect-credentials-box {
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+p {
+  font-size: 2em;
+  font-family: "Fira Code", sans-serif;
+}
