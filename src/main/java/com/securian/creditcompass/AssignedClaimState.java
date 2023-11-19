@@ -20,3 +20,4 @@ public class AssignedClaimState implements ClaimState {
         System.out.println("Claim processed.");
     }
 }
+

@@ -6,4 +6,3 @@ public interface ClaimState {
     void processClaim(Claim claim);
 }
 
-
