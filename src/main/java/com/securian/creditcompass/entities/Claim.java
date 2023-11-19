@@ -72,10 +72,11 @@ public class Claim {
 
     public LocalDateTime getCreationDateTime(){return this.creationDateTime;}
 
-    public void calculateTotalScore(){
-        this.totalScore = this.complexityScore * 0.1 + this.urgencyScore;
-    }
+//    public void calculateTotalScore(){
+//        this.totalScore = this.complexityScore * 0.1 + this.urgencyScore;
+//    }
 
+    public void setTotalScore(double score){this.totalScore = score;}
     public double getTotalScore(){return this.totalScore;}
 
     public boolean isProcessed(){return this.processed;}

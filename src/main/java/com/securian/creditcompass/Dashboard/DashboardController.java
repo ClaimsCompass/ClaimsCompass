@@ -24,8 +24,8 @@ public class DashboardController {
         System.out.println(claims.get(0).getClaimType());
         System.out.println(claims.get(0).getClaimDetails());
         System.out.println("Hi");
-//        OrderCalculator scoredClaims = new OrderCalculator(claims);
-//        List<Claim> sortedClaims = scoredClaims.getOrderedClaims();
-        return renderDashboardService.findAttributes(claims);
+        OrderCalculator scoredClaims = new OrderCalculator(claims);
+        List<Claim> sortedClaims = scoredClaims.getOrderedClaims();
+        return renderDashboardService.findAttributes(sortedClaims);
     }
 }
