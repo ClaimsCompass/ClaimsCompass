@@ -9,22 +9,23 @@ const Login = () => {
     const [message, setMessage] = useState('');
     const navigate = useNavigate();
 
-    // useEffect(() => {
-    //     if (message === 'Logging you in...') {
-    //         navigate('/dashboard');
-    //     }
-    // }, [message, navigate]);
-
     const handleLogin = async () => {
         try {
             const response = await axios.post('http://localhost:8080/login', {
                 username,
                 password,
             });
-            setMessage(response.data)
-            navigate("/dashboard");
+            if (response.status === 200) {
+                setMessage(response.data);
+                navigate('/dashboard');
+            } else {
+                console.error('Login failed:', response.status, response.statusText);
+                setMessage('Login failed. Please check your credentials.');
+            }
         } catch (error) {
+            // Handle network errors or other issues
             console.error('Login failed:', error);
+            setMessage('Login failed. Please try again later.');
         }
     };
 

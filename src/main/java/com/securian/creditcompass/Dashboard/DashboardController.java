@@ -27,5 +27,6 @@ public class DashboardController {
         OrderCalculator scoredClaims = new OrderCalculator(claims);
         List<Claim> sortedClaims = scoredClaims.getOrderedClaims();
         return renderDashboardService.findAttributes(sortedClaims);
+
     }
 }
