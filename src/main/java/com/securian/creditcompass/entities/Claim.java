@@ -28,7 +28,7 @@ public class Claim {
     private Integer urgencyScore; // a date perhaps?
 
     @Column(name = "totalScore")
-    private Double totalScore;
+    private Integer totalScore;
 
     @Column(name = "creationDateTime")
     private LocalDateTime creationDateTime;
@@ -72,10 +72,7 @@ public class Claim {
 
     public LocalDateTime getCreationDateTime(){return this.creationDateTime;}
 
-    public void calculateTotalScore(){
-        this.totalScore = this.complexityScore * 0.1 + this.urgencyScore;
-    }
-
+    public void setTotalScore(Integer score){this.totalScore = score;}
     public double getTotalScore(){return this.totalScore;}
 
     public boolean isProcessed(){return this.processed;}

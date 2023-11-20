@@ -23,9 +23,10 @@ public class DashboardController {
         List<Claim> claims = dashboardRepository.findAll();
         System.out.println(claims.get(0).getClaimType());
         System.out.println(claims.get(0).getClaimDetails());
-        System.out.println(claims);
-//        OrderCalculator scoredClaims = new OrderCalculator(claims);
-//        List<Claim> sortedClaims = scoredClaims.getOrderedClaims();
-        return renderDashboardService.findAttributes(claims);
+        System.out.println("Hi");
+        OrderCalculator scoredClaims = new OrderCalculator(claims);
+        List<Claim> sortedClaims = scoredClaims.getOrderedClaims();
+        return renderDashboardService.findAttributes(sortedClaims);
+
     }
 }
