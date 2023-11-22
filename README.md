@@ -58,17 +58,23 @@ sudo systemctl start postgresql
 
 2. Create a user that matches our database owner (for now just make it "securian", and keep password
   as "hello".
-3. Create a table that matches the one we will use (will be named "claimsdb")
 ```sh
 # For mac + linux
 sudo -u postgres psql
 
 # Should be in postgres prompt now
 postgres=#CREATE USER securian WITH PASSWORD 'hello';
-postgres=#CREATE DATABASE claims_db OWNER securian;
+postgres=#CREATE DATABASE claimscompassmain OWNER securian;
 ```
 * If you see something like "Ident authentication failed for user securian" after trying to run psql, you will need to change one of the config files for postgres. 
 * Follow this stack overflow answer https://stackoverflow.com/questions/18664074/getting-error-peer-authentication-failed-for-user-postgres-when-trying-to-ge
+
+3. Create a data base and corresponding tables filled with dummy data.
+```sh
+# From the source directory
+psql -U securian -d claimscompassmain -f schema/claims_table.sql
+psql -U securian -d claimscompassmain -f schema/examiner_table.sql
+```
 
 ### Java Setup<a name="java-setup"></a>
 Assuming you have the proper version installed for Java, all you need to do is run the jar file,
