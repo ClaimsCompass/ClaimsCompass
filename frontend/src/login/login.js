@@ -12,8 +12,8 @@ const Login = () => {
     const handleLogin = async () => {
         try {
             const response = await axios.post('http://localhost:8080/login', {
-                username,
-                password,
+                    username,
+                    password,
             });
             if (response.status === 200) {
                 setMessage(response.data);
@@ -23,9 +23,8 @@ const Login = () => {
                 setMessage('Login failed. Please check your credentials.');
             }
         } catch (error) {
-            // Handle network errors or other issues
             console.error('Login failed:', error);
-            setMessage('Login failed. Please try again later.');
+            setMessage('Login failed. Please try again.');
         }
     };
 
@@ -66,24 +65,6 @@ const Login = () => {
                 <p>{message}</p>
             </div>
         </div>
-        // <div>
-        //
-        //     <h1>Login</h1>
-        //     <br/>
-        //     <div className="input-container">
-        //         <label htmlFor="username">Username: </label>
-        //         <input type="text" id="username" name="username" placeholder="Enter your username." value={username} onChange={(e) => setUsername(e.target.value)}/>
-        //     </div>
-        //     <br/>
-        //     <div className="input-container">
-        //         <label htmlFor="password">Password: </label>
-        //         <input type="password" id="password" name="password" placeholder="Enter your password." value={password} onChange={(e) => setPassword(e.target.value)}/>
-        //     </div>
-        //     <br/>
-        //     <button onClick={handleLogin}>Login</button>
-        //     <br />
-        //     <p> {message} </p>
-        // </div>
     );
 };
 

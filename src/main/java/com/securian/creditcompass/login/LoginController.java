@@ -1,22 +1,23 @@
 package com.securian.creditcompass.login;
 
-import com.securian.creditcompass.login.LoginService;
-import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class LoginController {
-    private final LoginService loginService;
+    private final LoginInteractor loginService;
 
-    public LoginController(LoginService loginService) {
+    public LoginController(LoginInteractor loginService) {
 
         this.loginService = loginService;
     }
 
     @PostMapping("/login")
-    public ResponseEntity<Object> login(@RequestBody LoginDataTransferObject loginDataTransferObject) {
-        return loginService.authenticate(loginDataTransferObject.getUsername(), loginDataTransferObject.getPassword());
+//    public ResponseEntity<Object> login(@RequestParam ("username") String username,
+//                                        @RequestParam ("password")String password) {
+    public ResponseEntity<Object> login(@RequestParam ("username") String username, @RequestParam ("password") String password) {
+       LoginInputData loginInputData = new LoginInputData(username, password);
+        return loginService.authenticate(loginInputData);
     }
 
 }
