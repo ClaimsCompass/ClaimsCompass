@@ -3,19 +3,18 @@ package com.securian.creditcompass.ClaimState;
 import com.securian.creditcompass.entities.Claim;
 import com.securian.creditcompass.entities.ClaimsExaminer;
 
-import java.util.Collections;
 import java.util.List;
 
 public class NewClaimState implements ClaimState {
 
     public <claimsExaminer> void assignToClaimsExaminer(Claim claim, List<claimsExaminer> examiners) {
         // Assign the claim to a claims examiner
-        claim.assignToClaimsExaminer((ClaimsExaminer) examiners);
+        claim.assignToClaimsExaminer((ClaimsExaminer<T>) examiners);
     }
 
 
     @Override
-    public void assignToClaimsExaminer(ClaimsExaminer examiner, Claim claim) {
+    public void assignToClaimsExaminer(ClaimsExaminer<T> examiner, Claim claim) {
 
     }
 

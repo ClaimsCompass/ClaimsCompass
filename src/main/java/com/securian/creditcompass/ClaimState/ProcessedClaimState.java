@@ -5,7 +5,7 @@ import com.securian.creditcompass.entities.ClaimsExaminer;
 
 public class ProcessedClaimState implements ClaimState {
     @Override
-    public void assignToClaimsExaminer(ClaimsExaminer examiner, Claim claim) {
+    public void assignToClaimsExaminer(ClaimsExaminer<T> examiner, Claim claim) {
         // Logic specific to assigning a claim in the 'Processed' state
         System.out.println("Cannot assign a claim that is already processed.");
     }

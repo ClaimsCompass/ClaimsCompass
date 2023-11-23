@@ -1,7 +1,14 @@
 package com.securian.creditcompass.entities;
-import com.securian.creditcompass.Claimant.Claimant;
+import com.securian.creditcompass.ClaimState.ClaimStateChangeListener;
+import com.securian.creditcompass.ClaimState.ClaimState;
 import jakarta.persistence.*;
+
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -36,6 +43,31 @@ public class Claim {
     @Column(name = "processed")
     private Boolean processed;
 
+    private transient ClaimState currentState;
+
+    // TODO We may need read and write objects for ClaimState too, if we want to save
+    //  it to the database?
+
+    private transient List<ClaimStateChangeListener> listeners = new ArrayList<>();
+
+    private void writeObject(ObjectOutputStream out) throws IOException, IOException {
+        out.defaultWriteObject();
+        out.writeInt(listeners.size());
+        for (ClaimStateChangeListener listener : listeners) {
+            out.writeObject(listener);
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
+        in.defaultReadObject();
+        int numListeners = in.readInt();
+        listeners = new ArrayList<>();
+        for (int i = 0; i < numListeners; i++) {
+            ClaimStateChangeListener listener = (ClaimStateChangeListener) in.readObject();
+            listeners.add(listener);
+        }
+    }
 
     // Hibernate expects entities to have a no-arg constructor,
     // though it does not necessarily have to be public.
@@ -79,6 +111,48 @@ public class Claim {
 
     public boolean processClaim(){return this.processed = true;}
 
-    public void assignToClaimsExaminer(ClaimsExaminer examiners) {
+    public void assignToClaimsExaminer(ClaimsExaminer<T> examiner) {
+        currentState.assignToClaimsExaminer(examiner, this);
     }
+
+    public void calculateScore() {
+        currentState.calculateScore(this);
+    }
+
+    public void changeToProcessed() {
+        currentState.changeToProcessed(this);
+    }
+
+    public void addStateChangeListener(ClaimStateChangeListener listener) {
+        listeners.add(listener);
+    }
+
+    public void removeStateChangeListener(ClaimStateChangeListener listener) {
+        listeners.remove(listener);
+    }
+
+    public void setCurrentState(ClaimState newState) {
+        if (this.currentState != newState) {
+            ClaimState oldState = this.currentState;
+            this.currentState = newState;
+            notifyStateChangeListeners(oldState, newState);
+        }
+    }
+
+    private void notifyStateChangeListeners(ClaimState oldState, ClaimState newState) {
+        for (ClaimStateChangeListener listener : listeners) {
+            listener.stateChanged(this, newState);
+        }
+    }
+
+    public ClaimsExaminer<?> getExaminerWithMinScore(List<ClaimsExaminer<?>> examiners) {
+        ClaimsExaminer<?> minExaminer = examiners.get(0);
+        for (ClaimsExaminer<?> examiner : examiners) {
+            if (examiner.getExaminerScore() < minExaminer.getExaminerScore()) {
+                minExaminer = examiner;
+            }
+        }
+        return minExaminer;
+    }
+}
 }

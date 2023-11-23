@@ -4,9 +4,7 @@ import com.securian.creditcompass.entities.ClaimsExaminer;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Optional;
 
@@ -18,9 +16,9 @@ public class LoginService {
     }
 
     public ResponseEntity<Object> authenticate(String username, String password){
-        Optional<ClaimsExaminer> optionalExaminer = loginRepository.findByUsername(username);
+        Optional<ClaimsExaminer<T>> optionalExaminer = loginRepository.findByUsername(username);
         if (optionalExaminer.isPresent()){
-            ClaimsExaminer examiner = optionalExaminer.get();
+            ClaimsExaminer<T> examiner = optionalExaminer.get();
 
             String dbPassword = examiner.getPassword();
 
