@@ -72,8 +72,8 @@ postgres=#CREATE DATABASE claimscompassmain OWNER securian;
 3. Create a data base and corresponding tables filled with dummy data.
 ```sh
 # From the source directory
-psql -U securian -d claimscompassmain -f schema/claims_table.sql
-psql -U securian -d claimscompassmain -f schema/examiner_table.sql
+psql -U securian -d ClaimsCompassMain -f schema/claims_table.sql
+psql -U securian -d ClaimsCompassMain -f schema/examiner_table.sql
 ```
 
 ### Java Setup<a name="java-setup"></a>
