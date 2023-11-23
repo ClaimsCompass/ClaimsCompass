@@ -13,7 +13,7 @@ import java.util.List;
 @Setter
 @Entity
 @Table(name = "claimsExaminer")
-public class ClaimsExaminer<T> {
+public class ClaimsExaminer {
 
     private String username;
     private String password;
@@ -58,9 +58,9 @@ public class ClaimsExaminer<T> {
     }
 
     // From a list of claims examiners, return the one with the minimum examiner score
-    private ClaimsExaminer<?> getExaminerWithMinScore(List<ClaimsExaminer<?>> examiners) {
-        ClaimsExaminer<?> minExaminer = examiners.get(0);
-        for (ClaimsExaminer<?> examiner : examiners) {
+    private ClaimsExaminer getExaminerWithMinScore(List<ClaimsExaminer> examiners) {
+        ClaimsExaminer minExaminer = examiners.get(0);
+        for (ClaimsExaminer examiner : examiners) {
             if (examiner.getExaminerScore() < minExaminer.getExaminerScore()) {
                 minExaminer = examiner;
             }

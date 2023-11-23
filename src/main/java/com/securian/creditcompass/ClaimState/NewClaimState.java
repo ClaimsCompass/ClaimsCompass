@@ -14,7 +14,12 @@ public class NewClaimState implements ClaimState {
 
 
     @Override
-    public void assignToClaimsExaminer(ClaimsExaminer<T> examiner, Claim claim) {
+    public void assignToClaimsExaminer(ClaimsExaminer<?> examiner, Claim claim) {
+
+    }
+
+    @Override
+    public void assignToClaimsExaminer(ClaimsExaminer<?> examiner, Claim claim) {
 
     }
 

@@ -16,9 +16,9 @@ public class LoginService {
     }
 
     public ResponseEntity<Object> authenticate(String username, String password){
-        Optional<ClaimsExaminer<T>> optionalExaminer = loginRepository.findByUsername(username);
+        Optional<ClaimsExaminer> optionalExaminer = (Optional<ClaimsExaminer>) loginRepository.findByUsername(username);
         if (optionalExaminer.isPresent()){
-            ClaimsExaminer<T> examiner = optionalExaminer.get();
+            ClaimsExaminer examiner = optionalExaminer.get();
 
             String dbPassword = examiner.getPassword();
 
