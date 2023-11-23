@@ -13,8 +13,6 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-//    public ResponseEntity<Object> login(@RequestParam ("username") String username,
-//                                        @RequestParam ("password")String password) {
     public ResponseEntity<Object> login(@RequestParam ("username") String username, @RequestParam ("password") String password) {
        LoginInputData loginInputData = new LoginInputData(username, password);
         return loginService.authenticate(loginInputData);

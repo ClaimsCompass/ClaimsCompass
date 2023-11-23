@@ -10,15 +10,14 @@ import java.util.Optional;
 
 @Service
 public class LoginInteractor implements LoginInputBoundary{
-    private final LoginDataAccessInterface loginRepository;
-    public LoginInteractor(LoginDataAccessInterface loginRepository){
-        this.loginRepository = loginRepository;
+    private final LoginDataAccessInterface loginDataAccessInterface;
+    public LoginInteractor(LoginDataAccessInterface loginDataAccessInterface){
+        this.loginDataAccessInterface = loginDataAccessInterface;
     }
 
     @Override
     public ResponseEntity<Object> authenticate(LoginInputData loginInputData){
-
-        Optional<ClaimsExaminer> optionalExaminer = loginRepository.findByUsername(loginInputData.getUsername());
+        Optional<ClaimsExaminer> optionalExaminer = loginDataAccessInterface.findByUsername(loginInputData.getUsername());
         if (optionalExaminer.isPresent()){
             ClaimsExaminer examiner = optionalExaminer.get();
 
