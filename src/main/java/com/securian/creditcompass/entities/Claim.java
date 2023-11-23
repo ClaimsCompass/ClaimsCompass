@@ -51,6 +51,10 @@ public class Claim {
     @Column(name = "processed")
     private Boolean processed;
 
+    @Getter
+    @Column(name = "examiner")
+    private String examiner;
+
     private transient ClaimState currentState;
 
     // TODO We may need read and write objects for ClaimState too, if we want to save
@@ -79,16 +83,7 @@ public class Claim {
 
     // Hibernate expects entities to have a no-arg constructor,
     // though it does not necessarily have to be public.
-    public Claim() {}
 
-//    public Claim(String claimType, String claimDetails, Float claimAmt, Claimant claimant) {
-//        this.claimType = claimType;
-//        this.claimDetails = claimDetails;
-//        this.claimAmt = claimAmt;
-//        this.creationDateTime = LocalDateTime.now();
-//        this.processed = false;
-//        this.urgencyScore = 0;
-//    }
 
     public void setComplexityScore(Integer score){this.complexityScore = score;}
 

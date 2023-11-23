@@ -33,17 +33,6 @@ public class LoginService {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(errorObject);
     }
 
-//    @PostMapping("/login")
-//    public ResponseEntity<Object> loginOutcome(@RequestBody LoginDTO loginTransferData){
-//        if (loginAuthService.authenticateExaminer(loginTransferData.getUsername(), loginTransferData.getPassword())){
-//            // Successful Login
-//            return ResponseEntity.ok("Login Successful");
-//        } else {
-//            // Unsuccessful login - returns JSON obj with error information.
-//            ErrorObject errorObject = new ErrorObject("invalid Input.");
-//            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(errorObject);
-//        }
-//    }
     @Getter
     private static class ErrorObject {
         private final String error;
