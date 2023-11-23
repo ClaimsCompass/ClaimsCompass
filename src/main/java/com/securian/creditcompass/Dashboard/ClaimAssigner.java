@@ -1,4 +1,4 @@
-package com.securian.creditcompass.ClaimState;
+package com.securian.creditcompass.Dashboard;
 import com.securian.creditcompass.entities.Claim;
 import com.securian.creditcompass.entities.ClaimsExaminer;
 
