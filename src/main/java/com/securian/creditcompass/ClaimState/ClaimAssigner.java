@@ -11,4 +11,10 @@ public class ClaimAssigner {
         ClaimsExaminer minExaminer = nextClaim.getExaminerWithMinScore(examiners);
         minExaminer.getClaims().add(nextClaim);
     }
+
+    public void assignAllClaims(List<ClaimsExaminer> examiners, List<Claim> claims) {
+        for (Claim claim : claims) {
+            assignClaim(examiners, claim);
+        }
+    }
 }
