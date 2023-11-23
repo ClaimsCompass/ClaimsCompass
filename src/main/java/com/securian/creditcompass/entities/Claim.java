@@ -78,4 +78,7 @@ public class Claim {
     public boolean isProcessed(){return this.processed;}
 
     public boolean processClaim(){return this.processed = true;}
+
+    public void assignToClaimsExaminer(ClaimsExaminer examiners) {
+    }
 }
