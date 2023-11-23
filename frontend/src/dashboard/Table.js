@@ -1,8 +1,17 @@
 // Table.js
 import React from 'react';
 import './dashboard.css'; // Import your CSS file
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 
 const Table = ({ claimDetails }) => {
+    const navigate = useNavigate();
+    //navigate('login_page');
+
+    function ResolveClaimView(index) {
+        navigate(":" + index.toString(), { state: { claimId: index } });
+    }
     return (
         <table>
             <thead>
@@ -17,7 +26,7 @@ const Table = ({ claimDetails }) => {
             </thead>
             <tbody>
             {claimDetails.map((claim, index) => (
-                <tr key={index}>
+                <tr key={index} onClick={() => ResolveClaimView(claim[0])}>
                     <td className="claim-id extra-padding">{claim[0]}</td>
                     <td>{claim[1]}</td>
                     <td>{claim[2]}</td>

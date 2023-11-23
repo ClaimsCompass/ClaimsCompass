@@ -61,6 +61,7 @@ const DashboardPage = () => {
         // Call the fetch function
         fetchClaims();
     }, []); // The empty dependency array ensures this effect runs once on component mount
+    console.log(claimsDetailsArray);
 
     return (
         <div>
