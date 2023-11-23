@@ -6,6 +6,10 @@ import com.securian.creditcompass.login.LoginRepository;
 
 import java.util.List;
 
+// TODO: Use NewClaimState in the right place; when new claim is added (guess this is out of our scope, use in test?)
+// Or actually we will know a new claim is added if its ClaimState is NewClaimState. At the start of the program,
+// we can check all claims and assign them to examiners. Of course, automatically, assignment should not happen for all.
+
 public class NewClaimState implements ClaimState {
 
     private final LoginRepository loginRepository;
