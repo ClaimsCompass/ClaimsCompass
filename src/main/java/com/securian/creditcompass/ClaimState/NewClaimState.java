@@ -2,25 +2,27 @@ package com.securian.creditcompass.ClaimState;
 
 import com.securian.creditcompass.entities.Claim;
 import com.securian.creditcompass.entities.ClaimsExaminer;
+import com.securian.creditcompass.login.LoginRepository;
 
 import java.util.List;
 
 public class NewClaimState implements ClaimState {
 
-    public <claimsExaminer> void assignToClaimsExaminer(Claim claim, List<claimsExaminer> examiners) {
-        // Assign the claim to a claims examiner
-        claim.assignToClaimsExaminer((ClaimsExaminer<T>) examiners);
-    }
+    private final LoginRepository loginRepository;
 
-
-    @Override
-    public void assignToClaimsExaminer(ClaimsExaminer<?> examiner, Claim claim) {
-
+    // Add constructor
+    public NewClaimState(LoginRepository loginRepository) {
+        this.loginRepository = loginRepository;
     }
 
     @Override
-    public void assignToClaimsExaminer(ClaimsExaminer<?> examiner, Claim claim) {
-
+    public void assignToClaimsExaminer(ClaimsExaminer examiner, Claim claim) {
+        // Logic specific to assigning a claim in the 'New' state
+        // For a new claim, assign to the examiner with the lowest score
+        List<ClaimsExaminer> examiners = loginRepository.findAll();
+        ClaimsExaminer minExaminer = claim.getExaminerWithMinScore(examiners);
+        minExaminer.getClaims().add(claim);
+        System.out.println("Claim assigned to examiner with lowest score.");
     }
 
     @Override

@@ -144,5 +144,6 @@ public class Claim {
         }
         return minExaminer;
     }
+
 }
 
