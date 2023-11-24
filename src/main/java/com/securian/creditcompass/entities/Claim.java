@@ -130,15 +130,10 @@ public class Claim {
         }
     }
 
-    public ClaimsExaminer getExaminerWithMinScore(List<ClaimsExaminer> examiners) {
-        ClaimsExaminer minExaminer = examiners.get(0);
-        for (ClaimsExaminer examiner : examiners) {
-            if (examiner.getExaminerScore() < minExaminer.getExaminerScore()) {
-                minExaminer = examiner;
-            }
-        }
-        return minExaminer;
+    public void setClaimExaminer(ClaimsExaminer examiner) {
+        this.examiner = examiner.getUsername();
+    }
     }
 
-}
+
 

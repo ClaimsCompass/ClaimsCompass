@@ -1,4 +1,4 @@
-package com.securian.creditcompass.Dashboard;
+package com.securian.creditcompass.dashboard;
 
 import com.securian.creditcompass.entities.Claim;
 import org.springframework.data.jpa.repository.JpaRepository;

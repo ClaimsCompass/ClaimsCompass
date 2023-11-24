@@ -1,7 +1,6 @@
-package com.securian.creditcompass.Dashboard;
+package com.securian.creditcompass.dashboard;
 
 import com.securian.creditcompass.entities.Claim;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

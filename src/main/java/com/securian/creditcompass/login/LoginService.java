@@ -1,5 +1,6 @@
 package com.securian.creditcompass.login;
 
+import com.securian.creditcompass.DataAccess.ExaminerRepository;
 import com.securian.creditcompass.entities.ClaimsExaminer;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
@@ -10,8 +11,8 @@ import java.util.Optional;
 
 @Service
 public class LoginService {
-    private final LoginRepository loginRepository;
-    public LoginService(LoginRepository loginRepository){
+    private final ExaminerRepository loginRepository;
+    public LoginService(ExaminerRepository loginRepository){
         this.loginRepository = loginRepository;
     }
 
