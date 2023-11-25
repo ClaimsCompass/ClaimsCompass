@@ -1,6 +1,6 @@
 package com.securian.creditcompass.ClaimState;
 
-import com.securian.creditcompass.allocation.AllocationService;
+import com.securian.creditcompass.Allocation.AllocationService;
 import com.securian.creditcompass.entities.Claim;
 import com.securian.creditcompass.entities.ClaimsExaminer;
 import com.securian.creditcompass.DataAccess.ExaminerRepository;

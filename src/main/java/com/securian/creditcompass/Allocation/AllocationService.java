@@ -1,27 +1,33 @@
-package com.securian.creditcompass.allocation;
+package com.securian.creditcompass.Allocation;
 import com.securian.creditcompass.DataAccess.ClaimRepository;
 import com.securian.creditcompass.DataAccess.ExaminerRepository;
 import com.securian.creditcompass.entities.Claim;
 import com.securian.creditcompass.entities.ClaimsExaminer;
-import org.apache.catalina.util.ErrorPageSupport;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 // Facade Implementation
+@Service
 public class AllocationService {
 
-    private final ExaminerRepository examinerRepository;
-    private final ClaimRepository claimRepository;
+    @Autowired
+    private ExaminerRepository examinerRepository;
 
-    public AllocationService(ExaminerRepository examinerRepository, ClaimRepository claimRepository){
-        this.examinerRepository = examinerRepository;
-        this.claimRepository = claimRepository;
-    }
+    @Autowired
+    private ClaimRepository claimRepository;
+
+//    public AllocationService(){
+//        this.examinerRepository = examinerRepository;
+//        this.claimRepository = claimRepository;
+//    }
 
     public void assignClaim(Claim nextClaim, List <ClaimsExaminer> claimsExaminers ) {
         // assign the claim to this examiner with the lowest score
         ClaimsExaminer minExaminer = getExaminerWithMinScore(claimsExaminers);
         nextClaim.setClaimExaminer(minExaminer);
+        claimRepository.save(nextClaim);
     }
 
     public void assignAllClaims() {

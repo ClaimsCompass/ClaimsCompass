@@ -17,6 +17,7 @@ const Login = () => {
             });
             if (response.status === 200) {
                 setMessage(response.data);
+                const response2 = await axios.post('http://localhost:8080/assign', {});
                 navigate('/dashboard');
             } else {
                 console.error('Login failed:', response.status, response.statusText);
@@ -26,6 +27,24 @@ const Login = () => {
             // Handle network errors or other issues
             console.error('Login failed:', error);
             setMessage('Login failed. Please try again later.');
+        }
+    };
+    const assignClaims = async () => {
+        try {
+            const assignResponse = await axios.post('http://localhost:8080/assign', {
+                // Include any necessary data for the assignment
+            });
+
+            if (assignResponse.status === 200) {
+                console.log('Claims assigned successfully.');
+                // Optionally, you can perform any additional actions after claims are assigned.
+            } else {
+                console.error('Assignment failed:', assignResponse.status, assignResponse.statusText);
+                // Handle assignment failure
+            }
+        } catch (error) {
+            console.error('Assignment failed:', error);
+            // Handle network errors or other issues during assignment
         }
     };
 

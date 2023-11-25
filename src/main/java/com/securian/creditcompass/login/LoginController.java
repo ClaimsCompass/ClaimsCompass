@@ -16,6 +16,7 @@ public class LoginController {
 
     @PostMapping("/login")
     public ResponseEntity<Object> login(@RequestBody LoginDataTransferObject loginDataTransferObject) {
+        System.out.println("Login use case");
         return loginService.authenticate(loginDataTransferObject.getUsername(), loginDataTransferObject.getPassword());
     }
 
