@@ -64,7 +64,7 @@ sudo -u postgres psql
 
 # Should be in postgres prompt now
 postgres=#CREATE USER securian WITH PASSWORD 'hello';
-postgres=#CREATE DATABASE claimscompassmain OWNER securian;
+postgres=#CREATE DATABASE ClaimsCompassMain OWNER securian;
 ```
 * If you see something like "Ident authentication failed for user securian" after trying to run psql, you will need to change one of the config files for postgres. 
 * Follow this stack overflow answer https://stackoverflow.com/questions/18664074/getting-error-peer-authentication-failed-for-user-postgres-when-trying-to-ge
