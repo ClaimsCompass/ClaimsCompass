@@ -1,8 +1,8 @@
-//package com.securian.creditcompass.login;
-//
+package com.securian.creditcompass.login;
+
 //import lombok.Getter;
-//
-//public class LoginDataTransferObject {
+
+public class LoginDataTransferObject {
 //    @Getter
 //    private String username;
 //    @Getter
@@ -12,4 +12,4 @@
 //        this.username = username;
 //        this.password = password;
 //    }
-//}
+}
