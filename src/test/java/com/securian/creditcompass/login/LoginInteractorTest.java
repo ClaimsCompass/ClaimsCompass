@@ -47,7 +47,7 @@ class LoginInteractorTest {
     }
 
     @Test
-    void testWrongPasswordThrowsException() throws AuthenticationException {
+    void testWrongPasswordThrowsException() {
         //GIVEN
         // setting up the instance input param
         LoginInputData loginInputData = new LoginInputData("janeDoe", "passcode");
@@ -63,7 +63,7 @@ class LoginInteractorTest {
     }
 
     @Test
-    void testExaminerNotFoundThrowsException() throws AuthenticationException{
+    void testExaminerNotFoundThrowsException() {
         //GIVEN
         // setting up the instance input param
         LoginInputData loginInputData = new LoginInputData("janeDoe", "passcode");
