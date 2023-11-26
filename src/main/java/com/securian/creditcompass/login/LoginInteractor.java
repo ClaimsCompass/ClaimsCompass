@@ -4,16 +4,14 @@ import com.securian.creditcompass.entities.ClaimsExaminer;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Optional;
 
 @Service
-public class LoginService {
+public class LoginInteractor {
     private final LoginRepository loginRepository;
-    public LoginService(LoginRepository loginRepository){
+    public LoginInteractor(LoginRepository loginRepository){
         this.loginRepository = loginRepository;
     }
 
