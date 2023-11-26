@@ -1,9 +1,6 @@
 package com.securian.creditcompass.login;
 
 import com.securian.creditcompass.entities.ClaimsExaminer;
-import lombok.Getter;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.naming.AuthenticationException;
