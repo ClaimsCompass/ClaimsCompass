@@ -26,7 +26,7 @@ public class LoginInteractor implements LoginInputBoundary{
 
             if( dbPassword.equals(loginInputData.getPassword())){
                 System.out.println("It enters the branch");
-                return true;//ResponseEntity.ok("Logging you in...");
+                return true;
             } else {
                 throw new AuthenticationException("Invalid credentials.");
 
