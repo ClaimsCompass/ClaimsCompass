@@ -22,12 +22,20 @@ class LoginControllerTest {
 
     @Test
     void testLoginSuccessful() throws Exception {
-        // SETUP
+
+        // SET UP a post request to /login endpoint
+        // with a body of {"username":"janeDoe","password":"hello"}
+        // and a content type of application/json
         RequestBuilder request = MockMvcRequestBuilders.post("/login")
                 .content("{\"username\":\"janeDoe\",\"password\":\"hello\"}")
                 .contentType("application/json");
+
         // Perform post request to /login endpoint, which invokes the login method in LoginController
+
+        // andDo(MockMvcResultHandlers.print()) prints the response i.e the ResponseEntity to the console
+        // andExpect(status().isOk()) checks that the status code is 200
         MvcResult result = mvc.perform(request).andDo(MockMvcResultHandlers.print()).andExpect(status().isOk()).andReturn();
+        // get the response body as a string
         String responseEntity = result.getResponse().getContentAsString();
 
         //ASSERT
@@ -40,7 +48,9 @@ class LoginControllerTest {
         RequestBuilder request = MockMvcRequestBuilders.post("/login")
                 .content("{\"username\":\"janeDoe\",\"password\":\"wrongPassword\"}")
                 .contentType("application/json");
+
         // Perform post request to /login endpoint, which invokes the login method in LoginController
+        // andExpect(status().isUnauthorized()) checks that the status code is 401
         MvcResult result = mvc.perform(request).andDo(MockMvcResultHandlers.print()).andExpect(status().isUnauthorized()).andReturn();
         String responseEntity = result.getResponse().getContentAsString();
 
@@ -54,7 +64,9 @@ class LoginControllerTest {
         RequestBuilder request = MockMvcRequestBuilders.post("/login")
                 .content("{\"username\":\"wrongUsername\",\"password\":\"hello\"}")
                 .contentType("application/json");
+
         // Perform post request to /login endpoint, which invokes the login method in LoginController
+        // andExpect(status().isUnauthorized()) checks that the status code is 401
         MvcResult result = mvc.perform(request).andDo(MockMvcResultHandlers.print()).andExpect(status().isUnauthorized()).andReturn();
         String responseEntity = result.getResponse().getContentAsString();
 
