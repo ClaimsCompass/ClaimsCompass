@@ -33,7 +33,6 @@ public class LoginInteractor implements LoginInputBoundary{
                 // if password doesn't match for user, throw authentication exception
                 throw new AuthenticationException("Invalid credentials.");
 
-
             }
         }
         // if username doesn't exist in the database, throw authentication exception
