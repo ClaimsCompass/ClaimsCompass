@@ -6,50 +6,35 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import javax.naming.AuthenticationException;
 import java.util.Optional;
 
 @Service
-public class LoginInteractor {
-    private final LoginRepository loginRepository;
-    public LoginInteractor(LoginRepository loginRepository){
-        this.loginRepository = loginRepository;
+public class LoginInteractor implements LoginInputBoundary{
+    private final LoginDataAccessInterface loginDataAccessInterface;
+    public LoginInteractor(LoginDataAccessInterface loginDataAccessInterface){
+        this.loginDataAccessInterface = loginDataAccessInterface;
     }
 
-    public ResponseEntity<Object> authenticate(String username, String password){
-        Optional<ClaimsExaminer> optionalExaminer = loginRepository.findByUsername(username);
+    @Override
+    public boolean authenticate(LoginInputData loginInputData) throws AuthenticationException{
+        Optional<ClaimsExaminer> optionalExaminer = loginDataAccessInterface.findByUsername(loginInputData.getUsername());
         if (optionalExaminer.isPresent()){
             ClaimsExaminer examiner = optionalExaminer.get();
 
             String dbPassword = examiner.getPassword();
 
-            if( dbPassword.equals(password)){
-                return ResponseEntity.ok("Logging you in...");
+            if( dbPassword.equals(loginInputData.getPassword())){
+                System.out.println("It enters the branch");
+                return true;//ResponseEntity.ok("Logging you in...");
             } else {
-                ErrorObject errorObject = new ErrorObject("invalid Input.");
-                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(errorObject);
+                throw new AuthenticationException("Invalid credentials.");
+
+
             }
         }
-        ErrorObject errorObject = new ErrorObject("invalid Input.");
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(errorObject);
-    }
+        throw new AuthenticationException("Incorrect credentials.");
 
-//    @PostMapping("/login")
-//    public ResponseEntity<Object> loginOutcome(@RequestBody LoginDTO loginTransferData){
-//        if (loginAuthService.authenticateExaminer(loginTransferData.getUsername(), loginTransferData.getPassword())){
-//            // Successful Login
-//            return ResponseEntity.ok("Login Successful");
-//        } else {
-//            // Unsuccessful login - returns JSON obj with error information.
-//            ErrorObject errorObject = new ErrorObject("invalid Input.");
-//            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(errorObject);
-//        }
-//    }
-    @Getter
-    private static class ErrorObject {
-        private final String error;
-        public ErrorObject(String error) {
-            this.error = error;
-        }
     }
 }
 
