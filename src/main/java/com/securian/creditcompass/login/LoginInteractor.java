@@ -1,5 +1,6 @@
 package com.securian.creditcompass.login;
 
+import com.securian.creditcompass.dataAccess.ExaminerRepository;
 import com.securian.creditcompass.entities.ClaimsExaminer;
 import org.springframework.stereotype.Service;
 
@@ -8,15 +9,15 @@ import java.util.Optional;
 
 @Service
 public class LoginInteractor implements LoginInputBoundary{
-    private final LoginDataAccessInterface loginDataAccessInterface;
-    public LoginInteractor(LoginDataAccessInterface loginDataAccessInterface){
-        this.loginDataAccessInterface = loginDataAccessInterface;
+    private final ExaminerRepository examinerRepository;
+    public LoginInteractor(ExaminerRepository examinerRepository){
+        this.examinerRepository = examinerRepository;
     }
 
     @Override
     public boolean authenticate(LoginInputData loginInputData) throws AuthenticationException{
         // Create a ClaimsExaminer object from the username's equivalent in the database'
-        Optional<ClaimsExaminer> optionalExaminer = loginDataAccessInterface.findByUsername(loginInputData.getUsername());
+        Optional<ClaimsExaminer> optionalExaminer = examinerRepository.findByUsername(loginInputData.getUsername());
         if (optionalExaminer.isPresent()){
             ClaimsExaminer examiner = optionalExaminer.get();
             // get the password from the ClaimsExaminer object

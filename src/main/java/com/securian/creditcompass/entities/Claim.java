@@ -1,9 +1,6 @@
 package com.securian.creditcompass.entities;
-<<<<<<< HEAD
 import com.securian.creditcompass.ClaimState.ClaimStateChangeListener;
 import com.securian.creditcompass.ClaimState.ClaimState;
-=======
->>>>>>> Login_Test
 import jakarta.persistence.*;
 import lombok.Getter;
 
@@ -86,9 +83,6 @@ public class Claim {
 
     // Hibernate expects entities to have a no-arg constructor,
     // though it does not necessarily have to be public.
-
-<<<<<<< HEAD
-=======
     public Claim(Integer id, String claimType, String claimDetails, Float claimAmt, Integer complexityScore, Integer urgencyScore) {
         this.id = id;
         this.claimType = claimType;
@@ -115,7 +109,6 @@ public class Claim {
     public Integer getComplexityScore() {return this.complexityScore;}
 
     public Integer getUrgencyScore() {return this.urgencyScore;}
->>>>>>> Login_Test
 
     public void setComplexityScore(Integer score){this.complexityScore = score;}
 
