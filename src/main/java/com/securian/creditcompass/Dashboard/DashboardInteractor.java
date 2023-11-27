@@ -1,6 +1,6 @@
 package com.securian.creditcompass.dashboard;
 
-import com.securian.creditcompass.OrderCalculator.OrderCalculator;
+import com.securian.creditcompass.orderCalculator.OrderCalculator;
 import com.securian.creditcompass.dataAccess.ClaimRepository;
 import com.securian.creditcompass.entities.Claim;
 import org.springframework.stereotype.Service;

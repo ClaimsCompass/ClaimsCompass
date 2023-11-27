@@ -1,4 +1,4 @@
-package com.securian.creditcompass.OrderCalculator;
+package com.securian.creditcompass.orderCalculator;
 
 import com.securian.creditcompass.entities.Claim;
 import org.springframework.stereotype.Service;
