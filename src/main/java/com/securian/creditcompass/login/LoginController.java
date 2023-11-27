@@ -1,7 +1,4 @@
 package com.securian.creditcompass.login;
-
-import com.securian.creditcompass.login.LoginService;
-import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,6 +1,6 @@
 package com.securian.creditcompass.login;
 
-import com.securian.creditcompass.DataAccess.ExaminerRepository;
+import com.securian.creditcompass.dataAccess.ExaminerRepository;
 import com.securian.creditcompass.entities.ClaimsExaminer;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;

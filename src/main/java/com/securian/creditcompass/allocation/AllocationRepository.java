@@ -1,4 +1,4 @@
-package com.securian.creditcompass.Allocation;
+package com.securian.creditcompass.allocation;
 
 import com.securian.creditcompass.entities.ClaimsExaminer;
 import org.springframework.data.jpa.repository.JpaRepository;

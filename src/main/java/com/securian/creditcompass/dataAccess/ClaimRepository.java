@@ -1,10 +1,9 @@
-package com.securian.creditcompass.DataAccess;
+package com.securian.creditcompass.dataAccess;
 
 import com.securian.creditcompass.entities.Claim;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Calendar;
 import java.util.List;
 
 

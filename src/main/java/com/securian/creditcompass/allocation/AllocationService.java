@@ -1,6 +1,6 @@
-package com.securian.creditcompass.Allocation;
-import com.securian.creditcompass.DataAccess.ClaimRepository;
-import com.securian.creditcompass.DataAccess.ExaminerRepository;
+package com.securian.creditcompass.allocation;
+import com.securian.creditcompass.dataAccess.ClaimRepository;
+import com.securian.creditcompass.dataAccess.ExaminerRepository;
 import com.securian.creditcompass.entities.Claim;
 import com.securian.creditcompass.entities.ClaimsExaminer;
 import org.springframework.beans.factory.annotation.Autowired;
