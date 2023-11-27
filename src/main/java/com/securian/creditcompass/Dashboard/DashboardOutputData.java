@@ -6,13 +6,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DashboardOutputData {
-    public List<List<Object>> findAttributes(List<Claim> claimList) {
+    private final List<Claim> orderedClaims;
+
+    public DashboardOutputData(List<Claim> orderedClaims){
+        this.orderedClaims = orderedClaims;
+    }
+
+    public List<List<Object>> execute() {
         List<List<Object>> allClaimsAttributes = new ArrayList<>();
 
 
-        for (Claim claim : claimList) {
+        for (Claim claim : orderedClaims) {
+            // Iterate through each claim. Store information about each claim inside a list.
             List<Object> claimAttributes = new ArrayList<>();
-            // Assuming Claim class has attributes like claimId, amount, date, etc.
             claimAttributes.add(claim.getId());
             claimAttributes.add(claim.getClaimAmt());
             claimAttributes.add(claim.getCreationDateTime());
@@ -28,7 +34,6 @@ public class DashboardOutputData {
                 claimAttributes.add("Low");
             }
             double complexity = claim.getComplexityScore();
-            // Complexity
             if (complexity >= 7) {
                 claimAttributes.add("High");
             }
@@ -40,7 +45,7 @@ public class DashboardOutputData {
             }
             allClaimsAttributes.add(claimAttributes);
         }
-
+        // Return a list of claims that each have a list of attributes.
         return allClaimsAttributes;
     }
 }

@@ -11,7 +11,7 @@ import java.util.Optional;
 @Repository
 public interface ClaimRepository extends JpaRepository<Claim, Long> {
 
-    Optional<List<Claim>> findClaimsByExaminer(String examiner);
+    Optional<List<Claim>> findByExaminer(String examiner);
     List<Claim> findAll();
 
 }
