@@ -10,8 +10,11 @@ import java.util.Optional;
 @Service
 public class LoginInteractor implements LoginInputBoundary{
     private final ExaminerRepository examinerRepository;
-    public LoginInteractor(ExaminerRepository examinerRepository){
+
+    public LoginInteractor(ExaminerRepository examinerRepository) {
         this.examinerRepository = examinerRepository;
+    }
+
     @Override
     public Boolean authenticate(LoginInputData loginInputData) throws AuthenticationException {
         // Create a ClaimsExaminer object from the username's equivalent in the database'
