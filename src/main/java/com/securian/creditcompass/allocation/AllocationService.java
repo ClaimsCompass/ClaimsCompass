@@ -22,9 +22,10 @@ public class AllocationService {
 //        this.examinerRepository = examinerRepository;
 //        this.claimRepository = claimRepository;
 //    }
-
+    // I want tp search for the
     public void assignClaim(Claim nextClaim, List <ClaimsExaminer> claimsExaminers ) {
-        // assign the claim to this examiner with the lowest score
+        // assign the claim to this examiner who has the lowest score
+        // set examiner column of this claim to the examiner with the lowest score
         ClaimsExaminer minExaminer = getExaminerWithMinScore(claimsExaminers);
         nextClaim.setClaimExaminer(minExaminer);
         claimRepository.save(nextClaim);
@@ -38,9 +39,10 @@ public class AllocationService {
         }
     }
 
-    public int getExaminerScore() {
+    public int getExaminerScore(ClaimsExaminer currExaminer) {
         // return the total score of all claims assigned to this examiner
-        List<Claim> allClaims = claimRepository.findAll();
+        String examinerUsername = currExaminer.getUsername();
+        List<Claim> allClaims = claimRepository.findClaimsByExaminer(examinerUsername);
         if (allClaims == null) {
             return 0;
         }

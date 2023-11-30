@@ -14,4 +14,5 @@ public interface ClaimRepository extends JpaRepository<Claim, Long> {
     Optional<List<Claim>> findByExaminer(String examiner);
     List<Claim> findAll();
 
+    List<Claim> findClaimsByExaminer(String examiner);
 }
