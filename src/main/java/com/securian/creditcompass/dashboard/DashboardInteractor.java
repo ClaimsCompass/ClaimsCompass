@@ -4,6 +4,7 @@ import com.securian.creditcompass.orderCalculator.OrderCalculator;
 import com.securian.creditcompass.dataAccess.ClaimRepository;
 import com.securian.creditcompass.entities.Claim;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,4 +43,19 @@ public class DashboardInteractor implements DashboardInputBoundary {
         //  Ideally, you would have it end at Presenter, but we do not have a presenter.
         return dashboardOutputData.execute();
     }
+
+//    @GetMapping("/api/processedClaims") // API endpoint to get all claims
+//    public List<List<Object>> getAllSortedProcessedClaims() {
+//        List<Claim> claims = claimRepository.findAll();
+//        OrderCalculator scoredClaims = new OrderCalculator(claims);
+//        List<Claim> sortedClaims = scoredClaims.getOrderedClaims();
+//
+//        ArrayList<Claim> filteredClaims = new ArrayList<Claim>();
+//        for (int i = 0; i < sortedClaims.size(); i++) {
+//            if (sortedClaims.get(i).isProcessed()) {
+//                filteredClaims.add(sortedClaims.get(i));
+//            }
+//        }
+//        return renderDashboardService.findAttributes(filteredClaims);
+//    }
 }
