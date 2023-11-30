@@ -1,41 +1,3 @@
-// import React from 'react';
-// import Table from './Table'; // Import the Table component
-// import './dashboard.css';
-// import axios from "axios"; // Import your CSS file
-// import {useState, useEffect} from 'react';
-//
-// const DashboardPage = () => {
-//     const [claimsDetailsArray, setClaimsDetailsArray] = useState([]);
-//     // const getClaims = async () => {
-//     //     const response = await axios.get('http://localhost:8080/api/claims');
-//     //     return response.data;
-//     //     // setClaimsDetailsArray(response.data)
-//     //     // for (let i = 0; i < response.data.length; i++) {
-//     //     //     claimsDetailsArray.push(response.data[i]);
-//     //     // }
-//     //     // return claimsDetailsArray;
-//     // };
-//     // console.log(getClaims());
-//     const fetchClaims = async () => {
-//         try {
-//             const response = await axios.get('http://localhost:8080/api/claims');
-//             setClaimsDetailsArray(response.data);
-//         } catch (error) {
-//             console.error("Error fetching claims:", error);
-//         }
-//     };
-//
-//     fetchClaims();
-//
-//     return (
-//         <div>
-//             <h2>Claims Dashboard</h2>
-//             <Table claimDetails={claimsDetailsArray}/>
-//         </div>
-//     );
-// };
-//
-// export default DashboardPage;
 import React, { useState, useEffect } from 'react';
 import Table from './Table'; // Import the Table component
 import './dashboard.css'; // Import your CSS file
@@ -52,7 +14,6 @@ const DashboardPage = () => {
         const fetchClaims = async () => {
             try {
                 // Fetch data from your API
-                // const response = await axios.get('http://localhost:8080/api/claims');
                 const response = await axios.post('http://localhost:8080/api/claims',
                     null, {
                         params: {username},

@@ -26,7 +26,7 @@ public class DashboardInteractor implements DashboardInputBoundary {
         List<Claim> claimsList = claimRepository.findByExaminer(dashboardInputData.getUsername()).
                 orElse(new ArrayList<>());
 
-        //TODO: Do we need to change OrderCalculator to a helper method? Furthermore, OrderCalculator
+        //TODO: Do we need to change orderCalculator to a helper method? Furthermore, OrderCalculator
         // does not need to be an Iterator.
 
 

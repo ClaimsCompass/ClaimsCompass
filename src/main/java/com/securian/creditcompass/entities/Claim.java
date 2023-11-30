@@ -62,6 +62,10 @@ public class Claim {
 
     private transient List<ClaimStateChangeListener> listeners = new ArrayList<>();
 
+    public Claim() {
+
+    }
+
     private void writeObject(ObjectOutputStream out) throws IOException, IOException {
         out.defaultWriteObject();
         out.writeInt(listeners.size());

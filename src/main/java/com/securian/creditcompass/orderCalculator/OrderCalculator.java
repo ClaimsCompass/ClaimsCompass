@@ -11,6 +11,9 @@ import java.time.Duration;
 
 @Service
 public class OrderCalculator{
+
+    //TODO: Remove these instance attributes. We no longer need them, because we pass them in
+    // as parameters.
     private List<Claim> claims;
     private List<Claim> orderedClaims;
 

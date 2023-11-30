@@ -26,11 +26,11 @@ public class LoginService {
             if( dbPassword.equals(password)){
                 return ResponseEntity.ok("Logging you in...");
             } else {
-                ErrorObject errorObject = new ErrorObject("invalid Input.");
+                ErrorObject errorObject = new ErrorObject("Credentials do not match.");
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(errorObject);
             }
         }
-        ErrorObject errorObject = new ErrorObject("invalid Input.");
+        ErrorObject errorObject = new ErrorObject("Error.");
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(errorObject);
     }
 
