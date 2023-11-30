@@ -5,8 +5,10 @@ import DashboardPage from "./dashboard/DashboardPage";
 import SecurianLogo from './login/securianLogo.png'
 import ClaimPage from './claim/Claim';
 import {Routes, Route} from "react-router-dom";
+import axios from "axios";
 
 function App() {
+    // const response = axios.post('http://localhost:8080/assign', {});
     return (
         <>
             <Routes>

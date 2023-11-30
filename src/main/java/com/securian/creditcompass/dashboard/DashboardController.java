@@ -13,8 +13,9 @@ public class DashboardController {
 
     @PostMapping("/api/claims")
     //TODO: Remove List<List<Object>> - it's bad practice.
-    public List<List<Object>> execute(@RequestParam String username) {
-        DashboardInputData dashboardInputData = new DashboardInputData(username);
+    public List<List<Object>> execute(@RequestParam String username, @RequestParam Boolean isProcessed) {
+        System.out.println("isProcessed: " + isProcessed);
+        DashboardInputData dashboardInputData = new DashboardInputData(username, isProcessed);
         return dashboardInteractor.execute(dashboardInputData);
 
     }

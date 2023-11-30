@@ -40,6 +40,7 @@ import React, { useState, useEffect } from 'react';
 import Table from './Table'; // Import the Table component
 import './dashboard.css'; // Import your CSS file
 import axios from "axios";
+import {useLocation} from 'react-router-dom';
 import {Button} from "react-bootstrap"; // Import axios for HTTP requests
 
 const DashboardPage = () => {
@@ -53,9 +54,10 @@ const DashboardPage = () => {
         const fetchClaims = async () => {
             try {
                 // Fetch data from your API
+                let isProcessed = false;
                 const response = await axios.post('http://localhost:8080/api/claims',
                     null, {
-                        params: {username},
+                        params: {username, isProcessed},
                     });
                 // Update state with the fetched data
                 setClaimsDetailsArray(response.data);
@@ -69,15 +71,19 @@ const DashboardPage = () => {
         fetchClaims();
     }, []); // The empty dependency array ensures this effect runs once on component mount
 
-    async function changeActiveProcessed(isActive) {
+    async function changeActiveProcessed(isProcessed) {
         // setProcessedOrActive(changeProcessedOrActive);
         try {
             // Fetch all claims data from the API
-            let apiURL = 'http://localhost:8080/api/activeClaims'
-            if (!isActive) {
-                apiURL = 'http://localhost:8080/api/processedClaims'
-            }
-            const response = await axios.get(apiURL);
+            //let apiURL = 'http://localhost:8080/api/activeClaims'
+            //if (!isActive) {
+            //    apiURL = 'http://localhost:8080/api/processedClaims'
+            //}
+            //const response = await axios.get(apiURL);
+            const response = await axios.post('http://localhost:8080/api/claims',
+                null, {
+                    params: {username, isProcessed},
+                });
 
             // Update state with the fetched data
             setClaimsDetailsArray(response.data);
@@ -91,8 +97,8 @@ const DashboardPage = () => {
             <h2>Claims Dashboard</h2>
             { /* Pass the claims data to the Table component */ }
             <div className="claim-type-selector">
-                <Button onClick={() => changeActiveProcessed(true)} className="btn btb-primary">Active</Button>
-                <Button onClick={() => changeActiveProcessed(false)}>Processed</Button>
+                <Button onClick={() => changeActiveProcessed(false)} className="btn btb-primary">Active</Button>
+                <Button onClick={() => changeActiveProcessed(true)}>Processed</Button>
             </div>
             <Table claimDetails={claimsDetailsArray} />
         </div>

@@ -51,22 +51,22 @@ ALTER TABLE public.claims OWNER TO securian;
 -- Data for Name: claims; Type: TABLE DATA; Schema: public; Owner: securian
 --
 
-INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (1287392, 'disability', 100000, NULL, 8, 0, 0, true, '2023-11-17 08:00:00', 'janeDoe', NULL);
+INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (1287392, 'disability', 100000, 'Some details...', 8, 0, 0, true, '2023-11-17 08:00:00', 'janeDoe', NULL);
 INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (1423567, 'employment
-', 7000, NULL, 5, 0, 0, false, '2023-11-17 15:00:00', 'janeDoe', NULL);
+', 7000, 'Some details...', 5, 0, 0, false, '2023-11-17 15:00:00', 'bobDoe', NULL);
 INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (1523467, 'life
-', 5000, NULL, 3, 0, 0, false, '2023-11-16 00:00:00', 'janeDoe', NULL);
+', 5000, 'Some details...', 3, 0, 0, false, '2023-11-16 00:00:00', 'bobDoe', NULL);
 INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (1623457, 'life
-', 5000, NULL, 2, 0, 0, true, '2023-11-17 08:00:00', 'janeDoe', NULL);
+', 5000, 'Some details...', 2, 0, 0, false, '2023-11-17 08:00:00', 'bobDoe', NULL);
 INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (1927301, 'life', 3000, 'details from form', 2, 0, 0, false, '2023-11-10 00:00:00', 'janeDoe', NULL);
-INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (2635372, 'disability', 100000, NULL, 8, 0, 0, false, '2023-11-14 00:00:00', 'janeDoe', NULL);
-INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (2828010, 'disability', 100000, NULL, 8, 0, 0, false, '2023-11-17 08:00:00', 'janeDoe', NULL);
+INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (2635372, 'disability', 100000, 'Some details...', 8, 0, 0, false, '2023-11-14 00:00:00', 'janeDoe', NULL);
+INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (2828010, 'disability', 100000, 'Some details...', 8, 0, 0, false, '2023-11-17 08:00:00', 'janeDoe', NULL);
 INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (1324567, 'employment
-', 7000, NULL, 5, 0, 0, true, '2023-11-17 15:00:00', 'janeDoe', NULL);
+', 7000, 'Some details...', 5, 0, 0, false, '2023-11-17 15:00:00', 'janeDoe', NULL);
 INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (1237658, 'disability
-', 200000, NULL, 8, 0, 100, false, '2023-11-16 00:00:00', 'janeDoe', NULL);
+', 200000, 'Some details...', 8, 0, 100, false, '2023-11-16 00:00:00', 'janeDoe', NULL);
 INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (1234567, 'employment
-', 7000, NULL, 5, 0, 0, false, '2023-11-17 15:00:00', 'janeDoe', NULL);
+', 7000, 'Some details...', 5, 0, 0, false, '2023-11-17 15:00:00', 'janeDoe', NULL);
 
 
 --

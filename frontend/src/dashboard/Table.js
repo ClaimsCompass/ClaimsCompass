@@ -1,16 +1,17 @@
 // Table.js
 import React from 'react';
 import './dashboard.css'; // Import your CSS file
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 
 const Table = ({ claimDetails }) => {
     const navigate = useNavigate();
+    const location = useLocation();
     //navigate('login_page');
 
     function ResolveClaimView(index) {
-        navigate(":" + index.toString(), { state: { claimId: index } });
+        navigate(":" + index.toString(), { state: { claimId: index, username: location.state.username} });
     }
     return (
         <table>

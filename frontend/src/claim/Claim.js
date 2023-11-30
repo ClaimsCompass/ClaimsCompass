@@ -33,31 +33,20 @@ const ClaimPage = () => {
     }, []); // The empty dependency array ensures this effect runs once on component mount
 
     const redirectDashboard = async () => {
+        const id = location.state.claimId;
         try {
             // POST'ing to db, indicates claim has been processed
-            const response = await axios.post('http://localhost:8080/api/updateProcessedClaim?id='
-                + location.state.claimId.toString());
+            const response = await axios.post('http://localhost:8080/api/updateProcessedClaim',
+                null, {
+                    params: { id },
+                });
         } catch (error) {
             // Log any errors
             console.error("Error fetching claims:", error);
         }
-        navigate("/dashboard");
+        navigate("/dashboard", { state: { username: location.state.username } });
     }
 
-    console.log("YOO");
-    function renderButtonsOrNot() {
-        console.log("HELLO" + claimData['processed']);
-        if (claimData['processed']) {
-            return <div></div>;
-        } else {
-            return (
-                <div>
-                    <button onClick={redirectDashboard}>Process</button>
-                    <button onClick={redirectDashboard}>Send</button>
-            </div>
-        );
-        }
-    }
     /*
     <h2>Claim Amount: {claimData.claimAmt}</h2>
     <h2>Creation Date: {claimData.creationDateTime}</h2>
@@ -66,7 +55,7 @@ const ClaimPage = () => {
 
     return (
         <div>
-            <ClaimNavbar></ClaimNavbar>
+            <ClaimNavbar username={location.state.username}></ClaimNavbar>
             <div className="claim-info-container">
                 <div className="detail-container">
                     <div className="detail-column">
@@ -81,12 +70,11 @@ const ClaimPage = () => {
                 </div>
                 <iframe className="claim-pdf" allow="autoplay" src="https://drive.google.com/file/d/1pygVq2aoKgHIIaGWtYjfAJkh7HCSXgfJ/preview"></iframe>
             </div>
-            {!claimData['processed'] ?
+            {claimData['processed'] ? <div></div> :
                 <div className="claim-type-selector">
                     <button onClick={redirectDashboard}>Process</button>
                     <button onClick={redirectDashboard}>Send</button>
-                </div> :
-                <div></div>};
+                </div>};
         </div>
     );
 };

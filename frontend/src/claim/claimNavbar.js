@@ -3,8 +3,14 @@ import whiteLogo from "./whiteLogo.png"
 import "./claim.css"
 import user from "./user.png"
 import React from 'react';
+import {useLocation, useNavigate} from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({ username }) => {
+    let location = useLocation();
+    const navigate = useNavigate();
+    function navigateDashboard() {
+        navigate('/dashboard', { state: { username: location.state.username} })
+    }
     return (
         <div className="navbar">
             <div className="logo">
@@ -14,7 +20,7 @@ const Navbar = () => {
             <div className="right-section">
                 <ul className="nav-links">
                     <li><a href="/">Home</a></li>
-                    <li><a href="/dashboard">Dashboard</a></li>
+                    <li onClick={navigateDashboard}><a href="/dashboard">Dashboard</a></li>
                 </ul>
 
                 <div className="user-info">
