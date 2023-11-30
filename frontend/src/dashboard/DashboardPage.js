@@ -39,10 +39,12 @@
 import React, { useState, useEffect } from 'react';
 import Table from './Table'; // Import the Table component
 import './dashboard.css'; // Import your CSS file
-import axios from "axios"; // Import axios for HTTP requests
+import axios from "axios";
+import {Button} from "react-bootstrap"; // Import axios for HTTP requests
 
 const DashboardPage = () => {
     const [claimsDetailsArray, setClaimsDetailsArray] = useState([]); // Initialize state
+    // const [processedOrActive, setProcessedOrActive] = useState([]); // Initialize state
 
     // useEffect(() => {
     //     // Define the function for fetching claims data
@@ -67,7 +69,7 @@ const DashboardPage = () => {
         const fetchClaims = async () => {
             try {
                 // Fetch all claims data from the API
-                const response = await axios.get('http://localhost:8080/api/claims');
+                const response = await axios.get('http://localhost:8080/api/activeClaims');
 
                 // Update state with the fetched data
                 setClaimsDetailsArray(response.data);
@@ -81,10 +83,31 @@ const DashboardPage = () => {
         fetchClaims();
     }, []);
 
+    async function changeActiveProcessed(isActive) {
+        // setProcessedOrActive(changeProcessedOrActive);
+        try {
+            // Fetch all claims data from the API
+            let apiURL = 'http://localhost:8080/api/activeClaims'
+            if (!isActive) {
+                apiURL = 'http://localhost:8080/api/processedClaims'
+            }
+            const response = await axios.get(apiURL);
+
+            // Update state with the fetched data
+            setClaimsDetailsArray(response.data);
+        } catch (error) {
+            // Log any errors
+            console.error("Error fetching claims:", error);
+        }
+    }
     return (
         <div>
             <h2>Claims Dashboard</h2>
             { /* Pass the claims data to the Table component */ }
+            <div className="claim-type-selector">
+                <Button onClick={() => changeActiveProcessed(true)} className="btn btb-primary">Active</Button>
+                <Button onClick={() => changeActiveProcessed(false)}>Processed</Button>
+            </div>
             <Table claimDetails={claimsDetailsArray} />
         </div>
     );

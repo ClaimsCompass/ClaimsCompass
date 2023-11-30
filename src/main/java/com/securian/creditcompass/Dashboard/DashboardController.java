@@ -24,7 +24,7 @@ public class DashboardController {
         this.dashboardRepository = dashboardRepository;
     }
 
-    @GetMapping("/api/claims") // API endpoint to get all claims
+    @GetMapping("/api/activeClaims") // API endpoint to get all claims
     public List<List<Object>> getAllSortedClaims() {
         System.out.println("Hello");
         List<Claim> claims = dashboardRepository.findAll();
@@ -39,6 +39,22 @@ public class DashboardController {
         }
         return renderDashboardService.findAttributes(filteredClaims);
     }
+
+    @GetMapping("/api/processedClaims") // API endpoint to get all claims
+    public List<List<Object>> getAllSortedProcessedClaims() {
+        List<Claim> claims = dashboardRepository.findAll();
+        OrderCalculator scoredClaims = new OrderCalculator(claims);
+        List<Claim> sortedClaims = scoredClaims.getOrderedClaims();
+
+        ArrayList<Claim> filteredClaims = new ArrayList<Claim>();
+        for (int i = 0; i < sortedClaims.size(); i++) {
+            if (sortedClaims.get(i).isProcessed()) {
+                filteredClaims.add(sortedClaims.get(i));
+            }
+        }
+        return renderDashboardService.findAttributes(filteredClaims);
+    }
+
 
     @GetMapping("/api/getClaimById") // API endpoint to get a single claim by id
     public Claim getClaimById(@RequestParam Integer id) {

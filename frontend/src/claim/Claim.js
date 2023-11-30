@@ -44,14 +44,33 @@ const ClaimPage = () => {
         navigate("/dashboard");
     }
 
+    console.log("YOO");
+    function renderButtonsOrNot() {
+        console.log("HELLO" + claimData['processed']);
+        if (claimData['processed']) {
+            return <div></div>;
+        } else {
+            return (
+                <div>
+                    <button onClick={redirectDashboard}>Process</button>
+                    <button onClick={redirectDashboard}>Send</button>
+            </div>
+        );
+        }
+    }
+
     return (
         <div>
             <ClaimNavbar></ClaimNavbar>
             <h2>Claim Amount: {claimData.claimAmt}</h2>
             <h2>Creation Date: {claimData.creationDateTime}</h2>
             <h2>Details of Claim ID: {claimData.claimType}</h2>
-            <button onClick={redirectDashboard}>Process</button>
-            <button onClick={redirectDashboard}>Send</button>
+            {!claimData['processed'] ?
+                <div>
+                    <button onClick={redirectDashboard}>Process</button>
+                    <button onClick={redirectDashboard}>Send</button>
+                </div> :
+                <div></div>};
             <iframe src="https://drive.google.com/file/d/1pygVq2aoKgHIIaGWtYjfAJkh7HCSXgfJ/preview" width="640" height="480" allow="autoplay"></iframe>
         </div>
     );
