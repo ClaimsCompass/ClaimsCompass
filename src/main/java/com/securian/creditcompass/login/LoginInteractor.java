@@ -7,23 +7,24 @@ import javax.naming.AuthenticationException;
 import java.util.Optional;
 
 @Service
-public class LoginInteractor implements LoginInputBoundary{
+public class LoginInteractor implements LoginInputBoundary {
     private final LoginDataAccessInterface loginDataAccessInterface;
-    public LoginInteractor(LoginDataAccessInterface loginDataAccessInterface){
+
+    public LoginInteractor(LoginDataAccessInterface loginDataAccessInterface) {
         this.loginDataAccessInterface = loginDataAccessInterface;
     }
 
     @Override
-    public boolean authenticate(LoginInputData loginInputData) throws AuthenticationException{
+    public Boolean authenticate(LoginInputData loginInputData) throws AuthenticationException {
         // Create a ClaimsExaminer object from the username's equivalent in the database'
         Optional<ClaimsExaminer> optionalExaminer = loginDataAccessInterface.findByUsername(loginInputData.getUsername());
-        if (optionalExaminer.isPresent()){
+        if (optionalExaminer.isPresent()) {
             ClaimsExaminer examiner = optionalExaminer.get();
             // get the password from the ClaimsExaminer object
             String dbPassword = examiner.getPassword();
 
             // compare database value to the password in the loginInputData
-            if(dbPassword.equals(loginInputData.getPassword())){
+            if (dbPassword.equals(loginInputData.getPassword())) {
                 System.out.println("Successful login.");
                 return true;
             } else {

@@ -20,14 +20,14 @@ public class LoginController {
         String username = userInput.get("username");
         String password = userInput.get("password");
         LoginInputData loginInputData = new LoginInputData(username, password);
-        try{
+        try {
             boolean authenticated = loginService.authenticate(loginInputData);
-            if(authenticated){
+            if (authenticated) {
                 return ResponseEntity.ok("Logging you in...");
             } else {
                 return ResponseEntity.status(401).body("Login unsuccessful.");
             }
-        } catch (AuthenticationException e){
+        } catch (AuthenticationException e) {
             return ResponseEntity.status(401).body(e.getMessage());
         }
         //return loginService.authenticate(loginInputData);
