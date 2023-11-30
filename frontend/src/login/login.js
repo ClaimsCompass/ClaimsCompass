@@ -17,7 +17,7 @@ const Login = () => {
             });
             if (response.status === 200) {
                 setMessage(response.data);
-                // const response2 = await axios.post('http://localhost:8080/assign', {});
+                const response2 = await axios.post('http://localhost:8080/assign', {});
                 navigate('/dashboard', { state: { username } });
             } else {
                 console.error('Login failed:', response.status, response.statusText);

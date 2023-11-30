@@ -42,29 +42,29 @@ public class ClaimsExaminer {
         }
     }
 
-    public int getExaminerScore() {
-        // return the total score of all claims assigned to this examiner
-        List<Claim> claims = this.claims;
-        if (claims == null) {
-            return 0;
-        }
-        else {
-            int totalScore = 0;
-            for (Claim claim : claims) {
-                totalScore += (int) claim.getTotalScore();
-            }
-            return totalScore;
-        }
-    }
+//    public int getExaminerScore() {
+//        // return the total score of all claims assigned to this examiner
+//        List<Claim> claims = this.claims;
+//        if (claims == null) {
+//            return 0;
+//        }
+//        else {
+//            int totalScore = 0;
+//            for (Claim claim : claims) {
+//                totalScore += (int) claim.getTotalScore();
+//            }
+//            return totalScore;
+//        }
+//    }
 
     // From a list of claims examiners, return the one with the minimum examiner score
-    private ClaimsExaminer getExaminerWithMinScore(List<ClaimsExaminer> examiners) {
-        ClaimsExaminer minExaminer = examiners.get(0);
-        for (ClaimsExaminer examiner : examiners) {
-            if (examiner.getExaminerScore() < minExaminer.getExaminerScore()) {
-                minExaminer = examiner;
-            }
-        }
-        return minExaminer;
-    }
+//    private ClaimsExaminer getExaminerWithMinScore(List<ClaimsExaminer> examiners) {
+//        ClaimsExaminer minExaminer = examiners.get(0);
+//        for (ClaimsExaminer examiner : examiners) {
+//            if (examiner.getExaminerScore() < minExaminer.getExaminerScore()) {
+//                minExaminer = examiner;
+//            }
+//        }
+//        return minExaminer;
+//    }
 }

@@ -59,7 +59,7 @@ public class AllocationService {
     public ClaimsExaminer getExaminerWithMinScore(List<ClaimsExaminer> examiners) {
         ClaimsExaminer minExaminer = examiners.get(0);
         for (ClaimsExaminer examiner : examiners) {
-            if (examiner.getExaminerScore() < minExaminer.getExaminerScore()) {
+            if (getExaminerScore(examiner) < getExaminerScore(minExaminer)) {
                 minExaminer = examiner;
             }
         }
