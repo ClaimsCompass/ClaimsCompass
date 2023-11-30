@@ -12,10 +12,8 @@ public class LoginInteractor implements LoginInputBoundary{
     private final ExaminerRepository examinerRepository;
     public LoginInteractor(ExaminerRepository examinerRepository){
         this.examinerRepository = examinerRepository;
-    }
-
     @Override
-    public boolean authenticate(LoginInputData loginInputData) throws AuthenticationException{
+    public Boolean authenticate(LoginInputData loginInputData) throws AuthenticationException {
         // Create a ClaimsExaminer object from the username's equivalent in the database'
         Optional<ClaimsExaminer> optionalExaminer = examinerRepository.findByUsername(loginInputData.getUsername());
         if (optionalExaminer.isPresent()){
@@ -24,7 +22,7 @@ public class LoginInteractor implements LoginInputBoundary{
             String dbPassword = examiner.getPassword();
 
             // compare database value to the password in the loginInputData
-            if(dbPassword.equals(loginInputData.getPassword())){
+            if (dbPassword.equals(loginInputData.getPassword())) {
                 System.out.println("Successful login.");
                 return true;
             } else {
