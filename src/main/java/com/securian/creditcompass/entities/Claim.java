@@ -1,5 +1,4 @@
 package com.securian.creditcompass.entities;
-import com.securian.creditcompass.Claimant.Claimant;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
@@ -41,14 +40,16 @@ public class Claim {
     // though it does not necessarily have to be public.
     public Claim() {}
 
-//    public Claim(String claimType, String claimDetails, Float claimAmt, Claimant claimant) {
-//        this.claimType = claimType;
-//        this.claimDetails = claimDetails;
-//        this.claimAmt = claimAmt;
-//        this.creationDateTime = LocalDateTime.now();
-//        this.processed = false;
-//        this.urgencyScore = 0;
-//    }
+    public Claim(Integer id, String claimType, String claimDetails, Float claimAmt, Integer complexityScore, Integer urgencyScore) {
+        this.id = id;
+        this.claimType = claimType;
+        this.claimDetails = claimDetails;
+        this.claimAmt = claimAmt;
+        this.complexityScore = complexityScore;
+        this.urgencyScore = urgencyScore;
+        this.creationDateTime = LocalDateTime.now();
+        this.processed = false;
+    }
 
     public Integer getId() {
         return this.id;
