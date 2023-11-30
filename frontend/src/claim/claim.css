@@ -1,0 +1,42 @@
+.custom-container {
+    min-height: 50px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: green;
+    padding: 10px;
+}
+
+.right-section {
+    display: flex;
+    align-items: flex-end;
+}
+
+.nav-links {
+    margin-right: 15px;
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+.nav-links li {
+    font-size: 2em;
+    font-family: "Fira Code", sans-serif;
+    margin-right: 15px;
+}
+
+.nav-links li a {
+    color: white;
+}
+
+.user-image {
+    width: 10%;
+    height: 10%;
+}
+.user-info {
+    display: flex;
+    align-items: center;
+    width: auto;
+}

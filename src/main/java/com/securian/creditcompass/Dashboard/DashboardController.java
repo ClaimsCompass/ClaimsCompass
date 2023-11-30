@@ -26,6 +26,7 @@ public class DashboardController {
 
     @GetMapping("/api/claims") // API endpoint to get all claims
     public List<List<Object>> getAllSortedClaims() {
+        System.out.println("Hello");
         List<Claim> claims = dashboardRepository.findAll();
         OrderCalculator scoredClaims = new OrderCalculator(claims);
         List<Claim> sortedClaims = scoredClaims.getOrderedClaims();

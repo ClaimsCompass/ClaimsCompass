@@ -44,6 +44,24 @@ import axios from "axios"; // Import axios for HTTP requests
 const DashboardPage = () => {
     const [claimsDetailsArray, setClaimsDetailsArray] = useState([]); // Initialize state
 
+    // useEffect(() => {
+    //     // Define the function for fetching claims data
+    //     const fetchClaims = async () => {
+    //         try {
+    //             // Fetch all claims data from the API
+    //             const response = await axios.get('http://localhost:8080/api/claims');
+    //
+    //             // Update state with the fetched data
+    //             setClaimsDetailsArray(response.data);
+    //         } catch (error) {
+    //             // Log any errors
+    //             console.error("Error fetching claims:", error);
+    //         }
+    //     };
+    //
+    //     // Call the fetch function
+    //     fetchClaims();
+    // }, []); // The empty dependency array ensures this effect runs once on component mount
     useEffect(() => {
         // Define the function for fetching claims data
         const fetchClaims = async () => {
@@ -61,7 +79,7 @@ const DashboardPage = () => {
 
         // Call the fetch function
         fetchClaims();
-    }, []); // The empty dependency array ensures this effect runs once on component mount
+    }, []);
 
     return (
         <div>

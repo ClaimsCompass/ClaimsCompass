@@ -5,7 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import axios from 'axios';
-import ClaimNavbar from "./ClaimNavbar";
+import ClaimNavbar from "./claimNavbar";
 // import '../dashboard/dashboard.css';
 
 const ClaimPage = () => {

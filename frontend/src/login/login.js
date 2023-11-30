@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import SecurianLogo from './securianLogo.png';
 import { useNavigate } from "react-router-dom";
+import "./login.css"
 
 const Login = () => {
     const [username, setUsername] = useState('');
