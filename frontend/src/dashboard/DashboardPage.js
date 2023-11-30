@@ -48,8 +48,9 @@ const DashboardPage = () => {
         // Define the function for fetching claims data
         const fetchClaims = async () => {
             try {
-                // Fetch data from your API
+                // Fetch all claims data from the API
                 const response = await axios.get('http://localhost:8080/api/claims');
+
                 // Update state with the fetched data
                 setClaimsDetailsArray(response.data);
             } catch (error) {
@@ -61,12 +62,11 @@ const DashboardPage = () => {
         // Call the fetch function
         fetchClaims();
     }, []); // The empty dependency array ensures this effect runs once on component mount
-    console.log(claimsDetailsArray);
 
     return (
         <div>
             <h2>Claims Dashboard</h2>
-            {/* Pass the claims data to the Table component */}
+            { /* Pass the claims data to the Table component */ }
             <Table claimDetails={claimsDetailsArray} />
         </div>
     );
