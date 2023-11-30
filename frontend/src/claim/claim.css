@@ -9,7 +9,26 @@
     padding: 10px;
 }
 
-.right-section {
+.right-section
+.claim-type-selector {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+
+}
+.claim-type-selector-btn {
+    display: block;
+    color: #282c34;
+    border: 0px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    background-color: transparent;
+}
+.claim-type-selector-btn:focus {
+    display: block;
+    border: 0px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+{
     display: flex;
     align-items: flex-end;
 }
@@ -39,4 +58,45 @@
     display: flex;
     align-items: center;
     width: auto;
+}
+.claim-pdf {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.claim-type-selector {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+
+}
+.claim-type-selector-btn {
+    display: block;
+    color: #282c34;
+    border: 0px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    background-color: transparent;
+}
+.claim-type-selector-btn:focus {
+    display: block;
+    border: 0px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.claim-info-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.detail-container {
+    display: flex;
+    flex-direction: column;
+    justify-items: left;
+    width: 50%;
+}
+
+.detail-column {
+    flex: 1;
+    margin: 0 10px;
 }

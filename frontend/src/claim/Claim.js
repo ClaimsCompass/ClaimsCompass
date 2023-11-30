@@ -58,20 +58,35 @@ const ClaimPage = () => {
         );
         }
     }
+    /*
+    <h2>Claim Amount: {claimData.claimAmt}</h2>
+    <h2>Creation Date: {claimData.creationDateTime}</h2>
+    <h2>Details of Claim ID: {claimData.claimType}</h2>
+    */
 
     return (
         <div>
             <ClaimNavbar></ClaimNavbar>
-            <h2>Claim Amount: {claimData.claimAmt}</h2>
-            <h2>Creation Date: {claimData.creationDateTime}</h2>
-            <h2>Details of Claim ID: {claimData.claimType}</h2>
+            <div className="claim-info-container">
+                <div className="detail-container">
+                    <div className="detail-column">
+                        <h2>Claim Amount: {claimData.claimAmt}</h2>
+                    </div>
+                    <div className="detail-column">
+                        <h2>Creation Date: {claimData.creationDateTime}</h2>
+                    </div>
+                    <div className="detail-column">
+                        <h2>Details of Claim ID: {claimData.claimType}</h2>
+                    </div>
+                </div>
+                <iframe className="claim-pdf" allow="autoplay" src="https://drive.google.com/file/d/1pygVq2aoKgHIIaGWtYjfAJkh7HCSXgfJ/preview"></iframe>
+            </div>
             {!claimData['processed'] ?
-                <div>
+                <div className="claim-type-selector">
                     <button onClick={redirectDashboard}>Process</button>
                     <button onClick={redirectDashboard}>Send</button>
                 </div> :
                 <div></div>};
-            <iframe src="https://drive.google.com/file/d/1pygVq2aoKgHIIaGWtYjfAJkh7HCSXgfJ/preview" width="640" height="480" allow="autoplay"></iframe>
         </div>
     );
 };
