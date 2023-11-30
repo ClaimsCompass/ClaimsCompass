@@ -6,17 +6,6 @@ import SecurianLogo from './login/securianLogo.png'
 import {Routes, Route} from "react-router-dom";
 
 function App() {
-  //return (
-      //<div className="container">
-      //    <div className="login-logo-box">
-      //        <img src={SecurianLogo} alt="Securian Logo" />
-      //    </div>
-      //    <div className="login-box">
-      //        <Login />
-      //    </div>
-      //</div>
-
-  //);
     return (
         <>
             <Routes>

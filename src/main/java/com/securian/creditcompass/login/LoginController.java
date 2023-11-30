@@ -1,5 +1,4 @@
 package com.securian.creditcompass.login;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,7 +29,6 @@ public class LoginController {
         } catch (AuthenticationException e) {
             return ResponseEntity.status(401).body(e.getMessage());
         }
-        //return loginService.authenticate(loginInputData);
     }
 
 }
