@@ -77,7 +77,7 @@ public class MLPModel {
         }
 
         // Test the trained model (optional)
-        INDArray testInput = Nd4j.create(new double[][]{{5000, 1, 0, 0, 1, 1}});
+        INDArray testInput = Nd4j.create(new double[][]{{100000, 1, 1, 0, 0, 1}});
         normalizer.transform(testInput); // Normalize test data
         INDArray predicted = model.output(testInput);
         System.out.println("Predicted Output: " + predicted);
