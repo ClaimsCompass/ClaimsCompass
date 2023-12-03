@@ -24,8 +24,6 @@ public class OrderCalculator{
 //    public List<Claim> getOrderedClaims(){return this.orderedClaims;}
 
     public void calculateScores(List<Claim> claims){
-        HashMap<String, Integer> keywords = new HashMap<String, Integer>();
-        fillKeywords(keywords);
 
         for (Claim claim : claims){
             Duration duration = Duration.between(claim.getCreationDateTime(), LocalDateTime.now());
@@ -43,29 +41,20 @@ public class OrderCalculator{
                 claim.setUrgencyScore(newUrgencyScore);
             }
 
+            // TODO: Check how a strategy pattern would work here. How is the strategy chosen?
+
+            ComplexityAlgorithm iterativeAlgorithm = new IterativeComplexityAlgorithm();
+            ComplexityAlgorithm MLPAlgorithm = new MLPComplexityAlgorithm();
+
             //Complexity
-            String claimDetails = claim.getClaimDetails();
-            String[] details = claimDetails.split(" ");
-            int complexityScore = 0;
-            for (int i = 0; i < details.length; i++){
-                String header = details[i];
-                if (keywords.containsKey(header)){
-                    complexityScore += keywords.get(header);
-                }
-            }
+            int MLPComplexityScore = MLPAlgorithm.calculateComplexity(claim);
+            int IterativeComplexityScore = iterativeAlgorithm.calculateComplexity(claim);
+
+            int complexityScore = MLPComplexityScore;
 
             claim.setComplexityScore(complexityScore);
             calculateTotalScore(claim);
         }
-    }
-
-    private void fillKeywords(HashMap<String, Integer> keywordsMap){
-        keywordsMap.put("Life",1);
-        keywordsMap.put("Unemployment",2);
-        keywordsMap.put("Illness",3);
-        keywordsMap.put("Disability",3);
-        keywordsMap.put("CompletedDocuments:N",6);
-        keywordsMap.put("AccurateDocuments:N",5);
     }
 
 
