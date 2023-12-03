@@ -7,8 +7,10 @@ import java.util.Objects;
 public class MLPComplexityAlgorithm implements ComplexityAlgorithm{
     @Override
     public int calculateComplexity(Claim claim) {
-        // TODO: MLP Model is expecting an integer; change that.
-        float claimAmount = claim.getClaimAmount();
+        float exactClaimAmount = claim.getClaimAmount();
+        int claimAmount = Math.round(exactClaimAmount);
+        // Changed type to allow for use of arrays later on, which will simplify things.
+
         String claimType = claim.getClaimType();
         int partyA = 0;
         int partyB = 0;
