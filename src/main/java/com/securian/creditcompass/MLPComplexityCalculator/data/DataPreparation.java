@@ -1,4 +1,4 @@
-package com.securian.creditcompass.ComplexityModel.data;
+package com.securian.creditcompass.MLPComplexityCalculator.data;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -69,6 +69,13 @@ public class DataPreparation {
             case "High" -> 2;
             default -> -1; // Handle unknown ratings
         };
+    }
+
+    public static void main(String[] args) {
+        // File paths for input and output files
+        String inputFileName = "src/main/java/com/securian/creditcompass/ComplexityModel/data/mock_raw_data.csv";
+        String outputFileName = "src/main/java/com/securian/creditcompass/ComplexityModel/data/processed_data.csv";
+
     }
 }
 

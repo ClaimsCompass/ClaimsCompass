@@ -1,4 +1,4 @@
-package com.securian.creditcompass.ComplexityModel.data;
+package com.securian.creditcompass.MLPComplexityCalculator.data;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
