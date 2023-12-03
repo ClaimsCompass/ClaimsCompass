@@ -51,7 +51,6 @@ public class OrderCalculator{
         }
     }
 
-
     private void calculateTotalScore(Claim claim){
         int urgencyScore = claim.getUrgencyScore();
         int complexityScore = claim.getComplexityScore();
