@@ -75,7 +75,7 @@ public class MLPModel {
         }
 
         // Run a mini test on the trained model to check for bugs
-        INDArray testInput = Nd4j.create(new double[][]{{100, 0, 0, 0, 2, 0}});
+        INDArray testInput = Nd4j.create(new double[][]{{10000, 0, 0, 0, 2, 0}});
         normalizer.transform(testInput);
         INDArray predicted = model.output(testInput);
         // Get the float value of the predicted score and multiply by 2 to get the predicted complexity
