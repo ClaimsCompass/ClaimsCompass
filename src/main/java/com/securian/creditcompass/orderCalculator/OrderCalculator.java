@@ -41,16 +41,10 @@ public class OrderCalculator{
                 claim.setUrgencyScore(newUrgencyScore);
             }
 
-            // TODO: Check how a strategy pattern would work here. How is the strategy chosen?
-
             ComplexityAlgorithm iterativeAlgorithm = new IterativeComplexityAlgorithm();
-            ComplexityAlgorithm MLPAlgorithm = new MLPComplexityAlgorithm();
+            ComplexityCalculator complexityCalculator = new ComplexityCalculator(iterativeAlgorithm);
 
-            //Complexity
-            int MLPComplexityScore = MLPAlgorithm.calculateComplexity(claim);
-            int IterativeComplexityScore = iterativeAlgorithm.calculateComplexity(claim);
-
-            int complexityScore = MLPComplexityScore;
+            int complexityScore = complexityCalculator.calculateComplexity(claim);
 
             claim.setComplexityScore(complexityScore);
             calculateTotalScore(claim);
