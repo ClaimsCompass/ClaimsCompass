@@ -1,0 +1,4 @@
+ClaimAmount, ClaimType, PartyA, PartyB, PartyC, ExaminerSeniorityLevel, Complexity
+10000, Life, 1, 1, 0, 0, High
+5000, Health, 0, 0, 1, 1, Low
+10000, Employment, 1, 0, 2, 3, Medium
