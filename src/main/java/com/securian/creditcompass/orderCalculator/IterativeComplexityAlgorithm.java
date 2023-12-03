@@ -4,7 +4,7 @@ import com.securian.creditcompass.entities.Claim;
 
 import java.util.HashMap;
 
-public class IterativeComplexity implements ComplexityAlgorithm{
+public class IterativeComplexityAlgorithm implements ComplexityAlgorithm{
     @Override
     public int calculateComplexity(Claim claim) {
 
