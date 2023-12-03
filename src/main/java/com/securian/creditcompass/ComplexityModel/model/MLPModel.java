@@ -15,6 +15,7 @@ import org.nd4j.linalg.dataset.DataSet;
 import org.nd4j.linalg.dataset.api.preprocessor.DataNormalization;
 import org.nd4j.linalg.dataset.api.preprocessor.NormalizerMinMaxScaler;
 import org.nd4j.linalg.factory.Nd4j;
+import org.nd4j.linalg.learning.config.Sgd;
 
 public class MLPModel {
 
@@ -43,18 +44,22 @@ public class MLPModel {
         int numOutputs = 1;
         MultiLayerConfiguration conf = new NeuralNetConfiguration.Builder()
                 .seed(123)
+                .updater(new Sgd(0.01))
                 .optimizationAlgo(OptimizationAlgorithm.STOCHASTIC_GRADIENT_DESCENT)
                 .list()
                 .layer(new DenseLayer.Builder().nIn(numInputs).nOut(10)
                         .activation(Activation.RELU)
+                        .l2(0.3)
                         .build())
                 .layer(new DenseLayer.Builder().nIn(10).nOut(10)
                         .activation(Activation.RELU)
+                        .l2(0.2)
                         .build())
                 .layer(new OutputLayer.Builder()
                         .nIn(10).nOut(numOutputs)
-                        .activation(Activation.IDENTITY)
-                        .build()) // Output layer should be an OutputLayer
+                        .activation(Activation.SIGMOID)
+                        .l2(0.1)
+                        .build())
                 .build();
 
         // Create the model
@@ -72,8 +77,16 @@ public class MLPModel {
         // Run a mini test on the trained model to check for bugs
         INDArray testInput = Nd4j.create(new double[][]{{100000, 1, 1, 1, 1, 0}});
         normalizer.transform(testInput);
-        System.out.println(testInput);
-        INDArray predicted = model.output(testInput); 
-        System.out.println("Predicted Output: " + predicted);
+        INDArray predicted = model.output(testInput);
+        // Get the float value of the predicted score and multiply by 2 to get the predicted complexity
+        float predictedComplexityFloat = predicted.getFloat(0) * 2;
+        System.out.println("Predicted Complexity: " + predictedComplexityFloat);
+
+        // Round that value to the nearest integer
+        int predictedComplexity = Math.round(predictedComplexityFloat);
+
+        // Return the minimum of that int value and 3
+        predictedComplexity = Math.min(predictedComplexity, 3);
+        System.out.println("Predicted Complexity: " + predictedComplexity);
     }
 }
