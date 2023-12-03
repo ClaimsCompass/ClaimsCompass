@@ -1,5 +1,6 @@
 package com.securian.creditcompass.ComplexityModel.model;
 
+import com.securian.creditcompass.ComplexityModel.data.CSVToInputOutputData;
 import org.deeplearning4j.datasets.iterator.impl.ListDataSetIterator;
 import org.deeplearning4j.nn.api.OptimizationAlgorithm;
 import org.deeplearning4j.nn.conf.MultiLayerConfiguration;
@@ -19,16 +20,8 @@ public class MLPModel {
 
     public static void main(String[] args) {
         // Define sample dataset
-        double[][] inputData = {
-                {10000, 0, 1, 1, 0, 0},
-                {5000, 1, 0, 0, 1, 1},
-                {10000, 2, 1, 0, 2, 3}
-        };
-        double[][] outputData = {
-                {2},
-                {0},
-                {1}
-        };
+        double[][] inputData = CSVToInputOutputData.getInputOutputData()[0];
+        double[][] outputData = CSVToInputOutputData.getInputOutputData()[1];
 
         // Convert data into INDArrays
         INDArray input = Nd4j.create(inputData);
@@ -36,7 +29,7 @@ public class MLPModel {
 
         // Normalize input data
         DataNormalization normalizer = new NormalizerMinMaxScaler();
-        normalizer.fit(new DataSet(input, output));
+        normalizer.fit(new DataSet(input, null)); // pass null to avoid normalizing outputs
         normalizer.transform(input);
 
         // Create a DataSet from the INDArrays
@@ -46,8 +39,8 @@ public class MLPModel {
         ListDataSetIterator<DataSet> dataSetIterator = new ListDataSetIterator<>(dataSet.asList(), 1);
 
         // Set up network configuration
-        int numInputs = inputData[0].length;
-        int numOutputs = outputData[0].length;
+        int numInputs = 6;
+        int numOutputs = 1;
         MultiLayerConfiguration conf = new NeuralNetConfiguration.Builder()
                 .seed(123)
                 .optimizationAlgo(OptimizationAlgorithm.STOCHASTIC_GRADIENT_DESCENT)
@@ -76,10 +69,11 @@ public class MLPModel {
             dataSetIterator.reset();
         }
 
-        // Test the trained model (optional)
-        INDArray testInput = Nd4j.create(new double[][]{{100000, 1, 1, 0, 0, 1}});
-        normalizer.transform(testInput); // Normalize test data
-        INDArray predicted = model.output(testInput);
+        // Run a mini test on the trained model to check for bugs
+        INDArray testInput = Nd4j.create(new double[][]{{100000, 1, 1, 1, 1, 0}});
+        normalizer.transform(testInput);
+        System.out.println(testInput);
+        INDArray predicted = model.output(testInput); 
         System.out.println("Predicted Output: " + predicted);
     }
 }
