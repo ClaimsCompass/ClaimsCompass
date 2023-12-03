@@ -19,7 +19,7 @@ import org.nd4j.linalg.learning.config.Sgd;
 
 public class MLPModel {
 
-    public static void main(String[] args) {
+    public static int predictComplexity(double[][] claimDetails) {
         // Define sample dataset
         double[][] inputData = CSVToInputOutputData.getInputOutputData()[0];
         double[][] outputData = CSVToInputOutputData.getInputOutputData()[1];
@@ -75,7 +75,7 @@ public class MLPModel {
         }
 
         // Run a mini test on the trained model to check for bugs
-        INDArray testInput = Nd4j.create(new double[][]{{100000, 0, 0, 0, 2, 0}});
+        INDArray testInput = Nd4j.create(claimDetails);
         normalizer.transform(testInput);
         INDArray predicted = model.output(testInput);
         // Get the float value of the predicted score and multiply by 2 to get the predicted complexity
@@ -87,6 +87,13 @@ public class MLPModel {
 
         // Return the minimum of that int value and 3
         predictedComplexity = Math.min(predictedComplexity, 3);
+
+        return predictedComplexity;
+    }
+
+    public static void main(String[] args) {
+        // Run a mini test of the model
+        int predictedComplexity = predictComplexity(new double[][]{{100000, 0, 0, 0, 2, 0}});
         System.out.println("Predicted Complexity: " + predictedComplexity);
     }
 }
