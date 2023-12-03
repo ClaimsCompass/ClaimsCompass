@@ -1,24 +1,23 @@
 package com.securian.creditcompass.login;
 
+import com.securian.creditcompass.dataAccess.ExaminerRepository;
 import com.securian.creditcompass.entities.ClaimsExaminer;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Optional;
 
 @Service
 public class LoginService {
-    private final LoginRepository loginRepository;
-    public LoginService(LoginRepository loginRepository){
+    private final ExaminerRepository loginRepository;
+    public LoginService(ExaminerRepository loginRepository){
         this.loginRepository = loginRepository;
     }
 
     public ResponseEntity<Object> authenticate(String username, String password){
-        Optional<ClaimsExaminer> optionalExaminer = loginRepository.findByUsername(username);
+        Optional<ClaimsExaminer> optionalExaminer = (Optional<ClaimsExaminer>) loginRepository.findByUsername(username);
         if (optionalExaminer.isPresent()){
             ClaimsExaminer examiner = optionalExaminer.get();
 
@@ -27,25 +26,14 @@ public class LoginService {
             if( dbPassword.equals(password)){
                 return ResponseEntity.ok("Logging you in...");
             } else {
-                ErrorObject errorObject = new ErrorObject("invalid Input.");
+                ErrorObject errorObject = new ErrorObject("Credentials do not match.");
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(errorObject);
             }
         }
-        ErrorObject errorObject = new ErrorObject("invalid Input.");
+        ErrorObject errorObject = new ErrorObject("Error.");
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(errorObject);
     }
 
-//    @PostMapping("/login")
-//    public ResponseEntity<Object> loginOutcome(@RequestBody LoginDTO loginTransferData){
-//        if (loginAuthService.authenticateExaminer(loginTransferData.getUsername(), loginTransferData.getPassword())){
-//            // Successful Login
-//            return ResponseEntity.ok("Login Successful");
-//        } else {
-//            // Unsuccessful login - returns JSON obj with error information.
-//            ErrorObject errorObject = new ErrorObject("invalid Input.");
-//            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(errorObject);
-//        }
-//    }
     @Getter
     private static class ErrorObject {
         private final String error;

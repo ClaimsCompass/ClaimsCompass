@@ -1,22 +1,24 @@
-package com.securian.creditcompass.Dashboard;
+package com.securian.creditcompass.dashboard;
 
 import com.securian.creditcompass.entities.Claim;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
-public class RenderDashboardService {
+public class DashboardOutputData {
+    private final List<Claim> orderedClaims;
 
-    public List<List<Object>> findAttributes(List<Claim> claimList) {
+    public DashboardOutputData(List<Claim> orderedClaims){
+        this.orderedClaims = orderedClaims;
+    }
+
+    public List<List<Object>> execute() {
         List<List<Object>> allClaimsAttributes = new ArrayList<>();
 
 
-        for (Claim claim : claimList) {
+        for (Claim claim : orderedClaims) {
+            // Iterate through each claim. Store information about each claim inside a list.
             List<Object> claimAttributes = new ArrayList<>();
-            // Assuming Claim class has attributes like claimId, amount, date, etc.
             claimAttributes.add(claim.getId());
             claimAttributes.add(claim.getClaimAmt());
             claimAttributes.add(claim.getCreationDateTime());
@@ -32,7 +34,6 @@ public class RenderDashboardService {
                 claimAttributes.add("Low");
             }
             double complexity = claim.getComplexityScore();
-            // Complexity
             if (complexity >= 7) {
                 claimAttributes.add("High");
             }
@@ -44,7 +45,7 @@ public class RenderDashboardService {
             }
             allClaimsAttributes.add(claimAttributes);
         }
-
+        // Return a list of claims that each have a list of attributes.
         return allClaimsAttributes;
     }
 }
