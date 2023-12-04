@@ -6,6 +6,7 @@ import com.securian.creditcompass.entities.ClaimsExaminer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 // Facade Implementation
@@ -43,23 +44,38 @@ public class AllocationService {
         // return the total score of all claims assigned to this examiner
         String examinerUsername = currExaminer.getUsername();
         List<Claim> allClaims = claimRepository.findClaimsByExaminer(examinerUsername);
-        if (allClaims == null) {
-            return 0;
-        }
-        else {
-            int totalScore = 0;
-            for (Claim claim : allClaims) {
-                totalScore += (int) claim.getTotalScore();
+        ArrayList<Claim> filteredClaims = new ArrayList<Claim>();
+
+        for (int i = 0; i < allClaims.size(); i++) {
+            if (!allClaims.get(i).isProcessed()) {
+                filteredClaims.add(allClaims.get(i));
             }
-            return totalScore;
         }
+       // if (allClaims == null) {
+       //     return 0;
+       // }
+       // else {
+        int totalScore = 0;
+        for (Claim claim : allClaims) {
+            totalScore += claim.getUrgencyScore() + claim.getComplexityScore();
+        }
+        return totalScore;
     }
 
     // From a list of claims examiners, return the one with the minimum examiner score
     public ClaimsExaminer getExaminerWithMinScore(List<ClaimsExaminer> examiners) {
+        System.out.println("Size: " + examiners.size());
+        for (ClaimsExaminer examiner : examiners) {
+            System.out.println(examiner.getUsername());
+        }
         ClaimsExaminer minExaminer = examiners.get(0);
         for (ClaimsExaminer examiner : examiners) {
-            if (getExaminerScore(examiner) < getExaminerScore(minExaminer)) {
+            Integer curExaminerScore = getExaminerScore(examiner);
+            Integer minExaminerScore = getExaminerScore(minExaminer);
+
+            System.out.println(examiner.getUsername() + " " + curExaminerScore);
+            System.out.println(minExaminer.getUsername() + " " + minExaminerScore);
+            if (curExaminerScore < minExaminerScore) {
                 minExaminer = examiner;
             }
         }

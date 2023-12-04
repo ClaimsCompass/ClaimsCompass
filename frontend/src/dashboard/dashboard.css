@@ -87,3 +87,7 @@ td.claim-id.extra-padding {
 th.claim-id-header.extra-padding {
     padding-left: 20px; /* Adjust the value as needed for extra left padding */
 }
+
+a {
+    display: block;
+}
