@@ -108,7 +108,7 @@ public class Claim {
 
     public String getClaimDetails() {return this.claimDetails;}
 
-    public Float getClaimAmt() { return this.claimAmt; }
+    public Float getClaimAmount() { return this.claimAmt; }
 
     public Integer getComplexityScore() {return this.complexityScore;}
 

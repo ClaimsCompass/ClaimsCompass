@@ -20,7 +20,7 @@ public class DashboardOutputData {
             // Iterate through each claim. Store information about each claim inside a list.
             List<Object> claimAttributes = new ArrayList<>();
             claimAttributes.add(claim.getId());
-            claimAttributes.add(claim.getClaimAmt());
+            claimAttributes.add(claim.getClaimAmount());
             claimAttributes.add(claim.getCreationDateTime());
             claimAttributes.add(claim.getClaimType());
             double urgency = claim.getUrgencyScore();

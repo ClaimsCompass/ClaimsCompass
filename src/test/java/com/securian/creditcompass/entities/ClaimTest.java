@@ -31,7 +31,7 @@ class ClaimTest {
     @Test
     void getClaimAmt() {
         // should I add a delta? If so, what should the error range for the float be?
-        assertEquals(10000.00F, test_claim.getClaimAmt());
+        assertEquals(10000.00F, test_claim.getClaimAmount());
     }
 
     @Test
