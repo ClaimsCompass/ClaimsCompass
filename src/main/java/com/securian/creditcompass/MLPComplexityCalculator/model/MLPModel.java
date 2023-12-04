@@ -85,9 +85,6 @@ public class MLPModel {
         // Round that value to the nearest integer
         int predictedComplexity = Math.round(predictedComplexityFloat);
 
-        // Return the minimum of that int value and 3
-        predictedComplexity = Math.min(predictedComplexity, 3);
-
         return predictedComplexity;
     }
 
