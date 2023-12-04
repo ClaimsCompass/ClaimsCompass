@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class CSVToInputOutputData {
     public static double[][][] getInputOutputData() {
-        String inputFile = "src/main/java/com/securian/creditcompass/ComplexityModel/training/training.csv"; // Replace with your file path
+        String inputFile = "src/main/java/com/securian/creditcompass/MLPComplexityCalculator/training/training.csv"; // Replace with your file path
 
         double[][] inputData = null;
         double[][] outputData = null;
