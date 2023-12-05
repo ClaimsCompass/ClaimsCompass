@@ -10,13 +10,13 @@ import java.util.List;
 
 class OrderCalculatorTest {
     private OrderCalculator orderCalculator;
+    private List<Claim> orderedClaims;
 
     @BeforeEach
     void setup(){
         List<Claim> claims = createFakeClaims();
         orderCalculator = new OrderCalculator(claims);
-        List<Claim> orderedClaims = orderFakeClaims(claims);
-        testOrder(orderedClaims);
+        this.orderedClaims = orderFakeClaims(claims);
     }
 
     //Creating fake claims for testing
@@ -50,19 +50,23 @@ class OrderCalculatorTest {
     }
 
     @Test
-    void testOrder(List<Claim> claims) {
-        for (int i = 0; i < claims.size()-2; i++){
+    void testOrder() {
+        for (int i = 0; i < this.orderedClaims.size()-2; i++){
+
             //Print statements go here for a visualization
-            System.out.println(claims.get(i).getTotalScore());
-            System.out.println(claims.get(i).getUrgencyScore());
-            System.out.println(claims.get(i).getComplexityScore());
+            System.out.println(this.orderedClaims.get(i).getTotalScore());
+            System.out.println(this.orderedClaims.get(i).getUrgencyScore());
+            System.out.println(this.orderedClaims.get(i).getComplexityScore());
             System.out.println("Order: " + i);
             System.out.println("--------");
+
             //Check if the claims are ordered by their scores
-            assert (claims.get(i).getTotalScore() >= claims.get(i+1).getTotalScore());
+            assert (this.orderedClaims.get(i).getTotalScore() >=
+                    this.orderedClaims.get(i+1).getTotalScore());
             //Check if the urgency and complexity scores are weighted correctly
-            assert (claims.get(i).getTotalScore() - claims.get(i).getUrgencyScore() ==
-                    claims.get(i).getComplexityScore() * 6);
+            assert (this.orderedClaims.get(i).getTotalScore() -
+                    this.orderedClaims.get(i).getUrgencyScore() ==
+                    this.orderedClaims.get(i).getComplexityScore() * 6);
         }
     }
 }
