@@ -1,4 +1,5 @@
 package com.securian.creditcompass.entities;
+import com.securian.creditcompass.ClaimState.AssignedClaimState;
 import com.securian.creditcompass.ClaimState.ClaimStateChangeListener;
 import com.securian.creditcompass.ClaimState.ClaimState;
 import jakarta.persistence.*;
@@ -162,7 +163,8 @@ public class Claim {
     public void setClaimExaminer(ClaimsExaminer examiner) {
         this.examiner = examiner.getUsername();
     }
-    }
+
+}
 
 
 
