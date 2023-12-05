@@ -164,9 +164,6 @@ public class Claim {
         this.examiner = examiner.getUsername();
     }
 
-    //This setter should only be used for testing purposes
-    public void setClaimStateTesting() {this.currentState = new AssignedClaimState();
-    }
 }
 
 

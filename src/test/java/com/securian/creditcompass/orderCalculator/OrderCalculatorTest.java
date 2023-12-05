@@ -1,8 +1,9 @@
-package com.securian.creditcompass;
+package com.securian.creditcompass.orderCalculator;
 
 import com.securian.creditcompass.entities.Claim;
 import com.securian.creditcompass.orderCalculator.OrderCalculator;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,8 +11,8 @@ import java.util.List;
 class OrderCalculatorTest {
     private OrderCalculator orderCalculator;
 
-    @Test
-    void init(){
+    @BeforeEach
+    void setup(){
         List<Claim> claims = createFakeClaims();
         orderCalculator = new OrderCalculator(claims);
         List<Claim> orderedClaims = orderFakeClaims(claims);
@@ -24,19 +25,16 @@ class OrderCalculatorTest {
         for (int i = 0; i <= 5; i++){
             Claim claim = new Claim(i, "life", "Life",
                     (float) 1000 + 1000 * i, 0, 0);
-            claim.setClaimStateTesting();
             claims.add(claim);
         }
         for (int i = 0; i <= 2; i++){
             Claim claim = new Claim(i, "life", "Illness",
                     (float) 1000 + 1000 * i, 0, 0);
-            claim.setClaimStateTesting();
             claims.add(claim);
         }
         Claim claim = new Claim(8, "illness",
                 "CompletedDocuments:N Illness useless text should be ignored", 131141.4F,
                 0, 0);
-        claim.setClaimStateTesting();
         claims.add(claim);
         return claims;
     }
@@ -51,6 +49,7 @@ class OrderCalculatorTest {
         return orderedClaims;
     }
 
+    @Test
     void testOrder(List<Claim> claims) {
         for (int i = 0; i < claims.size()-2; i++){
             //Print statements go here for a visualization
