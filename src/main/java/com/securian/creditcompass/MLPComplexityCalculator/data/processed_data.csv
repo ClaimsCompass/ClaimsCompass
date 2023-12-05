@@ -1,4 +1,0 @@
-ClaimAmount, ClaimType, PartyA, PartyB, PartyC, ExaminerSeniorityLevel, Complexity
-10000, 0, 1, 1, 0, 0, 2
-5000, 1, 0, 0, 1, 1, 0
-10000, 2, 1, 0, 2, 3, 1
