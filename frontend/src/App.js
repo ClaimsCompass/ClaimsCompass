@@ -6,6 +6,7 @@ import SecurianLogo from './login/securianLogo.png'
 import ClaimPage from './claim/Claim';
 import {Routes, Route} from "react-router-dom";
 import axios from "axios";
+import Dashboard from "./dashboardModernize/Dashboard";
 
 function App() {
     // const response = axios.post('http://localhost:8080/assign', {});
@@ -14,7 +15,8 @@ function App() {
             <Routes>
                 <Route path="/" element={<Login />} />
                 <Route path="/login_page" element={<Login />} />
-                <Route path="/dashboard" element={<DashboardPage />} />
+                {/*<Route path="/dashboard" element={<DashboardPage />} />*/}
+                <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/dashboard/:id" element={<ClaimPage />} />
             </Routes>
         </>
