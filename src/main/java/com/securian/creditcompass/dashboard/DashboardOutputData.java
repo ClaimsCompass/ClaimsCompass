@@ -24,10 +24,14 @@ public class DashboardOutputData {
             claimAttributes.add(claim.getCreationDateTime());
             claimAttributes.add(claim.getClaimType());
             double urgency = claim.getUrgencyScore();
-            if (urgency >= 6) {
+            //convert urgency score to hours
+            double hours = Math.log(urgency + 1) / (0.193494007 * Math.log(2));
+            //After a day and a half since claim was filed
+            if (hours >= 32) {
                 claimAttributes.add("High");
             }
-            else if (urgency >= 3) {
+            //After 18 hours since claim was first filed
+            else if (hours >= 18) {
                 claimAttributes.add("Medium");
             }
             else {
