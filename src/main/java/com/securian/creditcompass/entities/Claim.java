@@ -1,5 +1,4 @@
 package com.securian.creditcompass.entities;
-import com.securian.creditcompass.ClaimState.AssignedClaimState;
 import com.securian.creditcompass.ClaimState.ClaimStateChangeListener;
 import com.securian.creditcompass.ClaimState.ClaimState;
 import jakarta.persistence.*;
@@ -56,34 +55,12 @@ public class Claim {
     @Column(name = "examiner")
     private String examiner;
 
-    private transient ClaimState currentState;
 
     // TODO We may need read and write objects for ClaimState too, if we want to save
     //  it to the database?
 
-    private transient List<ClaimStateChangeListener> listeners = new ArrayList<>();
-
     public Claim() {
 
-    }
-
-    private void writeObject(ObjectOutputStream out) throws IOException, IOException {
-        out.defaultWriteObject();
-        out.writeInt(listeners.size());
-        for (ClaimStateChangeListener listener : listeners) {
-            out.writeObject(listener);
-        }
-    }
-
-    @SuppressWarnings("unchecked")
-    private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
-        in.defaultReadObject();
-        int numListeners = in.readInt();
-        listeners = new ArrayList<>();
-        for (int i = 0; i < numListeners; i++) {
-            ClaimStateChangeListener listener = (ClaimStateChangeListener) in.readObject();
-            listeners.add(listener);
-        }
     }
 
     // Hibernate expects entities to have a no-arg constructor,
@@ -115,54 +92,22 @@ public class Claim {
 
     public Integer getUrgencyScore() {return this.urgencyScore;}
 
+    public double getTotalScore(){return this.totalScore;}
+
     public void setComplexityScore(Integer score){this.complexityScore = score;}
 
     public void setUrgencyScore(Integer score){this.urgencyScore = score;}
 
     public void setTotalScore(Integer score){this.totalScore = score;}
-    public double getTotalScore(){return this.totalScore;}
+
+    public void setClaimExaminer(ClaimsExaminer examiner) {
+        this.examiner = examiner.getUsername();
+    }
 
     public boolean isProcessed(){return this.processed;}
 
     public boolean processClaim(){return this.processed = true;}
 
-    public void assignToClaimsExaminer(ClaimsExaminer examiner) {
-        currentState.assignToClaimsExaminer(examiner, this);
-    }
-
-    public void calculateScore() {
-        currentState.calculateScore(this);
-    }
-
-    public void changeToProcessed() {
-        currentState.changeToProcessed(this);
-    }
-
-    public void addStateChangeListener(ClaimStateChangeListener listener) {
-        listeners.add(listener);
-    }
-
-    public void removeStateChangeListener(ClaimStateChangeListener listener) {
-        listeners.remove(listener);
-    }
-
-    public void setCurrentState(ClaimState newState) {
-        if (this.currentState != newState) {
-            ClaimState oldState = this.currentState;
-            this.currentState = newState;
-            notifyStateChangeListeners(oldState, newState);
-        }
-    }
-
-    private void notifyStateChangeListeners(ClaimState oldState, ClaimState newState) {
-        for (ClaimStateChangeListener listener : listeners) {
-            listener.stateChanged(this, newState);
-        }
-    }
-
-    public void setClaimExaminer(ClaimsExaminer examiner) {
-        this.examiner = examiner.getUsername();
-    }
 
 }
 
