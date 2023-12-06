@@ -19,11 +19,11 @@ public class AllocationService {
     @Autowired
     private ClaimRepository claimRepository;
 
-//    public AllocationService(){
-//        this.examinerRepository = examinerRepository;
-//        this.claimRepository = claimRepository;
-//    }
-    // I want tp search for the
+    public AllocationService(ExaminerRepository examinerRepository, ClaimRepository claimRepository){
+        this.examinerRepository = examinerRepository;
+        this.claimRepository = claimRepository;
+    }
+
     public void assignClaim(Claim nextClaim, List <ClaimsExaminer> claimsExaminers ) {
         // assign the claim to this examiner who has the lowest score
         // set examiner column of this claim to the examiner with the lowest score
