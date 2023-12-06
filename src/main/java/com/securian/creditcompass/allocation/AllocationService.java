@@ -54,7 +54,6 @@ public class AllocationService {
                 filteredClaims.add(allClaims.get(i));
             }
         }
-
         int totalScore = 0;
         for (Claim claim : filteredClaims) {
             totalScore += claim.getUrgencyScore() + claim.getComplexityScore();

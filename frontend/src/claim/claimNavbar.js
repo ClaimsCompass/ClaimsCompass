@@ -1,4 +1,4 @@
-// export default ClaimNavbar;
+// export default DashboardNavbar;
 import whiteLogo from "./whiteLogo.png"
 import "./claim.css"
 import user from "./user.png"
