@@ -9,11 +9,14 @@ import axios from "axios";
 import Dashboard from "./dashboardModernize/Dashboard";
 import Claim from "./claimModernize/Claim";
 import LoginPage from "./loginModernize/LoginPage";
+import { ThemeProvider } from '@mui/material/styles';
+import theme from './theme';
 
 
 function App() {
     // const response = axios.post('http://localhost:8080/assign', {});
     return (
+        <ThemeProvider theme={theme}>
         <>
             <Routes>
                 <Route path="/" element={<LoginPage />} />
@@ -23,6 +26,7 @@ function App() {
                 <Route path="/dashboard/:id" element={<Claim/>} />
             </Routes>
         </>
+        </ThemeProvider>
     );
 }
 

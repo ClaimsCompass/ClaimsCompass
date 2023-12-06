@@ -6,17 +6,17 @@ import DashboardContainer from './DashboardContainer';
 import SalesOverview from './components/SalesOverview';
 import YearlyBreakup from './components/YearlyBreakup';
 import RecentTransactions from './components/RecentTransactions';
-import ProductPerformance from './components/ProductPerformance';
+import ClaimsTable from './components/ClaimsTable';
 import MonthlyEarnings from './components/MonthlyEarnings';
 
 
 const Dashboard = () => {
   return (
-    <DashboardContainer title="Dashboard" description="this is Dashboard">
+    <DashboardContainer title="Your Claims" description="this is Dashboard">
       <Box>
         <Grid container spacing={3}>
           <Grid item xs={12} lg={8}>
-            <ProductPerformance />
+            <ClaimsTable />
           </Grid>
           <Grid item xs={12} lg={4}>
             <Grid container spacing={3}>
