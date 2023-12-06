@@ -2,7 +2,7 @@ import React from 'react';
 import { AppBar, Toolbar, Typography, Box } from '@mui/material';
 import {ThemeProvider} from "@mui/material/styles";
 
-const Navbar = () => {
+const DashboardNavbar = () => {
     return (
             <AppBar color={"success"} position="fixed">
                 <Toolbar>
@@ -15,4 +15,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
+export default DashboardNavbar;

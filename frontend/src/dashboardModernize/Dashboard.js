@@ -8,13 +8,13 @@ import WeeklyClaimsBreakdown from './components/WeeklyClaimsBreakdown';
 import RecentlyProcessed from './components/RecentlyProcessed';
 import ClaimsTable from './components/ClaimsTable';
 import YearlyClaimsStats from './components/YearlyClaimsStats';
-import Navbar from "./components/Navbar";
+import DashboardNavbar from "./components/DashboardNavbar";
 
 
 const Dashboard = () => {
   return (
     <DashboardContainer title="Your Claims" description="this is Dashboard">
-      <Navbar></Navbar>
+      <DashboardNavbar></DashboardNavbar>
       <Box sx={{marginTop: '100px'}}>
         <Grid container spacing={3}>
           <Grid item xs={12} lg={8}>
