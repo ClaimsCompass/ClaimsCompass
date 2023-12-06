@@ -28,10 +28,10 @@ export const ActionButton= () => {
             sx={{ m: 3, p: 3, bgcolor: `${'transparent'}`, borderRadius: '8px' }}
         >
             <>
-            <Button onClick={redirectDashboard} color="primary" target="_blank"  variant="contained" aria-label="logout" size="small" style={{backgroundColor: "green"}}>
+            <Button onClick={redirectDashboard} color="primary" target="_blank"  variant="contained" aria-label="logout" size="small" style={{backgroundColor: "#0C7B40"}}>
                 Approve
             </Button>
-            <Button onClick={redirectDashboard} color="primary" target="_blank" variant="contained"  size="small" style={{backgroundColor:"green"}}>
+            <Button onClick={redirectDashboard} color="primary" target="_blank" variant="contained"  size="small" style={{backgroundColor:"#0C7B40"}}>
                 Forward
             </Button>
             </>
