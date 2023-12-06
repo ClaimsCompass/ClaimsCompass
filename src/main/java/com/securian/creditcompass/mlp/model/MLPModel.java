@@ -1,6 +1,6 @@
-package com.securian.creditcompass.mlpComplexityCalculator.model;
+package com.securian.creditcompass.mlp.model;
 
-import com.securian.creditcompass.mlpComplexityCalculator.data.CSVToInputOutputData;
+import com.securian.creditcompass.mlp.data.CSVToInputOutputData;
 import org.deeplearning4j.datasets.iterator.impl.ListDataSetIterator;
 import org.deeplearning4j.nn.api.OptimizationAlgorithm;
 import org.deeplearning4j.nn.conf.MultiLayerConfiguration;
