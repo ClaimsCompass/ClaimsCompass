@@ -7,6 +7,7 @@ import java.util.Map;
 
 @RestController
 public class LoginController {
+
     private final LoginInteractor loginService;
 
     public LoginController(LoginInteractor loginService) {
@@ -16,6 +17,10 @@ public class LoginController {
 
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody Map<String, String> userInput) {
+        /*
+        @param userInput: the username and password of the user to log in
+        @return: a response indicating whether the login was successful
+         */
         String username = userInput.get("username");
         String password = userInput.get("password");
         LoginInputData loginInputData = new LoginInputData(username, password);

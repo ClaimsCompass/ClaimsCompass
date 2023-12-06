@@ -1,4 +1,4 @@
-package com.securian.creditcompass.dashboard;
+package com.securian.creditcompass.useCases.dashboard;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -36,7 +36,7 @@ public class DashboardControllerTest {
     private DashboardInteractor dashboardInteractor;
 
     @Test
-    public void whenExecuteCalled_thenReturnCorrectData() throws Exception {
+    void whenExecuteCalled_thenReturnCorrectData() throws Exception {
         // Arrange
         String username = "janeDoe";
         Boolean isProcessed = false;

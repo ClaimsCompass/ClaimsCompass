@@ -9,11 +9,17 @@ public class AllocationController {
     private final AllocationInteractor allocationInteractor;
 
     public AllocationController(AllocationInteractor allocationInteractor) {
+        /*
+        @param allocationInteractor: the interactor used to assign claims to users
+        */
         this.allocationInteractor = allocationInteractor;
     }
 
     @PostMapping("/assign")
     public boolean execute(){
+        /*
+        @return: true if the claims were successfully assigned, false otherwise
+        */
 //        System.out.println("Assign activate.");
         allocationInteractor.assignAllClaims();
 //        System.out.println("Assign done.");

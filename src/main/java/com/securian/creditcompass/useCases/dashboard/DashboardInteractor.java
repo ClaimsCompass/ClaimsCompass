@@ -14,12 +14,20 @@ public class DashboardInteractor implements DashboardInputBoundary {
     private final OrderCalculator orderCalculator;
 
     public DashboardInteractor(ClaimRepository claimRepository, OrderCalculator orderCalculator) {
+        /*
+        @param claimRepository: the repository used to access the claims
+        @param orderCalculator: the calculator used to calculate the order of the claims
+         */
         this.claimRepository = claimRepository;
         this.orderCalculator = orderCalculator;
     }
 
     @Override
     public List<List<Object>> execute(DashboardInputData dashboardInputData) {
+        /*
+        @param dashboardInputData: the input data for the dashboard
+        @return: the dashboard data for the given user
+         */
 
         // Find all the claims associated with the given examiner. Notice that the examiner might not
         // have any claims associated with them.

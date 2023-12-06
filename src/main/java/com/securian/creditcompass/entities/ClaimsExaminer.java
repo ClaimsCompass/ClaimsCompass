@@ -31,15 +31,5 @@ public class ClaimsExaminer {
         this.id = id;
     }
 
-    private int getClaimCount() {
-        // return the number of claims assigned to this examiner
-        List<Claim> claims = this.claims;
-        if (claims == null) {
-            return 0;
-        }
-        else {
-            return claims.size();
-        }
-    }
 
 }

@@ -7,6 +7,10 @@ import java.util.HashMap;
 public class IterativeComplexityAlgorithm implements ComplexityAlgorithm{
     @Override
     public int calculateComplexity(Claim claim) {
+        /*
+        @param claim: the claim to calculate the complexity of
+        @return: the complexity of the claim
+        */
 
         HashMap<String, Integer> keywordsMap = new HashMap<String, Integer>();
         keywordsMap.put("Life",1);

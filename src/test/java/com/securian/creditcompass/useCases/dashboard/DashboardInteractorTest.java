@@ -1,4 +1,4 @@
-package com.securian.creditcompass.dashboard;
+package com.securian.creditcompass.useCases.dashboard;
 
 import com.securian.creditcompass.dataAccess.ClaimRepository;
 import com.securian.creditcompass.entities.Claim;
@@ -36,13 +36,46 @@ public class DashboardInteractorTest {
     }
 
     @Test
-    void testCorrectDataReturned() {
+    void testCorrectDataReturnedWithoutProcessed() {
         DashboardInputData inputData = new DashboardInputData("janeDoe", false);
         List<List<Object>> expectedOutput = List.of(List.of(998, 100000f, "2023-12-06T00:44:39.114896", "disability", "Low", "Low"),
                 List.of(999, 120000f, "2023-12-06T00:44:39.114896","life", "Low", "Low"));
 
         Claim stubClaim = new Claim(999,"life", "Life", 120000f, 0, 0);
         Claim stubClaim2 = new Claim(998,"disability", "Disability", 100000f, 0, 0);
+
+        List<Claim> stubClaims = List.of(stubClaim, stubClaim2);
+
+        when(claimRepository.findByExaminer("janeDoe")).thenReturn(Optional.of(stubClaims));
+        when(orderCalculator.orderClaims(stubClaims)).thenReturn(List.of(stubClaim2, stubClaim));
+
+        List<List<Object>> actualOutput = dashboardInteractor.execute(inputData);
+
+        // Create mutable copies of the lists
+        List<List<Object>> expectedOutputMutable = expectedOutput.stream()
+                .map(ArrayList::new)
+                .collect(Collectors.toList());
+        List<List<Object>> actualOutputMutable = actualOutput.stream()
+                .map(ArrayList::new)
+                .collect(Collectors.toList());
+
+        // Set date-time to null since it's dynamic
+        expectedOutputMutable.forEach(list -> list.set(2, null));
+        actualOutputMutable.forEach(list -> list.set(2, null));
+
+        // Assert
+        assertEquals(expectedOutputMutable, actualOutputMutable);
+    }
+
+    @Test
+    void testCorrectDataReturnedWithProcessed() {
+        DashboardInputData inputData = new DashboardInputData("janeDoe", true);
+        List<List<Object>> expectedOutput = List.of(List.of(999, 120000f, "2023-12-06T00:44:39.114896","life", "Low", "Low"));
+
+        Claim stubClaim = new Claim(999,"life", "Life", 120000f, 0, 0);
+        Claim stubClaim2 = new Claim(998,"disability", "Disability", 100000f, 0, 0);
+
+        stubClaim.processClaim();
 
         List<Claim> stubClaims = List.of(stubClaim, stubClaim2);
 
@@ -82,9 +115,9 @@ public class DashboardInteractorTest {
         when(claimRepository.findByExaminer("janeDoe")).thenReturn(Optional.of(stubClaims));
         when(orderCalculator.orderClaims(stubClaims)).thenReturn(List.of(stubClaim2, stubClaim));
 
-        List<List<Object>> actualOutput = dashboardInteractor.execute(inputData);
+        dashboardInteractor.execute(inputData);
 
-        // Assert
+        // Check that the claims were saved
         verify(claimRepository, times(1)).saveAll(stubClaims);
     }
 }

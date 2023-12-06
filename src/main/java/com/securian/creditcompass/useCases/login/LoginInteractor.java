@@ -12,11 +12,18 @@ public class LoginInteractor implements LoginInputBoundary{
     private final ExaminerRepository examinerRepository;
 
     public LoginInteractor(ExaminerRepository examinerRepository) {
+        /*
+        @param examinerRepository: the repository used to access the examiners
+        */
         this.examinerRepository = examinerRepository;
     }
 
     @Override
     public Boolean authenticate(LoginInputData loginInputData) throws AuthenticationException {
+        /*
+        @param loginInputData: the input data for the login
+        @return: whether the login was successful
+         */
         // Create a ClaimsExaminer object from the username's equivalent in the database'
         Optional<ClaimsExaminer> optionalExaminer = examinerRepository.findByUsername(loginInputData.getUsername());
         if (optionalExaminer.isPresent()){
