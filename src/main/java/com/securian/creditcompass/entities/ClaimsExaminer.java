@@ -25,30 +25,12 @@ public class ClaimsExaminer {
     transient List<Claim> claims;
 
     public ClaimsExaminer(String username, String password, String firstName, Long id) {
-        /*
-        @param username: the username of the examiner
-        @param password: the password of the examiner
-        @param firstName: the first name of the examiner
-        @param id: the id of the examiner
-        */
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.id = id;
     }
 
-    private int getClaimCount() {
-        /*
-        @return: the number of claims assigned to this examiner
-        */
-        List<Claim> claims = this.claims;
-        if (claims == null) {
-            return 0;
-        }
-        else {
-            return claims.size();
-        }
-    }
 
 //    public int getExaminerScore() {
 //        // return the total score of all claims assigned to this examiner

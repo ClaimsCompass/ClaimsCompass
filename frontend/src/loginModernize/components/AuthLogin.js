@@ -10,7 +10,7 @@ import {
 } from '@mui/material';
 import {Link, useNavigate} from 'react-router-dom';
 
-import CustomTextField from '../CustomTextField';
+import CustomTextField from './CustomTextField';
 import axios from "axios";
 
 const AuthLogin = ({ title, subtitle, subtext }) => {
