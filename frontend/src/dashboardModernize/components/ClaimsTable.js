@@ -71,9 +71,9 @@ const ClaimsTable = () => {
             case "High":
                 return '#FA896B';
             case "Medium":
-                return '#8AF3FF';
+                return '#FFEF9F';
             case "Low":
-                return '#18A999';
+                return '#95C93D';
             default:
                 return "gray"; // Default color or any other color you prefer
         }
