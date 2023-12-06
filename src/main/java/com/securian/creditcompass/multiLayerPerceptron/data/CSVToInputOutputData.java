@@ -6,6 +6,9 @@ import java.io.IOException;
 
 public class CSVToInputOutputData {
     public static double[][][] getInputOutputData() {
+        /*
+        @return: a 3D array of doubles, where the first dimension is the input data, the second dimension is the output data, and the third dimension is the data itself
+         */
         String inputFile = "src/main/java/com/securian/creditcompass/MLPComplexityCalculator/training/training.csv"; // Replace with your file path
 
         double[][] inputData = null;

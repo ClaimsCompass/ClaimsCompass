@@ -9,10 +9,16 @@ public class DashboardOutputData {
     private final List<Claim> orderedClaims;
 
     public DashboardOutputData(List<Claim> orderedClaims){
+        /*
+        @param orderedClaims: the claims to be displayed on the dashboard
+        */
         this.orderedClaims = orderedClaims;
     }
 
     public List<List<Object>> execute() {
+        /*
+        @return: a list of claims that each have a list of attributes
+         */
         List<List<Object>> allClaimsAttributes = new ArrayList<>();
 
 

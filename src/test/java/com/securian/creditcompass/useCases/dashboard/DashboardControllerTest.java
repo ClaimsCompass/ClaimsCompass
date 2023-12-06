@@ -36,7 +36,7 @@ public class DashboardControllerTest {
     private DashboardInteractor dashboardInteractor;
 
     @Test
-    public void whenExecuteCalled_thenReturnCorrectData() throws Exception {
+    void whenExecuteCalled_thenReturnCorrectData() throws Exception {
         // Arrange
         String username = "janeDoe";
         Boolean isProcessed = false;

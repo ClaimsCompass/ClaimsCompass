@@ -20,11 +20,19 @@ public class AllocationInteractor {
     private ClaimRepository claimRepository;
 
     public AllocationInteractor(ExaminerRepository examinerRepository, ClaimRepository claimRepository){
+        /*
+        @param examinerRepository: the repository used to access the examiners
+        @param claimRepository: the repository used to access the claims
+         */
         this.examinerRepository = examinerRepository;
         this.claimRepository = claimRepository;
     }
 
     public void assignClaim(Claim nextClaim, List <ClaimsExaminer> claimsExaminers ) {
+        /*
+        @param nextClaim: the claim to be assigned
+        @param claimsExaminers: the list of examiners to assign the claim to
+        */
         // assign the claim to this examiner who has the lowest score
         // set examiner column of this claim to the examiner with the lowest score
         if (nextClaim.getExaminer() != null) {
@@ -36,6 +44,9 @@ public class AllocationInteractor {
     }
 
     public void assignAllClaims() {
+        /*
+        Assign all unassigned claims to examiners
+        */
         List<Claim> claims = claimRepository.findAll();
         List <ClaimsExaminer> claimsExaminers = examinerRepository.findAll();
         for (Claim claim : claims) {
@@ -44,6 +55,10 @@ public class AllocationInteractor {
     }
 
     public int getExaminerScore(ClaimsExaminer currExaminer) {
+        /*
+        @param currExaminer: the examiner to calculate the score of
+        @return: the score of the examiner
+        */
         // return the total score of all claims assigned to this examiner
         String examinerUsername = currExaminer.getUsername();
         List<Claim> allClaims = claimRepository.findClaimsByExaminer(examinerUsername);
@@ -63,6 +78,10 @@ public class AllocationInteractor {
 
     // From a list of claims examiners, return the one with the minimum examiner score
     public ClaimsExaminer getExaminerWithMinScore(List<ClaimsExaminer> examiners) {
+        /*
+        @param examiners: the list of examiners to find the one with the minimum score
+        @return: the examiner with the minimum score
+        */
 //        System.out.println("Size: " + examiners.size());
 //        for (ClaimsExaminer examiner : examiners) {
 //            System.out.println(examiner.getUsername());
