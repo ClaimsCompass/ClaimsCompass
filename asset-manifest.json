@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/ClaimsCompass/static/css/main.f701c1cc.css",
-    "main.js": "/ClaimsCompass/static/js/main.b4e1259b.js",
+    "main.js": "/ClaimsCompass/static/js/main.4a84b7bd.js",
     "static/media/securianLogo.png": "/ClaimsCompass/static/media/securianLogo.a2dcb60ee9d7914cc994.png",
     "static/media/user.png": "/ClaimsCompass/static/media/user.9901370d46b0035eadd6.png",
     "index.html": "/ClaimsCompass/index.html",
     "main.f701c1cc.css.map": "/ClaimsCompass/static/css/main.f701c1cc.css.map",
-    "main.b4e1259b.js.map": "/ClaimsCompass/static/js/main.b4e1259b.js.map"
+    "main.4a84b7bd.js.map": "/ClaimsCompass/static/js/main.4a84b7bd.js.map"
   },
   "entrypoints": [
     "static/css/main.f701c1cc.css",
-    "static/js/main.b4e1259b.js"
+    "static/js/main.4a84b7bd.js"
   ]
 }
