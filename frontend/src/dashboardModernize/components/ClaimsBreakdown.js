@@ -2,7 +2,7 @@ import React from 'react';
 import Chart from 'react-apexcharts';
 import { useTheme } from '@mui/material/styles';
 import { Grid, Stack, Typography, Avatar } from '@mui/material';
-import { IconArrowUpLeft } from '@tabler/icons-react';
+import {IconArrowDownRight, IconArrowUpLeft} from '@tabler/icons-react';
 
 import DashboardCard from '../DashboardCard';
 
@@ -10,7 +10,7 @@ const ClaimsBreakdown = () => {
   // chart color
   const theme = useTheme();
   const primary = theme.palette.primary.main;
-  const primarylight = '#ecf2ff';
+  const primarylight = 'green';
   const successlight = theme.palette.success.light;
 
   // chart
@@ -18,13 +18,13 @@ const ClaimsBreakdown = () => {
     chart: {
       type: 'donut',
       fontFamily: "'Plus Jakarta Sans', sans-serif;",
-      foreColor: '#adb0bb',
+      foreColor: 'green',
       toolbar: {
         show: false,
       },
       height: 155,
     },
-    colors: [primary, primarylight, '#F9F9FD'],
+    colors: ['#94AE89', '#A8BCA1', '#18A999'],
     plotOptions: {
       pie: {
         startAngle: 0,
@@ -70,8 +70,8 @@ const ClaimsBreakdown = () => {
             $36,358
           </Typography>
           <Stack direction="row" spacing={1} mt={1} alignItems="center">
-            <Avatar sx={{ bgcolor: successlight, width: 27, height: 27 }}>
-              <IconArrowUpLeft width={20} color="#39B69A" />
+            <Avatar sx={{ bgcolor: '#B4EBCA', width: 27, height: 27 }}>
+              <IconArrowUpLeft width={20} color="#109648" />
             </Avatar>
             <Typography variant="subtitle2" fontWeight="600">
               +9%
@@ -83,7 +83,7 @@ const ClaimsBreakdown = () => {
           <Stack spacing={3} mt={5} direction="row">
             <Stack direction="row" spacing={1} alignItems="center">
               <Avatar
-                sx={{ width: 9, height: 9, bgcolor: primary, svg: { display: 'none' } }}
+                sx={{ width: 9, height: 9, bgcolor: '#18A999', svg: { display: 'none' } }}
               ></Avatar>
               <Typography variant="subtitle2" color="textSecondary">
                 Life
@@ -91,7 +91,7 @@ const ClaimsBreakdown = () => {
             </Stack>
             <Stack direction="row" spacing={1} alignItems="center">
               <Avatar
-                sx={{ width: 9, height: 9, bgcolor: primarylight, svg: { display: 'none' } }}
+                sx={{ width: 9, height: 9, bgcolor: '#8AF3FF', svg: { display: 'none' } }}
               ></Avatar>
               <Typography variant="subtitle2" color="textSecondary">
                 Employment
@@ -99,7 +99,7 @@ const ClaimsBreakdown = () => {
             </Stack>
             <Stack direction="row" spacing={1} alignItems="center">
               <Avatar
-                  sx={{ width: 9, height: 9, bgcolor: primarylight, svg: { display: 'none' } }}
+                  sx={{ width: 9, height: 9, bgcolor: '#18A999', svg: { display: 'none' } }}
               ></Avatar>
               <Typography variant="subtitle2" color="textSecondary">
                 Health

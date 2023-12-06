@@ -37,7 +37,7 @@ const Sidebar = () => {
         fetchClaim();
     }, []); // The empty dependency array ensures this effect runs once on component mount
     return (
-        <ClaimCard title="Recent Transactions">
+        <ClaimCard title="Claim Details">
             <>
                 <Timeline
                     className="theme-timeline"
@@ -58,63 +58,18 @@ const Sidebar = () => {
                     }}
                 >
                     <TimelineItem>
-                        <TimelineOppositeContent>Claim Date: </TimelineOppositeContent>
-                        <TimelineSeparator>
-                            <TimelineDot color="primary" variant="outlined" />
-                            <TimelineConnector />
-                        </TimelineSeparator>
+                        <TimelineOppositeContent>Date Filed:</TimelineOppositeContent>
                         <TimelineContent>{claimData.creationDateTime} </TimelineContent>
                     </TimelineItem>
                     <TimelineItem>
-                        <TimelineOppositeContent>Claim Amount:</TimelineOppositeContent>
-                        <TimelineSeparator>
-                            <TimelineDot color="secondary" variant="outlined" />
-                            <TimelineConnector />
-                        </TimelineSeparator>
+                        <TimelineOppositeContent>Amount:</TimelineOppositeContent>
                         <TimelineContent>
-                            <Typography fontWeight="600">{claimData.claimAmt}</Typography>{' '}
-                            <Link href="/" underline="none">
-                                #ML-3467
-                            </Link>
+                            <Typography>{claimData.claimAmt}</Typography>{' '}
                         </TimelineContent>
                     </TimelineItem>
                     <TimelineItem>
-                        <TimelineOppositeContent>Claim Type:</TimelineOppositeContent>
-                        <TimelineSeparator>
-                            <TimelineDot color="success" variant="outlined" />
-                            <TimelineConnector />
-                        </TimelineSeparator>
+                        <TimelineOppositeContent>Category:</TimelineOppositeContent>
                         <TimelineContent>{claimData.claimType}</TimelineContent>
-                    </TimelineItem>
-                    <TimelineItem>
-                        <TimelineOppositeContent>09:30 am</TimelineOppositeContent>
-                        <TimelineSeparator>
-                            <TimelineDot color="warning" variant="outlined" />
-                            <TimelineConnector />
-                        </TimelineSeparator>
-                        <TimelineContent>
-                            <Typography fontWeight="600">New sale recorded</Typography>{' '}
-                            <Link href="/" underline="none">
-                                #ML-3467
-                            </Link>
-                        </TimelineContent>
-                    </TimelineItem>
-                    <TimelineItem>
-                        <TimelineOppositeContent>09:30 am</TimelineOppositeContent>
-                        <TimelineSeparator>
-                            <TimelineDot color="error" variant="outlined" />
-                            <TimelineConnector />
-                        </TimelineSeparator>
-                        <TimelineContent>
-                            <Typography fontWeight="600">New arrival recorded</Typography>
-                        </TimelineContent>
-                    </TimelineItem>
-                    <TimelineItem>
-                        <TimelineOppositeContent>12:00 am</TimelineOppositeContent>
-                        <TimelineSeparator>
-                            <TimelineDot color="success" variant="outlined" />
-                        </TimelineSeparator>
-                        <TimelineContent>Payment Received</TimelineContent>
                     </TimelineItem>
                 </Timeline>
             </>

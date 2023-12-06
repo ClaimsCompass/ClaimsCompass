@@ -46,7 +46,7 @@ const YearlyClaimsStats = () => {
   const seriescolumnchart = [
     {
       name: '',
-      color: secondary,
+      color: '#B4EBCA',
       data: [25, 66, 20, 40, 12, 58, 20],
     },
   ];
@@ -55,7 +55,7 @@ const YearlyClaimsStats = () => {
     <DashboardCard
       title="Yearly Claims Overview"
       action={
-        <Fab color="secondary" size="medium" sx={{color: '#ffffff'}}>
+        <Fab color="#B4EBCA" size="medium" sx={{color: '#ffffff'}}>
           <IconCurrencyDollar width={24} />
         </Fab>
       }
@@ -68,8 +68,8 @@ const YearlyClaimsStats = () => {
           $983,820
         </Typography>
         <Stack direction="row" spacing={1} my={1} alignItems="center">
-          <Avatar sx={{ bgcolor: errorlight, width: 27, height: 27 }}>
-            <IconArrowDownRight width={20} color="#FA896B" />
+          <Avatar sx={{ bgcolor: '#B4EBCA', width: 27, height: 27 }}>
+            <IconArrowDownRight width={20} color="#109648" />
           </Avatar>
           <Typography variant="subtitle2" fontWeight="600">
             +9%
