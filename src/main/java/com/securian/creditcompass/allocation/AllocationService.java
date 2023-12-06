@@ -67,8 +67,8 @@ public class AllocationService {
 //        }
         ClaimsExaminer minExaminer = examiners.get(0);
         for (ClaimsExaminer examiner : examiners) {
-            Integer curExaminerScore = getExaminerScore(examiner);
-            Integer minExaminerScore = getExaminerScore(minExaminer);
+            int curExaminerScore = getExaminerScore(examiner);
+            int minExaminerScore = getExaminerScore(minExaminer);
 
 //            System.out.println(examiner.getUsername() + " " + curExaminerScore);
 //            System.out.println(minExaminer.getUsername() + " " + minExaminerScore);
