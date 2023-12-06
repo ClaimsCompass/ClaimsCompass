@@ -51,10 +51,6 @@ public class AllocationService {
                 filteredClaims.add(allClaims.get(i));
             }
         }
-       // if (allClaims == null) {
-       //     return 0;
-       // }
-       // else {
         int totalScore = 0;
         for (Claim claim : allClaims) {
             totalScore += claim.getUrgencyScore() + claim.getComplexityScore();

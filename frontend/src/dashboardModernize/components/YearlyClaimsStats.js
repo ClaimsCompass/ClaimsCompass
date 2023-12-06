@@ -2,7 +2,7 @@ import React from 'react';
 import Chart from 'react-apexcharts';
 import { useTheme } from '@mui/material/styles';
 import { Stack, Typography, Avatar, Fab } from '@mui/material';
-import { IconArrowDownRight, IconCurrencyDollar } from '@tabler/icons-react';
+import {IconArrowUpLeft, IconCurrencyDollar} from '@tabler/icons-react';
 import DashboardCard from '../DashboardCard';
 
 const YearlyClaimsStats = () => {
@@ -69,7 +69,7 @@ const YearlyClaimsStats = () => {
         </Typography>
         <Stack direction="row" spacing={1} my={1} alignItems="center">
           <Avatar sx={{ bgcolor: '#B4EBCA', width: 27, height: 27 }}>
-            <IconArrowDownRight width={20} color="#109648" />
+            <IconArrowUpLeft width={20} color="#109648" />
           </Avatar>
           <Typography variant="subtitle2" fontWeight="600">
             +9%

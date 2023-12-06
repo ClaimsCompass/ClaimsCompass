@@ -102,7 +102,7 @@ const ClaimsBreakdown = () => {
                   sx={{ width: 9, height: 9, bgcolor: '#18A999', svg: { display: 'none' } }}
               ></Avatar>
               <Typography variant="subtitle2" color="textSecondary">
-                Health
+                Disability
               </Typography>
             </Stack>
           </Stack>

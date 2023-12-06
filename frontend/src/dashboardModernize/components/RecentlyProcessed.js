@@ -53,7 +53,7 @@ const RecentlyProcessed = () => {
                     <TimelineDot />
                     <TimelineConnector />
                   </TimelineSeparator>
-                  <TimelineContent> Approved claim #{String(claim[0])} of type {claim[3]} of value ${claim[1]}.</TimelineContent>
+                  <TimelineContent> Approved Claim #{String(claim[0])} of type {claim[3]} of value ${claim[1]}.</TimelineContent>
                 </TimelineItem>
             );
           })}

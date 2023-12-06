@@ -5,7 +5,7 @@ import {
     TableBody,
     TableCell,
     TableHead,
-    TableRow
+    TableRow, Chip
 } from '@mui/material';
 import DashboardCard from '../DashboardCard';
 import {useLocation, useNavigate} from "react-router-dom";
@@ -66,6 +66,19 @@ const ClaimsTable = () => {
         }
     }
 
+    const getPriorityColor = (priority) => {
+        switch (priority) {
+            case "High":
+                return '#FA896B';
+            case "Medium":
+                return '#8AF3FF';
+            case "Low":
+                return '#18A999';
+            default:
+                return "gray"; // Default color or any other color you prefer
+        }
+    };
+
     return (
         <DashboardCard title="Your Current Claims">
             <Box sx={{ overflow: 'auto', width: { xs: '280px', sm: 'auto' } }}>
@@ -116,9 +129,10 @@ const ClaimsTable = () => {
                             <TableRow key={index} onClick={() => ResolveClaimView(claim[0])}>
                                 <TableCell>
                                     <Typography
+                                        variant="subtitle2"
                                         sx={{
                                             fontSize: "15px",
-                                            fontWeight: "500",
+                                            fontWeight: "600",
                                         }}
                                     >
                                         {claim[0]}
@@ -127,8 +141,28 @@ const ClaimsTable = () => {
                                 <TableCell>{claim[1]}</TableCell>
                                 <TableCell>{claim[2]}</TableCell>
                                 <TableCell>{claim[3]}</TableCell>
-                                <TableCell>{claim[4]}</TableCell>
-                                <TableCell>{claim[5]}</TableCell>
+                                <TableCell>
+                                    <Chip
+                                        sx={{
+                                            px: "4px",
+                                            backgroundColor: getPriorityColor(claim[4]),
+                                            color: "#fff",
+                                        }}
+                                        size="small"
+                                        label={claim[4]}
+                                    ></Chip>
+                                </TableCell>
+                                <TableCell>
+                                    <Chip
+                                        sx={{
+                                            px: "4px",
+                                            backgroundColor: getPriorityColor(claim[5]),
+                                            color: "#fff",
+                                        }}
+                                        size="small"
+                                        label={claim[5]}
+                                    ></Chip>
+                                </TableCell>
 
                             </TableRow>
                         ))}
