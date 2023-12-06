@@ -54,6 +54,11 @@ public class DashboardInteractor implements DashboardInputBoundary {
             }
         }
 
+        //Update the database with the new scores
+        for (Claim claim : orderedClaims) {
+            claimRepository.save(claim);
+        }
+
         DashboardOutputData dashboardOutputData = new DashboardOutputData(filteredClaims);
 
         // TODO: Is the following correct? Controller -> InputData -> Interactor -> OutputData
