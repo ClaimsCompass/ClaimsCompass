@@ -61,17 +61,17 @@ public class AllocationService {
 
     // From a list of claims examiners, return the one with the minimum examiner score
     public ClaimsExaminer getExaminerWithMinScore(List<ClaimsExaminer> examiners) {
-        System.out.println("Size: " + examiners.size());
-        for (ClaimsExaminer examiner : examiners) {
-            System.out.println(examiner.getUsername());
-        }
+//        System.out.println("Size: " + examiners.size());
+//        for (ClaimsExaminer examiner : examiners) {
+//            System.out.println(examiner.getUsername());
+//        }
         ClaimsExaminer minExaminer = examiners.get(0);
         for (ClaimsExaminer examiner : examiners) {
             Integer curExaminerScore = getExaminerScore(examiner);
             Integer minExaminerScore = getExaminerScore(minExaminer);
 
-            System.out.println(examiner.getUsername() + " " + curExaminerScore);
-            System.out.println(minExaminer.getUsername() + " " + minExaminerScore);
+//            System.out.println(examiner.getUsername() + " " + curExaminerScore);
+//            System.out.println(minExaminer.getUsername() + " " + minExaminerScore);
             if (curExaminerScore < minExaminerScore) {
                 minExaminer = examiner;
             }
