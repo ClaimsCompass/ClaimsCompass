@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
-const PageContainer = ({ title, description, children }) => (
+const LoginContainer = ({ title, description, children }) => (
   <div>
     <Helmet>
       <title>{title}</title>
@@ -12,10 +12,10 @@ const PageContainer = ({ title, description, children }) => (
   </div>
 );
 
-PageContainer.propTypes = {
+LoginContainer.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   children: PropTypes.node,
 };
 
-export default PageContainer;
+export default LoginContainer;
