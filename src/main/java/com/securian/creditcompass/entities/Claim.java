@@ -54,12 +54,19 @@ public class Claim {
     private String examiner;
 
     public Claim() {
-
     }
 
     // Hibernate expects entities to have a no-arg constructor,
     // though it does not necessarily have to be public.
     public Claim(Integer id, String claimType, String claimDetails, Float claimAmt, Integer complexityScore, Integer urgencyScore) {
+        /*
+        @param id: the id of the claim
+        @param claimType: the type of claim
+        @param claimDetails: the details of the claim
+        @param claimAmt: the amount of the claim
+        @param complexityScore: the complexity score of the claim
+        @param urgencyScore: the urgency score of the claim
+        */
         this.id = id;
         this.claimType = claimType;
         this.claimDetails = claimDetails;
@@ -71,38 +78,100 @@ public class Claim {
     }
 
     public Integer getId() {
+        /*
+        @return: the id of the claim
+        */
         return this.id;
     }
 
     public String getClaimType() {
+        /*
+        @return: the type of the claim (e.g. "Health", "Life", "Employment")
+         */
         return this.claimType;
     }
 
-    public String getClaimDetails() {return this.claimDetails;}
+    public String getClaimDetails() {
+        /*
+        @return: the details of the claim
+         */
+        return this.claimDetails;
+    }
 
-    public Float getClaimAmount() { return this.claimAmt; }
+    public Float getClaimAmount() {
+        /*
+        @return: the amount of the claim
+        */
+        return this.claimAmt;
+    }
 
-    public Integer getComplexityScore() {return this.complexityScore;}
+    public Integer getComplexityScore() {
+        /*
+        @return: the complexity score of the claim
+         */
+        return this.complexityScore;
+    }
 
-    public Integer getUrgencyScore() {return this.urgencyScore;}
+    public Integer getUrgencyScore() {
+        /*
+        @return: the urgency score of the claim
+         */
+        return this.urgencyScore;
+    }
 
-    public double getTotalScore(){return this.totalScore;}
+    public double getTotalScore(){
+        /*
+        @return: the total score of the claim
+         */
+        return this.totalScore;
+    }
 
-    public void setComplexityScore(Integer score){this.complexityScore = score;}
+    public void setComplexityScore(Integer score){
+        /*
+        @param score: the complexity score of the claim
+        */
+        this.complexityScore = score;
+    }
 
-    public void setUrgencyScore(Integer score){this.urgencyScore = score;}
+    public void setUrgencyScore(Integer score){
+        /*
+        @param score: the urgency score of the claim
+         */
+        this.urgencyScore = score;
+    }
 
-    public void setTotalScore(Integer score){this.totalScore = score;}
+    public void setTotalScore(Integer score){
+        /*
+        @param score: the total score of the claim
+         */
+        this.totalScore = score;
+    }
 
     public void setClaimExaminer(ClaimsExaminer examiner) {
+        /*
+        @param examiner: the examiner of the claim
+         */
         this.examiner = examiner.getUsername();
     }
 
-    public boolean isProcessed(){return this.processed;}
+    public boolean isProcessed(){
+        /*
+        @return: whether the claim has been processed or not
+         */
+        return this.processed;
+    }
 
-    public boolean processClaim(){return this.processed = true;}
+    public boolean processClaim(){
+        /*
+        @return: whether the claim has been processed or not
+         */
+        return this.processed = true;
+    }
 
     public void setExaminerByUsername(String examiner) {
+        /*
+        @param examiner: the examiner of the claim
+         */
         this.examiner = examiner;
     }
 
