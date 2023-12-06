@@ -27,10 +27,7 @@ public class DashboardInteractor implements DashboardInputBoundary {
         System.out.println(dashboardInputData.getUsername());
         List<Claim> claimsList = claimRepository.findByExaminer(dashboardInputData.getUsername()).
                 orElse(new ArrayList<>());
-        //List<Claim> claimsList = claimRepository.findAll();
 
-        //TODO: Do we need to change orderCalculator to a helper method? Furthermore, OrderCalculator
-        // does not need to be an Iterator.
         System.out.println(claimsList.size());
 
         // Calculate the complexity and urgency score for each claim
@@ -54,25 +51,11 @@ public class DashboardInteractor implements DashboardInputBoundary {
             }
         }
 
+        //Update the database with the new scores
+        claimRepository.saveAll(orderedClaims);
+
         DashboardOutputData dashboardOutputData = new DashboardOutputData(filteredClaims);
 
-        // TODO: Is the following correct? Controller -> InputData -> Interactor -> OutputData
-        //  Ideally, you would have it end at Presenter, but we do not have a presenter.
         return dashboardOutputData.execute();
     }
-
-//    @GetMapping("/api/processedClaims") // API endpoint to get all claims
-//    public List<List<Object>> getAllSortedProcessedClaims() {
-//        List<Claim> claims = claimRepository.findAll();
-//        OrderCalculator scoredClaims = new OrderCalculator(claims);
-//        List<Claim> sortedClaims = scoredClaims.getOrderedClaims();
-//
-//        ArrayList<Claim> filteredClaims = new ArrayList<Claim>();
-//        for (int i = 0; i < sortedClaims.size(); i++) {
-//            if (sortedClaims.get(i).isProcessed()) {
-//                filteredClaims.add(sortedClaims.get(i));
-//            }
-//        }
-//        return renderDashboardService.findAttributes(filteredClaims);
-//    }
 }
