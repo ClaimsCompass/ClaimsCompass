@@ -28,7 +28,8 @@ const RecentlyProcessed = () => {
             });
 
         // Set processed claims in state
-        setProcessedClaims(processedClaims);
+        setProcessedClaims(response.data);
+        console.log(processedClaims);
 
       } catch (error) {
         console.error('Error fetching claims:', error);
@@ -41,18 +42,21 @@ const RecentlyProcessed = () => {
   return (
       <DashboardCard title="Recently Processed Claims">
         <Timeline>
-          {processedClaims.map(claim => (
-              <TimelineItem key={claim.id}>
-                <TimelineOppositeContent>
-                  {`${String(new Date().getHours()).padStart(2, '0')}:${String(new Date().getMinutes()).padStart(2, '0')}`}
-                </TimelineOppositeContent>
-                <TimelineSeparator>
-                  <TimelineDot />
-                  <TimelineConnector />
-                </TimelineSeparator>
-                <TimelineContent>{claim.claimDetails}</TimelineContent>
-              </TimelineItem>
-          ))}
+          {processedClaims.map(claim => { // Shows when each approved claim was filed and its details
+            console.log("Claim object:", claim); // Log the claim object
+            return (
+                <TimelineItem key={claim.id}>
+                  <TimelineOppositeContent>
+                    {`${String(claim[2])}`}
+                  </TimelineOppositeContent>
+                  <TimelineSeparator>
+                    <TimelineDot />
+                    <TimelineConnector />
+                  </TimelineSeparator>
+                  <TimelineContent> Approved claim #{String(claim[0])} of type {claim[3]} of value ${claim[1]}.</TimelineContent>
+                </TimelineItem>
+            );
+          })}
         </Timeline>
       </DashboardCard>
   );
