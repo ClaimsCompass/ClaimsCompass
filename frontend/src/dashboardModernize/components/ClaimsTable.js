@@ -71,7 +71,7 @@ const ClaimsTable = () => {
             case "High":
                 return '#FA896B';
             case "Medium":
-                return '#FFEF9F';
+                return '#F0A202';
             case "Low":
                 return '#95C93D';
             default:
