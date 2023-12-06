@@ -2,6 +2,8 @@ package com.securian.creditcompass.login;
 
 import com.securian.creditcompass.dataAccess.ExaminerRepository;
 import com.securian.creditcompass.entities.ClaimsExaminer;
+import com.securian.creditcompass.useCases.login.LoginInputData;
+import com.securian.creditcompass.useCases.login.LoginInteractor;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
