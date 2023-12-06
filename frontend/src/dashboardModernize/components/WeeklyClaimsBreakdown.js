@@ -70,8 +70,8 @@ const WeeklyClaimsBreakdown = () => {
             $36,358
           </Typography>
           <Stack direction="row" spacing={1} mt={1} alignItems="center">
-            <Avatar sx={{ bgcolor: '#B4EBCA', width: 27, height: 27 }}>
-              <IconArrowUpLeft width={20} color="#109648" />
+            <Avatar sx={{ bgcolor: '#95C93D', width: 27, height: 27 }}>
+              <IconArrowUpLeft width={20} color="#333333" />
             </Avatar>
             <Typography variant="subtitle2" fontWeight="600">
               +9%

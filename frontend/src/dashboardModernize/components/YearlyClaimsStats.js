@@ -2,7 +2,7 @@ import React from 'react';
 import Chart from 'react-apexcharts';
 import { useTheme } from '@mui/material/styles';
 import { Stack, Typography, Avatar, Fab } from '@mui/material';
-import {IconArrowUpLeft, IconCurrencyDollar} from '@tabler/icons-react';
+import {IconArrowUpLeft, IconArrowDownRight, IconCurrencyDollar} from '@tabler/icons-react';
 import DashboardCard from '../DashboardCard';
 
 const YearlyClaimsStats = () => {
@@ -46,7 +46,7 @@ const YearlyClaimsStats = () => {
   const seriescolumnchart = [
     {
       name: '',
-      color: '#B4EBCA',
+      color: '#333333',
       data: [25, 66, 20, 40, 12, 58, 20],
     },
   ];
@@ -55,7 +55,7 @@ const YearlyClaimsStats = () => {
     <DashboardCard
       title="Yearly Claims Overview"
       action={
-        <Fab color="#B4EBCA" size="medium" sx={{color: '#ffffff'}}>
+        <Fab color="#B4EBCA" size="medium" sx={{color: '#333333'}}>
           <IconCurrencyDollar width={24} />
         </Fab>
       }
@@ -68,11 +68,11 @@ const YearlyClaimsStats = () => {
           $983,820
         </Typography>
         <Stack direction="row" spacing={1} my={1} alignItems="center">
-          <Avatar sx={{ bgcolor: '#B4EBCA', width: 27, height: 27 }}>
-            <IconArrowUpLeft width={20} color="#109648" />
+          <Avatar sx={{ bgcolor: '#FA896B', width: 27, height: 27 }}>
+            <IconArrowDownRight width={20} color="#333333" />
           </Avatar>
           <Typography variant="subtitle2" fontWeight="600">
-            +9%
+            -9%
           </Typography>
           <Typography variant="subtitle2" color="textSecondary">
             from this time last year
