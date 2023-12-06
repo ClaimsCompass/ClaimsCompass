@@ -3,14 +3,12 @@ package com.securian.creditcompass.claimPage;
 import com.securian.creditcompass.orderCalculator.OrderCalculator;
 import com.securian.creditcompass.entities.Claim;
 import com.securian.creditcompass.dataAccess.ClaimRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -22,8 +20,9 @@ public class ClaimPageController {
     }
 
     @GetMapping("/api/getClaimById") // API endpoint to get a single claim by id
-    public Claim getClaimById(@RequestParam Long id) {
-        var inputData = new ClaimPageInputData(id, true);
+    public Claim getClaimById(@RequestBody Map<String, String> body) {
+        Long id = Long.valueOf(body.get("claimId"));
+        var inputData = new ClaimPageInputData(id, false);
         return claimPageInteractor.execute_get(inputData);
     }
 

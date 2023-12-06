@@ -59,11 +59,8 @@ const DashboardPage = () => {
                 // const claimsPost = 'http://localhost:8080/api/claims'
 
                 // EC2
-                const claimsPost = 'http://3.129.4.166/api/claims'
-                const response = await axios.post(claimsPost,
-                    null, {
-                        params: {username, isProcessed},
-                    });
+                const claimsPost = 'https://desolate-atoll-42268-f37d5cfd51df.herokuapp.com/http://3.129.4.166:8080/api/claims'
+                const response = await axios.post(claimsPost, {username, isProcessed});
                 // Update state with the fetched data
                 setClaimsDetailsArray(response.data);
             } catch (error) {
@@ -87,11 +84,8 @@ const DashboardPage = () => {
             //const response = await axios.get(apiURL);
 
             // const claimsPost = 'http://localhost:8080/api/claims'
-            const claimsPost = 'http://3.129.4.166/api/claims'
-            const response = await axios.post(claimsPost,
-                null, {
-                    params: {username, isProcessed},
-                });
+            const claimsPost = 'https://desolate-atoll-42268-f37d5cfd51df.herokuapp.com/http://3.129.4.166:8080/api/claims'
+            const response = await axios.post(claimsPost, {username, isProcessed});
 
             // Update state with the fetched data
             setClaimsDetailsArray(response.data);
