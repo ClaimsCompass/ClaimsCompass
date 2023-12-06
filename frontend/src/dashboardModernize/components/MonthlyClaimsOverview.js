@@ -30,7 +30,7 @@ const MonthlyClaimsOverview = () => {
             },
             height: 370,
         },
-        colors: ['#8AF3FF', '#18A999'],
+        colors: ['#0AA147', '#95C93D'],
         plotOptions: {
             bar: {
                 horizontal: false,

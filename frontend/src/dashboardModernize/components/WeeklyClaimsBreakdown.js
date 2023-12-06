@@ -6,7 +6,7 @@ import {IconArrowDownRight, IconArrowUpLeft} from '@tabler/icons-react';
 
 import DashboardCard from '../DashboardCard';
 
-const ClaimsBreakdown = () => {
+const WeeklyClaimsBreakdown = () => {
   // chart color
   const theme = useTheme();
   const primary = theme.palette.primary.main;
@@ -24,7 +24,7 @@ const ClaimsBreakdown = () => {
       },
       height: 155,
     },
-    colors: ['#94AE89', '#A8BCA1', '#18A999'],
+    colors: ['#95C93D', '#0C7B40', '#0AA147'],
     plotOptions: {
       pie: {
         startAngle: 0,
@@ -83,7 +83,7 @@ const ClaimsBreakdown = () => {
           <Stack spacing={3} mt={5} direction="row">
             <Stack direction="row" spacing={1} alignItems="center">
               <Avatar
-                sx={{ width: 9, height: 9, bgcolor: '#18A999', svg: { display: 'none' } }}
+                sx={{ width: 9, height: 9, bgcolor: '#95C93D', svg: { display: 'none' } }}
               ></Avatar>
               <Typography variant="subtitle2" color="textSecondary">
                 Life
@@ -91,7 +91,7 @@ const ClaimsBreakdown = () => {
             </Stack>
             <Stack direction="row" spacing={1} alignItems="center">
               <Avatar
-                sx={{ width: 9, height: 9, bgcolor: '#8AF3FF', svg: { display: 'none' } }}
+                sx={{ width: 9, height: 9, bgcolor: '#0C7B40', svg: { display: 'none' } }}
               ></Avatar>
               <Typography variant="subtitle2" color="textSecondary">
                 Employment
@@ -99,7 +99,7 @@ const ClaimsBreakdown = () => {
             </Stack>
             <Stack direction="row" spacing={1} alignItems="center">
               <Avatar
-                  sx={{ width: 9, height: 9, bgcolor: '#18A999', svg: { display: 'none' } }}
+                  sx={{ width: 9, height: 9, bgcolor: '#0AA147', svg: { display: 'none' } }}
               ></Avatar>
               <Typography variant="subtitle2" color="textSecondary">
                 Disability
@@ -121,4 +121,4 @@ const ClaimsBreakdown = () => {
   );
 };
 
-export default ClaimsBreakdown;
+export default WeeklyClaimsBreakdown;
