@@ -1,10 +1,9 @@
-package com.securian.creditcompass.dashboard;
+package com.securian.creditcompass.useCases.dashboard;
 
 import com.securian.creditcompass.orderCalculator.OrderCalculator;
 import com.securian.creditcompass.dataAccess.ClaimRepository;
 import com.securian.creditcompass.entities.Claim;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.ArrayList;
 import java.util.List;

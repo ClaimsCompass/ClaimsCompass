@@ -1,7 +1,5 @@
-package com.securian.creditcompass.claimPage;
+package com.securian.creditcompass.useCases.claimPage;
 import com.securian.creditcompass.entities.Claim;
-
-import java.util.List;
 
 public interface ClaimPageInputBoundary {
     void execute_post(ClaimPageInputData dashboardInputData);

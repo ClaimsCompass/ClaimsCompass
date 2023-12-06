@@ -1,4 +1,4 @@
-package com.securian.creditcompass.login;
+package com.securian.creditcompass.useCases.login;
 
 import javax.naming.AuthenticationException;
 

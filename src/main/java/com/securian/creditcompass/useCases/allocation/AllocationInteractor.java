@@ -1,4 +1,4 @@
-package com.securian.creditcompass.allocation;
+package com.securian.creditcompass.useCases.allocation;
 import com.securian.creditcompass.dataAccess.ClaimRepository;
 import com.securian.creditcompass.dataAccess.ExaminerRepository;
 import com.securian.creditcompass.entities.Claim;
@@ -11,7 +11,7 @@ import java.util.List;
 
 // Facade Implementation
 @Service
-public class AllocationService {
+public class AllocationInteractor {
 
     @Autowired
     private ExaminerRepository examinerRepository;
@@ -19,7 +19,7 @@ public class AllocationService {
     @Autowired
     private ClaimRepository claimRepository;
 
-    public AllocationService(ExaminerRepository examinerRepository, ClaimRepository claimRepository){
+    public AllocationInteractor(ExaminerRepository examinerRepository, ClaimRepository claimRepository){
         this.examinerRepository = examinerRepository;
         this.claimRepository = claimRepository;
     }

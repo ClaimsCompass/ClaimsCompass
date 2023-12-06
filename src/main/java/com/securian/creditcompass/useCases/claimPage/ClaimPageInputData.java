@@ -1,4 +1,4 @@
-package com.securian.creditcompass.claimPage;
+package com.securian.creditcompass.useCases.claimPage;
 
 import lombok.Getter;
 

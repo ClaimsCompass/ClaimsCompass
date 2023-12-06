@@ -1,4 +1,4 @@
-package com.securian.creditcompass.login;
+package com.securian.creditcompass.useCases.login;
 
 import com.securian.creditcompass.dataAccess.ExaminerRepository;
 import com.securian.creditcompass.entities.ClaimsExaminer;

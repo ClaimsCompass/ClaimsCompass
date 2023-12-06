@@ -1,4 +1,4 @@
-package com.securian.creditcompass.allocation;
+package com.securian.creditcompass.useCases.allocation;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -6,16 +6,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class AllocationController {
 
-    private final AllocationService allocationService;
+    private final AllocationInteractor allocationInteractor;
 
-    public AllocationController(AllocationService allocationService) {
-        this.allocationService = allocationService;
+    public AllocationController(AllocationInteractor allocationInteractor) {
+        this.allocationInteractor = allocationInteractor;
     }
 
     @PostMapping("/assign")
     public boolean execute(){
 //        System.out.println("Assign activate.");
-        allocationService.assignAllClaims();
+        allocationInteractor.assignAllClaims();
 //        System.out.println("Assign done.");
         return true;
     }

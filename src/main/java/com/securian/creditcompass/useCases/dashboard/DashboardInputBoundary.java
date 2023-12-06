@@ -1,4 +1,4 @@
-package com.securian.creditcompass.dashboard;
+package com.securian.creditcompass.useCases.dashboard;
 
 import java.util.List;
 

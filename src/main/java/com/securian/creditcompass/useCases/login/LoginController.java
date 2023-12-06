@@ -1,4 +1,4 @@
-package com.securian.creditcompass.login;
+package com.securian.creditcompass.useCases.login;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

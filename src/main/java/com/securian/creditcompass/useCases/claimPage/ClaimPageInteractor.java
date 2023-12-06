@@ -1,19 +1,12 @@
-package com.securian.creditcompass.dashboard;
+package com.securian.creditcompass.useCases.claimPage;
 
-import com.securian.creditcompass.claimPage.ClaimPageInputBoundary;
-import com.securian.creditcompass.claimPage.ClaimPageInputData;
 import com.securian.creditcompass.orderCalculator.OrderCalculator;
 import com.securian.creditcompass.dataAccess.ClaimRepository;
 import com.securian.creditcompass.entities.Claim;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 @Service
