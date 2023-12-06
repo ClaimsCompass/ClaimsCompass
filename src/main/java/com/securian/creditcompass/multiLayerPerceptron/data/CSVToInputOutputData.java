@@ -1,4 +1,4 @@
-package com.securian.creditcompass.mlp.data;
+package com.securian.creditcompass.multiLayerPerceptron.data;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
