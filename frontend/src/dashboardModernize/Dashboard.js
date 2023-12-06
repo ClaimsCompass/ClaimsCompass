@@ -3,9 +3,9 @@ import { Grid, Box } from '@mui/material';
 import DashboardContainer from './DashboardContainer';
 
 // components
-import SalesOverview from './components/SalesOverview';
+import MonthlyClaimsOverview from './components/MonthlyClaimsOverview';
 import ClaimsBreakdown from './components/ClaimsBreakdown';
-import RecentTransactions from './components/RecentTransactions';
+import RecentlyProcessed from './components/RecentlyProcessed';
 import ClaimsTable from './components/ClaimsTable';
 import YearlyClaimsStats from './components/YearlyClaimsStats';
 
@@ -29,10 +29,10 @@ const Dashboard = () => {
             </Grid>
           </Grid>
           <Grid item xs={12} lg={4}>
-            <RecentTransactions />
+            <RecentlyProcessed />
           </Grid>
           <Grid item xs={12} lg={8}>
-            <SalesOverview />
+            <MonthlyClaimsOverview />
           </Grid>
         </Grid>
       </Box>
