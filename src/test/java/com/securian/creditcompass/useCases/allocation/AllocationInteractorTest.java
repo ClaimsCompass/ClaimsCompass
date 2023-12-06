@@ -1,4 +1,4 @@
-package com.securian.creditcompass.allocation;
+package com.securian.creditcompass.useCases.allocation;
 
 import com.securian.creditcompass.dataAccess.ClaimRepository;
 import com.securian.creditcompass.dataAccess.ExaminerRepository;

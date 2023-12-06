@@ -1,4 +1,4 @@
-package com.securian.creditcompass.login;
+package com.securian.creditcompass.useCases.login;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

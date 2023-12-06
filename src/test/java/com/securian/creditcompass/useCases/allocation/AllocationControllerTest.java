@@ -1,4 +1,4 @@
-package com.securian.creditcompass.allocation;
+package com.securian.creditcompass.useCases.allocation;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
