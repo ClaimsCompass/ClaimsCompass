@@ -1,4 +1,4 @@
-package com.securian.creditcompass.dashboard;
+package com.securian.creditcompass.useCases.dashboard;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
