@@ -27,6 +27,9 @@ public class AllocationService {
     public void assignClaim(Claim nextClaim, List <ClaimsExaminer> claimsExaminers ) {
         // assign the claim to this examiner who has the lowest score
         // set examiner column of this claim to the examiner with the lowest score
+        if (nextClaim.getExaminer() != null) {
+            return;
+        }
         ClaimsExaminer minExaminer = getExaminerWithMinScore(claimsExaminers);
         nextClaim.setClaimExaminer(minExaminer);
         claimRepository.save(nextClaim);
