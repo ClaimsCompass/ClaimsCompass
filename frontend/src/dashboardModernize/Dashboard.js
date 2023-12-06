@@ -4,10 +4,10 @@ import DashboardContainer from './DashboardContainer';
 
 // components
 import SalesOverview from './components/SalesOverview';
-import YearlyBreakup from './components/YearlyBreakup';
+import ClaimsBreakdown from './components/ClaimsBreakdown';
 import RecentTransactions from './components/RecentTransactions';
 import ClaimsTable from './components/ClaimsTable';
-import MonthlyEarnings from './components/MonthlyEarnings';
+import YearlyClaimsStats from './components/YearlyClaimsStats';
 
 
 const Dashboard = () => {
@@ -21,10 +21,10 @@ const Dashboard = () => {
           <Grid item xs={12} lg={4}>
             <Grid container spacing={3}>
               <Grid item xs={12}>
-                <YearlyBreakup />
+                <ClaimsBreakdown />
               </Grid>
               <Grid item xs={12}>
-                <MonthlyEarnings />
+                <YearlyClaimsStats />
               </Grid>
             </Grid>
           </Grid>
