@@ -164,6 +164,9 @@ public class Claim {
         this.examiner = examiner.getUsername();
     }
 
+    public void setExaminerByUsername(String examiner) {
+        this.examiner = examiner;
+    }
 }
 
 
