@@ -10,28 +10,32 @@ import {
   TimelineContent,
 } from '@mui/lab';
 import axios from 'axios';
-import { useLocation } from 'react-router-dom'; // Import useLocation
+import {useLocation, useNavigate} from 'react-router-dom'; // Import useLocation
 
 const RecentlyProcessed = () => {
   const location = useLocation();
+  const { username } = location.state || {};
   const [processedClaims, setProcessedClaims] = useState([]);
 
   useEffect(() => {
-    const fetchClaims = async () => {
+    const fetchProcessedClaims = async () => {
       try {
-        if (location.state && location.state.claimId) { // Check if location.state and claimId exist
-          const response = await axios.get('http://localhost:8080/api/getClaimById?id=' + location.state.claimId.toString());
-          const processed = response.data.filter(claim => claim.isProcessed);
-          setProcessedClaims(processed);
-        } else {
-          console.error('Claim ID not available in location.state');
-        }
+        // Fetch data from your API
+        let isProcessed = true;
+        const response = await axios.post('http://localhost:8080/api/claims',
+            null, {
+              params: {username, isProcessed},
+            });
+
+        // Set processed claims in state
+        setProcessedClaims(processedClaims);
+
       } catch (error) {
         console.error('Error fetching claims:', error);
       }
     };
 
-    fetchClaims();
+    fetchProcessedClaims();
   }, [location.state]); // Include location.state in the dependency array
 
   return (
@@ -39,7 +43,9 @@ const RecentlyProcessed = () => {
         <Timeline>
           {processedClaims.map(claim => (
               <TimelineItem key={claim.id}>
-                <TimelineOppositeContent>{claim.dateProcessed}</TimelineOppositeContent>
+                <TimelineOppositeContent>
+                  {`${String(new Date().getHours()).padStart(2, '0')}:${String(new Date().getMinutes()).padStart(2, '0')}`}
+                </TimelineOppositeContent>
                 <TimelineSeparator>
                   <TimelineDot />
                   <TimelineConnector />
