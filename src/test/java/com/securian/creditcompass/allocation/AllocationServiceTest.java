@@ -52,6 +52,18 @@ class AllocationServiceTest {
 
     }
 
+    @Test
+    void assignClaimDoesNotAssignClaimIfAlreadyAssigned() {
+        // Checks that assignClaim does not assign a claim if it is already assigned to an examiner
+
+        // GIVEN claim is already assigned to an examiner
+        claimMock.setExaminerByUsername("janeDoe");
+        // WHEN method called
+        allocationService.assignClaim(claimMock, claimsExaminers);
+        // THEN assert and verify
+        assertNotNull(claimMock.getExaminer());
+        verify(claimRepository, never()).save(any(Claim.class));
+    }
 
     @Test
     void assignClaimSetsAssignedExaminer() {
