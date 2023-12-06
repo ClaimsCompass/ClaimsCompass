@@ -4,6 +4,7 @@ import com.securian.creditcompass.dataAccess.ClaimRepository;
 import com.securian.creditcompass.dataAccess.ExaminerRepository;
 import com.securian.creditcompass.entities.Claim;
 import com.securian.creditcompass.entities.ClaimsExaminer;
+import com.securian.creditcompass.useCases.allocation.AllocationInteractor;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -18,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class AllocationServiceTest {
+class AllocationInteractorTest {
     @Mock
     private ExaminerRepository examinerRepository;
     @Mock
@@ -30,12 +31,12 @@ class AllocationServiceTest {
     private Claim claimMock2;
     private List<Claim> claims;
     @InjectMocks
-    private AllocationService allocationService;
+    private AllocationInteractor allocationInteractor;
 
     @BeforeEach
     void setUp() {
         // instantiate new AllocationService object before each test
-        allocationService = new AllocationService(examinerRepository, claimRepository);
+        allocationInteractor = new AllocationInteractor(examinerRepository, claimRepository);
         // a Mock list of claim examiners
         janeDoe = new ClaimsExaminer("janeDoe", "passJane", "jane", 12L);
         johnDoe = new ClaimsExaminer("johnDoe", "passJohn", "john", 13L);
@@ -59,7 +60,7 @@ class AllocationServiceTest {
         // GIVEN claim is already assigned to an examiner
         claimMock.setExaminerByUsername("janeDoe");
         // WHEN method called
-        allocationService.assignClaim(claimMock, claimsExaminers);
+        allocationInteractor.assignClaim(claimMock, claimsExaminers);
         // THEN assert and verify
         assertNotNull(claimMock.getExaminer());
         verify(claimRepository, never()).save(any(Claim.class));
@@ -70,7 +71,7 @@ class AllocationServiceTest {
         // Checks that assignClaim sets the examiner column of the claim to the assigned examiner
 
         // WHEN method called
-        allocationService.assignClaim(claimMock, claimsExaminers);
+        allocationInteractor.assignClaim(claimMock, claimsExaminers);
         // THEN assert and verify
         assertEquals(janeDoe.getUsername(), claimMock.getExaminer());
     }
@@ -80,7 +81,7 @@ class AllocationServiceTest {
         // Checks that assignClaim saves the claim to the database
 
         // WHEN method called
-        allocationService.assignClaim(claimMock, claimsExaminers);
+        allocationInteractor.assignClaim(claimMock, claimsExaminers);
 
         // THEN assert and verify
         verify(claimRepository).save(claimMock);
@@ -93,7 +94,7 @@ class AllocationServiceTest {
         when(claimRepository.findAll()).thenReturn(claims);
         when(examinerRepository.findAll()).thenReturn(claimsExaminers);
 
-        allocationService.assignAllClaims();
+        allocationInteractor.assignAllClaims();
         // verify that assignClaim is called n number of times, where n is the number of claims
         verify(claimRepository, times(claims.size())).save(any(Claim.class));
     }
@@ -105,7 +106,7 @@ class AllocationServiceTest {
         ClaimsExaminer currExaminer = janeDoe;
         when(claimRepository.findClaimsByExaminer(currExaminer.getUsername())).thenReturn(claims);
 
-        int totalScoreTest = allocationService.getExaminerScore(currExaminer);
+        int totalScoreTest = allocationInteractor.getExaminerScore(currExaminer);
         assertEquals(16, totalScoreTest);
 
     }
