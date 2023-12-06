@@ -9,6 +9,11 @@ import java.io.IOException;
 public class DataPreparation {
 
     public void processDataFile(String inputFileName, String outputFileName) {
+        /*
+        Reads the data from the input file, processes it, and writes it to the output file
+        @param inputFileName: the name of the file to read from
+        @param outputFileName: the name of the file to write to
+         */
         try (BufferedReader br = new BufferedReader(new FileReader(inputFileName));
              BufferedWriter bw = new BufferedWriter(new FileWriter(outputFileName))) {
 
@@ -34,6 +39,11 @@ public class DataPreparation {
     }
 
     private String processAttributes(String[] attributes) {
+        /*
+        Processes the attributes of a single data point
+        @param attributes: the attributes of a single data point
+        @return: the processed data point
+         */
         // Get the data from the attributes
         int claimAmount = Integer.parseInt(attributes[0]);
         String claimType = attributes[1];
@@ -54,6 +64,10 @@ public class DataPreparation {
 
     // Mock encoding methods (replace with actual encoding logic)
     private int encodeClaimType(String claimType) {
+        /*
+        @param claimType: the type of the claim
+        @return: the encoded claim type
+        */
         return switch (claimType) {
             case "Life" -> 0;
             case "Health" -> 1;
@@ -63,6 +77,10 @@ public class DataPreparation {
     }
 
     private int encodeComplexityRating(String complexityRating) {
+        /*
+        @param complexityRating: the complexity rating of the claim
+        @return: the encoded complexity rating (i.e. a number from 0 to 2)
+         */
         return switch (complexityRating) {
             case "Low" -> 0;
             case "Medium" -> 1;
@@ -72,6 +90,9 @@ public class DataPreparation {
     }
 
     public static void main(String[] args) {
+        /*
+        Main method for testing
+        */
         // File paths for input and output files
         String inputFileName = "src/main/java/com/securian/creditcompass/ComplexityModel/data/mock_raw_data.csv";
         String outputFileName = "src/main/java/com/securian/creditcompass/ComplexityModel/data/processed_data.csv";
