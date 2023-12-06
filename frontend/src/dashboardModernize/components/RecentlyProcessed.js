@@ -10,30 +10,29 @@ import {
   TimelineContent,
 } from '@mui/lab';
 import axios from 'axios';
+import { useLocation } from 'react-router-dom'; // Import useLocation
 
 const RecentlyProcessed = () => {
+  const location = useLocation();
   const [processedClaims, setProcessedClaims] = useState([]);
 
   useEffect(() => {
     const fetchClaims = async () => {
       try {
-        // Fetch claims data from your API
-        const response = await axios.get('http://localhost:8080/api/getClaimById?id=' + location.state.claimId.toString());
-
-        // Filter claims where isProcessed is true
-        const processed = response.data.filter(claim => claim.isProcessed);
-
-        // Update state with filtered processed claims
-        setProcessedClaims(processed);
+        if (location.state && location.state.claimId) { // Check if location.state and claimId exist
+          const response = await axios.get('http://localhost:8080/api/getClaimById?id=' + location.state.claimId.toString());
+          const processed = response.data.filter(claim => claim.isProcessed);
+          setProcessedClaims(processed);
+        } else {
+          console.error('Claim ID not available in location.state');
+        }
       } catch (error) {
-        // Log any errors
         console.error('Error fetching claims:', error);
       }
     };
 
-    // Call the fetch function
     fetchClaims();
-  }, [location.state.claimId]); // Add location.state.claimId to the dependency array
+  }, [location.state]); // Include location.state in the dependency array
 
   return (
       <DashboardCard title="Recently Processed Claims">
