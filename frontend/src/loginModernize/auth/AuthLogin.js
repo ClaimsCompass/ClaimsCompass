@@ -87,11 +87,13 @@ const AuthLogin = ({ title, subtitle, subtext }) => {
                 component={Link}
                 to="/"
                 type="submit"
+                style={{ backgroundColor: 'green' }}
             >
                 Sign In
             </Button>
         </Box>
         {subtitle}
+
     </>
 };
 
