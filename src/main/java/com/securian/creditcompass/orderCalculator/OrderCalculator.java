@@ -18,12 +18,18 @@ public class OrderCalculator{
     // Hibernate expects entities to have a no-arg constructor,
     // though it does not necessarily have to be public.
     public OrderCalculator(List<Claim> claims) {
+        /*
+        @param claims: the list of claims to be ordered
+        */
         this.claims = claims;
     }
 
 //    public List<Claim> getOrderedClaims(){return this.orderedClaims;}
 
     public void calculateScores(List<Claim> claims){
+        /*
+        @param claims: the list of claims to be ordered
+        */
 
         for (Claim claim : claims){
             Duration duration = Duration.between(claim.getCreationDateTime(), LocalDateTime.now());
@@ -60,12 +66,19 @@ public class OrderCalculator{
     }
 
     private void calculateTotalScore(Claim claim){
+        /*
+        @param claim: the claim to calculate the total score of
+         */
         int urgencyScore = claim.getUrgencyScore();
         int complexityScore = claim.getComplexityScore();
         claim.setTotalScore(urgencyScore + (complexityScore * 6));
     }
 
     public List<Claim> orderClaims(List<Claim> claims){
+        /*
+        @param claims: the list of claims to be ordered
+        @return: the list of claims ordered by total score
+         */
         claims.sort(Comparator.comparingDouble(Claim::getTotalScore).reversed());
         return claims;
     }

@@ -5,8 +5,15 @@ import com.securian.creditcompass.entities.Claim;
 import java.util.Objects;
 
 public class MLPComplexityAlgorithm implements ComplexityAlgorithm{
+    /*
+    This class will only be used once we are able to train the MLP beyond the proof of concept stage.
+    */
     @Override
     public int calculateComplexity(Claim claim) {
+        /*
+        @param claim: the claim to calculate the complexity of
+        @return: the complexity of the claim
+         */
         float exactClaimAmount = claim.getClaimAmount();
         int claimAmount = Math.round(exactClaimAmount);
         // Changed type to allow for use of arrays later on, which will simplify things.
