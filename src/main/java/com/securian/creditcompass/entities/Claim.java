@@ -2,12 +2,7 @@ package com.securian.creditcompass.entities;
 import jakarta.persistence.*;
 import lombok.Getter;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 
 @Entity
@@ -33,11 +28,11 @@ public class Claim {
 
     @Getter
     @Column(name = "complexityScore")
-    private Integer complexityScore; // the two scores will need to be added after, can not be initialized
+    private Integer complexityScore;
 
     @Getter
     @Column(name = "urgencyScore")
-    private Integer urgencyScore; // a date perhaps?
+    private Integer urgencyScore;
 
     @Column(name = "totalScore")
     private Integer totalScore;
@@ -54,11 +49,10 @@ public class Claim {
     private String examiner;
 
     public Claim() {
-
+        // Hibernate expects entities to have a no-arg constructor,
+        // though it does not necessarily have to be public.
     }
 
-    // Hibernate expects entities to have a no-arg constructor,
-    // though it does not necessarily have to be public.
     public Claim(Integer id, String claimType, String claimDetails, Float claimAmt, Integer complexityScore, Integer urgencyScore) {
         this.id = id;
         this.claimType = claimType;

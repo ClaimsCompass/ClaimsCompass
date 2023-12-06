@@ -9,6 +9,10 @@ import java.io.IOException;
 public class DataPreparation {
 
     public void processDataFile(String inputFileName, String outputFileName) {
+        /*
+        This method reads the raw data from the input file, processes it, and writes the processed data to the output file.
+        This method is not used but may be useful later as it will allow for us to process new data that is not quite numerical yet.
+        */
         try (BufferedReader br = new BufferedReader(new FileReader(inputFileName));
              BufferedWriter bw = new BufferedWriter(new FileWriter(outputFileName))) {
 
