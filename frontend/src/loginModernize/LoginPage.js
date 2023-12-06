@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import { Grid, Box, Card, Stack, Typography } from '@mui/material';
 
 // components
-import PageContainer from './container/PageContainer';
+import LoginContainer from './LoginContainer';
 import Logo from './shared/logo/Logo';
-import AuthLogin from './auth/AuthLogin';
+import AuthLogin from './components/AuthLogin';
 
 const Login2 = () => {
   
   return (
-    <PageContainer title="Login" description="this is Login page">
+    <LoginContainer title="Login" description="this is Login page">
       <Box
         sx={{
           position: 'relative',
@@ -71,7 +71,7 @@ const Login2 = () => {
           </Grid>
         </Grid>
       </Box>
-    </PageContainer>
+    </LoginContainer>
   );
 };
 
