@@ -20,6 +20,10 @@ import org.nd4j.linalg.learning.config.Sgd;
 public class MLPModel {
 
     public static int predictComplexity(double[][] claimDetails) {
+        /*
+        @param claimDetails: a 2D array of doubles, where the first dimension is the claim details and the second dimension is the data itself
+        @return: the predicted complexity of the claim
+         */
         // Define sample dataset
         double[][] inputData = CSVToInputOutputData.getInputOutputData()[0];
         double[][] outputData = CSVToInputOutputData.getInputOutputData()[1];
@@ -89,6 +93,9 @@ public class MLPModel {
     }
 
     public static void main(String[] args) {
+        /*
+        Main method for testing the model on one particular input (i.e. test prediction of complexity for a single claim)
+        */
         // Run a mini test of the model
         int predictedComplexity = predictComplexity(new double[][]{{100000, 0, 0, 0, 2, 0}});
         System.out.println("Predicted Complexity: " + predictedComplexity);
