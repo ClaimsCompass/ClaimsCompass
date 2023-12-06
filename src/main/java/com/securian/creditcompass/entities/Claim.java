@@ -1,7 +1,4 @@
 package com.securian.creditcompass.entities;
-import com.securian.creditcompass.ClaimState.AssignedClaimState;
-import com.securian.creditcompass.ClaimState.ClaimStateChangeListener;
-import com.securian.creditcompass.ClaimState.ClaimState;
 import jakarta.persistence.*;
 import lombok.Getter;
 
@@ -56,10 +53,6 @@ public class Claim {
     @Column(name = "examiner")
     private String examiner;
 
-
-    // TODO We may need read and write objects for ClaimState too, if we want to save
-    //  it to the database?
-
     public Claim() {
 
     }
@@ -108,10 +101,6 @@ public class Claim {
     public boolean isProcessed(){return this.processed;}
 
     public boolean processClaim(){return this.processed = true;}
-
-    public void setClaimExaminer(ClaimsExaminer examiner) {
-        this.examiner = examiner.getUsername();
-    }
 
     public void setExaminerByUsername(String examiner) {
         this.examiner = examiner;
