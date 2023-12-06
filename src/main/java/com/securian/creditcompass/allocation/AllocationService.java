@@ -19,14 +19,17 @@ public class AllocationService {
     @Autowired
     private ClaimRepository claimRepository;
 
-//    public AllocationService(){
-//        this.examinerRepository = examinerRepository;
-//        this.claimRepository = claimRepository;
-//    }
-    // I want tp search for the
+    public AllocationService(ExaminerRepository examinerRepository, ClaimRepository claimRepository){
+        this.examinerRepository = examinerRepository;
+        this.claimRepository = claimRepository;
+    }
+
     public void assignClaim(Claim nextClaim, List <ClaimsExaminer> claimsExaminers ) {
         // assign the claim to this examiner who has the lowest score
         // set examiner column of this claim to the examiner with the lowest score
+        if (nextClaim.getExaminer() != null) {
+            return;
+        }
         ClaimsExaminer minExaminer = getExaminerWithMinScore(claimsExaminers);
         nextClaim.setClaimExaminer(minExaminer);
         claimRepository.save(nextClaim);
@@ -52,7 +55,7 @@ public class AllocationService {
             }
         }
         int totalScore = 0;
-        for (Claim claim : allClaims) {
+        for (Claim claim : filteredClaims) {
             totalScore += claim.getUrgencyScore() + claim.getComplexityScore();
         }
         return totalScore;
@@ -60,17 +63,17 @@ public class AllocationService {
 
     // From a list of claims examiners, return the one with the minimum examiner score
     public ClaimsExaminer getExaminerWithMinScore(List<ClaimsExaminer> examiners) {
-        System.out.println("Size: " + examiners.size());
-        for (ClaimsExaminer examiner : examiners) {
-            System.out.println(examiner.getUsername());
-        }
+//        System.out.println("Size: " + examiners.size());
+//        for (ClaimsExaminer examiner : examiners) {
+//            System.out.println(examiner.getUsername());
+//        }
         ClaimsExaminer minExaminer = examiners.get(0);
         for (ClaimsExaminer examiner : examiners) {
-            Integer curExaminerScore = getExaminerScore(examiner);
-            Integer minExaminerScore = getExaminerScore(minExaminer);
+            int curExaminerScore = getExaminerScore(examiner);
+            int minExaminerScore = getExaminerScore(minExaminer);
 
-            System.out.println(examiner.getUsername() + " " + curExaminerScore);
-            System.out.println(minExaminer.getUsername() + " " + minExaminerScore);
+//            System.out.println(examiner.getUsername() + " " + curExaminerScore);
+//            System.out.println(minExaminer.getUsername() + " " + minExaminerScore);
             if (curExaminerScore < minExaminerScore) {
                 minExaminer = examiner;
             }

@@ -27,7 +27,7 @@ class LoginControllerTest {
         // with a body of {"username":"janeDoe","password":"hello"} NOTE: all details should match database
         // and a content type of application/json
         RequestBuilder request = MockMvcRequestBuilders.post("/login")
-                .content("{\"username\":\"janeDoe\",\"password\":\"hello\"}")
+                .content("{\"username\":\"janeDoe\",\"password\":\"Maison\"}")
                 .contentType("application/json");
 
         // Perform post request to /login endpoint, which invokes the login method in LoginController

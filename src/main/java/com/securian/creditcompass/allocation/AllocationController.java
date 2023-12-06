@@ -13,9 +13,10 @@ public class AllocationController {
     }
 
     @PostMapping("/assign")
-    public void execute(){
-        System.out.println("Assign activate.");
+    public boolean execute(){
+//        System.out.println("Assign activate.");
         allocationService.assignAllClaims();
-        System.out.println("Assign done.");
+//        System.out.println("Assign done.");
+        return true;
     }
 }
