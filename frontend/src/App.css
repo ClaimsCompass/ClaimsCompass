@@ -13,6 +13,16 @@
   }
 }
 
+@font-face {
+  font-family: 'HurmeGeometricSans3-Regular';
+  src: url('HurmeGeometricSans3-Regular.woff') format('woff');
+}
+
+* {
+  font-family: 'HurmeGeometricSans3-Regular', Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
