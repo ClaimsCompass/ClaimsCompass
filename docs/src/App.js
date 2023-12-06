@@ -4,7 +4,7 @@ import Login from "./login/login";
 import DashboardPage from "./dashboard/DashboardPage";
 import SecurianLogo from './login/securianLogo.png'
 import ClaimPage from './claim/Claim';
-import {Routes, Route} from "react-router-dom";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 import axios from "axios";
 
 function App() {

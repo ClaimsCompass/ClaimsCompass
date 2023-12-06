@@ -12,13 +12,23 @@ const Login = () => {
 
     const handleLogin = async () => {
         try {
-            const response = await axios.post('http://localhost:8080/login', {
+            // Local
+            // const loginPost = 'http://localhost:8080/login';
+            
+            // EC2
+            const loginPost = 'http://3.129.4.166:8080/login';
+            const response = await axios.post(loginPost, {
                 username,
                 password,
             });
             if (response.status === 200) {
                 setMessage(response.data);
-                const response2 = await axios.post('http://localhost:8080/assign', {});
+                // Local
+                // const assignPost = 'http://localhost:8080/assign';
+
+                // EC2
+                const assignPost = 'http://3.129.4.166:8080/assign';
+                const response2 = await axios.post(assignPost, {});
                 navigate('/dashboard', { state: { username } });
             } else {
                 console.error('Login failed:', response.status, response.statusText);

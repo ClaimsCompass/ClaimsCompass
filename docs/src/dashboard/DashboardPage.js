@@ -55,7 +55,12 @@ const DashboardPage = () => {
             try {
                 // Fetch data from your API
                 let isProcessed = false;
-                const response = await axios.post('http://localhost:8080/api/claims',
+                // Local
+                // const claimsPost = 'http://localhost:8080/api/claims'
+
+                // EC2
+                const claimsPost = 'http://3.129.4.166/api/claims'
+                const response = await axios.post(claimsPost,
                     null, {
                         params: {username, isProcessed},
                     });
@@ -80,7 +85,10 @@ const DashboardPage = () => {
             //    apiURL = 'http://localhost:8080/api/processedClaims'
             //}
             //const response = await axios.get(apiURL);
-            const response = await axios.post('http://localhost:8080/api/claims',
+
+            // const claimsPost = 'http://localhost:8080/api/claims'
+            const claimsPost = 'http://3.129.4.166/api/claims'
+            const response = await axios.post(claimsPost,
                 null, {
                     params: {username, isProcessed},
                 });
