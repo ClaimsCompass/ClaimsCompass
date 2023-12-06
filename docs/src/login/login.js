@@ -16,7 +16,8 @@ const Login = () => {
             // const loginPost = 'http://localhost:8080/login';
             
             // EC2
-            const loginPost = 'http://3.129.4.166:8080/login';
+            const loginPost = 'http://ec2-3-129-4-166.us-east-2.compute.amazonaws.com:8080/login'
+            // const loginPost = 'http://3.129.4.166:8080/login';
             const response = await axios.post(loginPost, {
                 username,
                 password,
@@ -27,7 +28,8 @@ const Login = () => {
                 // const assignPost = 'http://localhost:8080/assign';
 
                 // EC2
-                const assignPost = 'http://3.129.4.166:8080/assign';
+                const assignPost = 'http://ec2-3-129-4-166.us-east-2.compute.amazonaws.com:8080/assign'
+                //const assignPost = 'http://3.129.4.166:8080/assign';
                 const response2 = await axios.post(assignPost, {});
                 navigate('/dashboard', { state: { username } });
             } else {
