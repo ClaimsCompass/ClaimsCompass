@@ -56,9 +56,7 @@ const DashboardPage = () => {
                 // Fetch data from your API
                 let isProcessed = false;
                 const response = await axios.post('http://localhost:8080/api/claims',
-                    null, {
-                        params: {username, isProcessed},
-                    });
+                    {username, isProcessed});
                 // Update state with the fetched data
                 setClaimsDetailsArray(response.data);
             } catch (error) {
@@ -80,10 +78,12 @@ const DashboardPage = () => {
             //    apiURL = 'http://localhost:8080/api/processedClaims'
             //}
             //const response = await axios.get(apiURL);
+            //const response = await axios.post('http://localhost:8080/api/claims',
+            //    null, {
+            //        params: {username, isProcessed},
+            //    });
             const response = await axios.post('http://localhost:8080/api/claims',
-                null, {
-                    params: {username, isProcessed},
-                });
+                {username, isProcessed});
 
             // Update state with the fetched data
             setClaimsDetailsArray(response.data);
