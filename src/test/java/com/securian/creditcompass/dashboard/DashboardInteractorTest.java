@@ -66,4 +66,25 @@ public class DashboardInteractorTest {
         // Assert
         assertEquals(expectedOutputMutable, actualOutputMutable);
     }
+
+    @Test
+    void testDatabaseUpdate() {
+
+        DashboardInputData inputData = new DashboardInputData("janeDoe", false);
+        List<List<Object>> expectedOutput = List.of(List.of(998, 100000f, "2023-12-06T00:44:39.114896", "disability", "Low", "Low"),
+                List.of(999, 120000f, "2023-12-06T00:44:39.114896","life", "Low", "Low"));
+
+        Claim stubClaim = new Claim(999,"life", "Life", 120000f, 0, 0);
+        Claim stubClaim2 = new Claim(998,"disability", "Disability", 100000f, 0, 0);
+
+        List<Claim> stubClaims = List.of(stubClaim2, stubClaim);
+
+        when(claimRepository.findByExaminer("janeDoe")).thenReturn(Optional.of(stubClaims));
+        when(orderCalculator.orderClaims(stubClaims)).thenReturn(List.of(stubClaim2, stubClaim));
+
+        List<List<Object>> actualOutput = dashboardInteractor.execute(inputData);
+
+        // Assert
+        verify(claimRepository, times(1)).saveAll(stubClaims);
+    }
 }
