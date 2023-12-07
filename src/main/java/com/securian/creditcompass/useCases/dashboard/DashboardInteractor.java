@@ -31,11 +31,8 @@ public class DashboardInteractor implements DashboardInputBoundary {
 
         // Find all the claims associated with the given examiner. Notice that the examiner might not
         // have any claims associated with them.
-        System.out.println(dashboardInputData.getUsername());
         List<Claim> claimsList = claimRepository.findByExaminer(dashboardInputData.getUsername()).
                 orElse(new ArrayList<>());
-
-        System.out.println(claimsList.size());
 
         // Calculate the complexity and urgency score for each claim
         orderCalculator.calculateScores(claimsList);

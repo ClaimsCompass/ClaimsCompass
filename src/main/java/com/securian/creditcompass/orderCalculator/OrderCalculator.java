@@ -4,7 +4,6 @@ import com.securian.creditcompass.entities.Claim;
 import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
 
 import java.time.LocalDateTime;
