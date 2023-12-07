@@ -39,7 +39,7 @@ INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_
 INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (80000, 'Life', 11500, 'Life', 0, 0, 0, false, '2023-12-04 15:00:00', NULL, NULL);
 INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (70000, 'Life', 90500, 'Life', 0, 0, 0, false, '2023-12-04 15:00:00', NULL, NULL);
 INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (60000, 'Unemployment', 68500, 'Unemployment CompletedDocuments:N', 0, 0, 0, false, '2023-12-04 15:00:00', NULL, NULL);
-INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (50000, 'Disability', 78500, 'Disability', 0, 0, 0, false, '2023-12-04 15:00:00', 'johnTate', NULL);
+INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (50000, 'Disability', 78500, 'Disability', 0, 0, 0, false, '2023-12-04 15:00:00', NULL, NULL);
 
 
 -- Completed on 2023-12-06 19:23:46 EST
