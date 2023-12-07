@@ -1,7 +1,9 @@
 # ClaimsCompass
 Created by Andrew Xie, Derek Hyunh, Krisha Kalsi, Maryam Taj, and Pratibha Thakur. We would also like to appreciate University of Toronto's Technology Leadership Initiative team, particularly Mike McCarthy, Paul Gries, Gabe Guralnick and Jia Hao Choo. 
 
-Claims Compass is a triaging system that organizes claims based on urgency and complexity. Thus, claim examiners can address complex claims faster and fast-track simpler claims. We used technologies such as React, Java Spring, and PostgreSQL. We would like to acknowledge MaterialUI's templates for the frontend: https://demos.adminmart.com/free/nextjs/modernize-nextjs-free/landingpage/index.html  
+Claims Compass is a triaging system that organizes claims based on urgency and complexity. Thus, claim examiners can address complex claims faster and fast-track simpler claims. We used technologies such as React, Java Spring, and PostgreSQL. We would like to acknowledge MaterialUI's templates for the frontend: https://demos.adminmart.com/free/nextjs/modernize-nextjs-free/landingpage/index.html.
+
+Our frontend is hosted on https://claimscompass.github.io/ClaimsCompass/.
 
 You can see our entire journey from conception to implementation here: https://drive.google.com/drive/folders/12gBvTVogDdBOfHqe4uPHxgHzluzwVV5Z?usp=sharing
 
