@@ -53,8 +53,8 @@ https://stackoverflow.com/questions/18664074/getting-error-peer-authentication-f
 3. Create a database and populate it with dummy data.
 ```sh
 # From the source directory
-psql -U securian -d ClaimsCompassMain -f schema/claims_table.sql
-psql -U securian -d ClaimsCompassMain -f schema/examiner_table.sql
+psql -U securian -d ClaimsCompassMain -f schema/claim.sql
+psql -U securian -d ClaimsCompassMain -f schema/claimexaminer.sql
 ```
 
 ### Java Setup<a name="java-setup"></a>
