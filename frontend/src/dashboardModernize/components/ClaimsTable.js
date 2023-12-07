@@ -28,10 +28,8 @@ const ClaimsTable = () => {
             try {
                 // Fetch data from your API
                 let isProcessed = false;
-                const response = await axios.post('http://localhost:8080/api/claims',
-                    null, {
-                        params: {username, isProcessed},
-                    });
+                const claimPost = 'https://desolate-atoll-42268-f37d5cfd51df.herokuapp.com/http://ec2-3-129-4-166.us-east-2.compute.amazonaws.com:8080/api/claims'
+                const response = await axios.post(claimPost, {username, isProcessed});
                 // Update state with the fetched data
                 setClaimsDetailsArray(response.data);
             } catch (error) {
@@ -53,10 +51,8 @@ const ClaimsTable = () => {
             //    apiURL = 'http://localhost:8080/api/processedClaims'
             //}
             //const response = await axios.get(apiURL);
-            const response = await axios.post('http://localhost:8080/api/claims',
-                null, {
-                    params: {username, isProcessed},
-                });
+            const claimPost = 'https://desolate-atoll-42268-f37d5cfd51df.herokuapp.com/http://ec2-3-129-4-166.us-east-2.compute.amazonaws.com:8080/api/claims'
+            const response = await axios.post(claimPost, {username, isProcessed});
 
             // Update state with the fetched data
             setClaimsDetailsArray(response.data);

@@ -1,10 +1,9 @@
 package com.securian.creditcompass.useCases.claimPage;
 
 import com.securian.creditcompass.entities.Claim;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @RestController
 public class ClaimPageController {
@@ -17,21 +16,23 @@ public class ClaimPageController {
         this.claimPageInteractor = claimPageInteractor;
     }
 
-    @GetMapping("/api/getClaimById") // API endpoint to get a single claim by id
-    public Claim getClaimById(@RequestParam Long id) {
+    @PostMapping("/api/getClaimById") // API endpoint to get a single claim by id
+    public Claim getClaimById(@RequestBody Map<String, String> body) {
         /*
         @param id: the id of the claim to get
         @return: the claim with the given id
         */
-        var inputData = new ClaimPageInputData(id, true);
+        Long id = Long.valueOf(body.get("claimId"));
+        var inputData = new ClaimPageInputData(id, false);
         return claimPageInteractor.execute_get(inputData);
     }
 
     @PostMapping("/api/updateProcessedClaim") // POST mapping to indicate that a claim has been processed
-    public void updateProcessedClaim(@RequestParam Long id) {
+    public void updateProcessedClaim(@RequestBody Map<String, String> body) {
         /*
         @param id: the id of the claim to update
          */
+        Long id = Long.valueOf(body.get("claimId"));
         var inputData = new ClaimPageInputData(id, true);
         claimPageInteractor.execute_post(inputData);
     }

@@ -10,10 +10,8 @@ export const ActionButton= () => {
         const id = location.state.claimId;
         try {
             // POST'ing to db, indicates claim has been processed
-            const response = await axios.post('http://localhost:8080/api/updateProcessedClaim',
-                null, {
-                    params: { id },
-                });
+            const updateClaimPost = 'https://desolate-atoll-42268-f37d5cfd51df.herokuapp.com/http://ec2-3-129-4-166.us-east-2.compute.amazonaws.com:8080/api/updateProcessedClaim'
+            const response = await axios.post(updateClaimPost, { id });
         } catch (error) {
             // Log any errors
             console.error("Error fetching claims:", error);
