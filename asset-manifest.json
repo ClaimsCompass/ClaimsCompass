@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/ClaimsCompass/static/css/main.e8b992c8.css",
-    "main.js": "/ClaimsCompass/static/js/main.7118a625.js",
+    "main.js": "/ClaimsCompass/static/js/main.252bad1e.js",
     "static/media/HurmeGeometricSans3-Regular.woff": "/ClaimsCompass/static/media/HurmeGeometricSans3-Regular.ddd07d267598344c50f0.woff",
     "index.html": "/ClaimsCompass/index.html",
     "main.e8b992c8.css.map": "/ClaimsCompass/static/css/main.e8b992c8.css.map",
-    "main.7118a625.js.map": "/ClaimsCompass/static/js/main.7118a625.js.map"
+    "main.252bad1e.js.map": "/ClaimsCompass/static/js/main.252bad1e.js.map"
   },
   "entrypoints": [
     "static/css/main.e8b992c8.css",
-    "static/js/main.7118a625.js"
+    "static/js/main.252bad1e.js"
   ]
 }
