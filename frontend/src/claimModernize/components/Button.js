@@ -5,16 +5,19 @@ import {useLocation, useNavigate} from "react-router-dom";
 
 export const ActionButton= () => {
     let location = useLocation();
-    console.log(location.hash);
+    console.log("Location hash: " + location.hash);
     const navigate = useNavigate();
     const redirectDashboard = async () => {
         //const id = location.state.claimId;
-        const id= location.hash;
-        console.log(id);
+        const fullPath = location.pathname;
+        const fullPathSplit = fullPath.split("/");
+        const claimId = fullPathSplit.slice(-1)[0];
+        //const id = location.hash;
+        console.log(claimId);
         try {
             // POST'ing to db, indicates claim has been processed
             const updateClaimPost = 'https://desolate-atoll-42268-f37d5cfd51df.herokuapp.com/http://ec2-3-129-4-166.us-east-2.compute.amazonaws.com:8080/api/updateProcessedClaim'
-            const response = await axios.post(updateClaimPost, { id });
+            const response = await axios.post(updateClaimPost, {claimId});
         } catch (error) {
             // Log any errors
             console.error("Error fetching claims:", error);
