@@ -22,10 +22,8 @@ const RecentlyProcessed = () => {
       try {
         // Fetch data from your API
         let isProcessed = true;
-        const response = await axios.post('http://localhost:8080/api/claims',
-            null, {
-              params: {username, isProcessed},
-            });
+        const recentlyProcessed = 'https://desolate-atoll-42268-f37d5cfd51df.herokuapp.com/http://ec2-3-129-4-166.us-east-2.compute.amazonaws.com:8080/api/claims';
+        const response = await axios.post(recentlyProcessed, {username, isProcessed});
 
         // Set processed claims in state
         setProcessedClaims(response.data);
