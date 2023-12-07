@@ -33,7 +33,6 @@ public class LoginInteractor implements LoginInputBoundary{
 
             // compare database value to the password in the loginInputData
             if (dbPassword.equals(loginInputData.getPassword())) {
-                System.out.println("Successful login.");
                 return true;
             } else {
                 // if password doesn't match for user, throw authentication exception

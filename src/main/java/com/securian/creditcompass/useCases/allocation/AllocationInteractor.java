@@ -82,17 +82,10 @@ public class AllocationInteractor {
         @param examiners: the list of examiners to find the one with the minimum score
         @return: the examiner with the minimum score
         */
-//        System.out.println("Size: " + examiners.size());
-//        for (ClaimsExaminer examiner : examiners) {
-//            System.out.println(examiner.getUsername());
-//        }
         ClaimsExaminer minExaminer = examiners.get(0);
         for (ClaimsExaminer examiner : examiners) {
             int curExaminerScore = getExaminerScore(examiner);
             int minExaminerScore = getExaminerScore(minExaminer);
-
-//            System.out.println(examiner.getUsername() + " " + curExaminerScore);
-//            System.out.println(minExaminer.getUsername() + " " + minExaminerScore);
             if (curExaminerScore < minExaminerScore) {
                 minExaminer = examiner;
             }

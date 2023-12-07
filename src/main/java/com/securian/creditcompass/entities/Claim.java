@@ -2,12 +2,8 @@ package com.securian.creditcompass.entities;
 import jakarta.persistence.*;
 import lombok.Getter;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+
 
 
 @Entity
@@ -54,10 +50,11 @@ public class Claim {
     private String examiner;
 
     public Claim() {
+        // Hibernate expects entities to have a no-arg constructor,
+        // though it does not necessarily have to be public.
     }
 
-    // Hibernate expects entities to have a no-arg constructor,
-    // though it does not necessarily have to be public.
+
     public Claim(Integer id, String claimType, String claimDetails, Float claimAmt, Integer complexityScore, Integer urgencyScore) {
         /*
         @param id: the id of the claim

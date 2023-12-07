@@ -22,7 +22,6 @@ public class DashboardController {
         @param isProcessed: whether to get the processed or unprocessed claims
         @return: the dashboard data for the given user
          */
-        System.out.println("isProcessed: " + isProcessed);
         DashboardInputData dashboardInputData = new DashboardInputData(username, isProcessed);
         return dashboardInteractor.execute(dashboardInputData);
 
