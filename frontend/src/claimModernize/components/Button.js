@@ -5,9 +5,11 @@ import {useLocation, useNavigate} from "react-router-dom";
 
 export const ActionButton= () => {
     let location = useLocation();
+    console.log(location.hash);
     const navigate = useNavigate();
     const redirectDashboard = async () => {
-        const id = location.state.claimId;
+        //const id = location.state.claimId;
+        const id= location.hash;
         console.log(id);
         try {
             // POST'ing to db, indicates claim has been processed

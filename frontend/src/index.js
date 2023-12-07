@@ -7,15 +7,16 @@ import './App.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 /*
-
+      <HashRouter>
+      </HashRouter>
       <BrowserRouter basename={"ClaimsCompass"}>
       </BrowserRouter>
  */
 root.render(
   <React.StrictMode>
-      <HashRouter>
+      <BrowserRouter basename={"ClaimsCompass"}>
           <App />
-      </HashRouter>
+      </BrowserRouter>
   </React.StrictMode>
 );
 
