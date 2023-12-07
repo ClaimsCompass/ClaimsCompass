@@ -22,7 +22,7 @@ public class CreditcompassApplication {
 		public CorsFilter corsFilter() {
 			UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 			CorsConfiguration config = new CorsConfiguration();
-			config.addAllowedOrigin("http://localhost:3000"); // Replace with your frontend URL
+			config.addAllowedOrigin("*"); // Replace with your frontend URL
 			config.addAllowedHeader("*");
 			config.addAllowedMethod("*");
 			source.registerCorsConfiguration("/**", config);
