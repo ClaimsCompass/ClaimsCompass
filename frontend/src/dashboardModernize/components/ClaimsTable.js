@@ -19,7 +19,7 @@ const ClaimsTable = () => {
     // const [processedOrActive, setProcessedOrActive] = useState([]); // Initialize state
 
     function ResolveClaimView(index) {
-        navigate(":" + index.toString(), { state: { claimId: index, username: location.state.username} });
+        navigate(index.toString(), { state: { claimId: index.toString(), username: location.state.username} });
     }
 
     useEffect(() => {
