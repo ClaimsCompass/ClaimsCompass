@@ -37,7 +37,7 @@ public class DataPreparation {
         }
     }
 
-    private String processAttributes(String[] attributes) {
+    String processAttributes(String[] attributes) {
         // Get the data from the attributes
         int claimAmount = Integer.parseInt(attributes[0]);
         String claimType = attributes[1];
@@ -57,7 +57,7 @@ public class DataPreparation {
     }
 
     // Mock encoding methods (replace with actual encoding logic)
-    private int encodeClaimType(String claimType) {
+    int encodeClaimType(String claimType) {
         return switch (claimType) {
             case "Life" -> 0;
             case "Health" -> 1;
@@ -66,7 +66,7 @@ public class DataPreparation {
         };
     }
 
-    private int encodeComplexityRating(String complexityRating) {
+    int encodeComplexityRating(String complexityRating) {
         return switch (complexityRating) {
             case "Low" -> 0;
             case "Medium" -> 1;
