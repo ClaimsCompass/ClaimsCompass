@@ -37,16 +37,14 @@ public class OrderCalculator{
                 // and rapidly increase exponentially following 24 hours
                 newUrgencyScore = (int) Math.pow(2, (0.193494007 * intervals)) - 1;
             }
-            if (newUrgencyScore > urgencyScore){
                 // After approximately 100 hours, the urgency score will be 1000000
                 // which acts as a hard stop to the urgency score as to prevent
                 // integer overflow since it is dealing with an exponential function
-                if (newUrgencyScore > 1000000){
-                    claim.setUrgencyScore(1000000);
-                }
-                else{
-                    claim.setUrgencyScore(newUrgencyScore);
-                }
+            if (newUrgencyScore > 1000000){
+                claim.setUrgencyScore(1000000);
+            }
+            else{
+                claim.setUrgencyScore(newUrgencyScore);
             }
 
             ComplexityAlgorithm iterativeAlgorithm = new IterativeComplexityAlgorithm();

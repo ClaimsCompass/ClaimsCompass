@@ -35,7 +35,11 @@ class OrderCalculatorTest {
         Claim claim = new Claim(8, "illness",
                 "CompletedDocuments:N Illness useless text should be ignored", 131141.4F,
                 0, 0);
+        Claim claimUrgent = new Claim(8, "illness",
+                "CompletedDocuments:N Illness useless text should be ignored", 131141.4F,
+                0, 1000001);
         claims.add(claim);
+        claims.add(claimUrgent);
         return claims;
     }
 
