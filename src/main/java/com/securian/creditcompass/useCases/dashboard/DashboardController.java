@@ -15,7 +15,6 @@ public class DashboardController {
     }
 
     @PostMapping("/api/claims")
-    //TODO: Remove List<List<Object>> - it's bad practice.
     public List<List<Object>> execute(@RequestParam String username, @RequestParam Boolean isProcessed) {
         /*
         @param username: the username of the user to get the dashboard data for
