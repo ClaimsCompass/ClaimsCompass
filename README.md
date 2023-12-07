@@ -50,7 +50,7 @@ postgres=#CREATE DATABASE ClaimsCompassMain OWNER securian;
 * Note: If you see "Ident authentication failed for user securian", follow this stack overflow post:
 https://stackoverflow.com/questions/18664074/getting-error-peer-authentication-failed-for-user-postgres-when-trying-to-ge
 
-3. Create a database and populate it with dummy data.
+3. Create a database and populate it with dummy data using the following commands. Note: In the claim table, modify the creation date to the current date. 
 ```sh
 # From the source directory
 psql -U securian -d ClaimsCompassMain -f schema/claim.sql
