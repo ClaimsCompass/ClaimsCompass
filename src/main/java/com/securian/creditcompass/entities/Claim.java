@@ -4,7 +4,6 @@ import lombok.Getter;
 
 import java.time.LocalDateTime;
 
-
 @Entity
 @Table(name = "claims")
 public class Claim {

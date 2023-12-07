@@ -30,7 +30,6 @@ public class DataPreparation {
                 String processedData = processAttributes(attributes);
                 bw.write(processedData + "\n");
             }
-            System.out.println("Data processing complete.");
 
         } catch (IOException e) {
             e.printStackTrace();

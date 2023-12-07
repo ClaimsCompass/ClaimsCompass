@@ -20,9 +20,7 @@ public class AllocationController {
         /*
         @return: true if the claims were successfully assigned, false otherwise
         */
-//        System.out.println("Assign activate.");
         allocationInteractor.assignAllClaims();
-//        System.out.println("Assign done.");
         return true;
     }
 }
