@@ -3,7 +3,9 @@ Created by Andrew Xie, Derek Hyunh, Krisha Kalsi, Maryam Taj, and Pratibha Thaku
 
 Claims Compass is a triaging system that organizes claims based on urgency and complexity. Thus, claim examiners can address complex claims faster and fast-track simpler claims. We used technologies such as React, Java Spring, and PostgreSQL. We would like to acknowledge MaterialUI's templates for the frontend: https://demos.adminmart.com/free/nextjs/modernize-nextjs-free/landingpage/index.html.
 
-Our frontend is hosted on https://claimscompass.github.io/ClaimsCompass/.
+Our frontend is hosted on https://claimscompass.github.io/ClaimsCompass/. Backend is hosted on EC2. Since we 
+are on the free tier plan, the EC2 will be down from now on, unless needed. The code
+for this is all in the `securian_demo` branch.
 
 You can see our entire journey from conception to implementation here: https://drive.google.com/drive/folders/12gBvTVogDdBOfHqe4uPHxgHzluzwVV5Z?usp=sharing
 
