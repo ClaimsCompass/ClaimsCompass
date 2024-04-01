@@ -1,0 +1,65 @@
+# flyctl launch added from .gitignore
+# Intellij IDE configs
+**/.idea
+**/.iml
+
+# React + Node + npm stuff
+**/node_modules
+**/out
+
+**/ Compiled class file
+**/*.class
+
+# Log file
+**/*.log
+
+# BlueJ files
+**/*.ctxt
+
+# Mobile Tools for Java (J2ME)
+**/.mtj.tmp
+
+# Package Files #
+**/*.jar
+**/*.war
+**/*.nar
+**/*.ear
+**/*.zip
+**/*.tar.gz
+**/*.rar
+
+**/hs_err_pid*
+
+# Mac specific
+**/.DS_Store
+
+
+# Maven stuff
+**/target
+**/apprunner.yaml
+
+# flyctl launch added from frontend/.gitignore
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+frontend/node_modules
+frontend/.pnp
+frontend/**/.pnp.js
+
+# testing
+frontend/coverage
+
+# production
+frontend/build
+
+# misc
+frontend/**/.DS_Store
+frontend/**/.env.local
+frontend/**/.env.development.local
+frontend/**/.env.test.local
+frontend/**/.env.production.local
+
+frontend/**/npm-debug.log*
+frontend/**/yarn-debug.log*
+frontend/**/yarn-error.log*
+fly.toml
