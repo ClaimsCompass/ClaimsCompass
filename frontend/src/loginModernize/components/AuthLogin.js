@@ -21,14 +21,14 @@ const AuthLogin = ({ title, subtitle, subtext }) => {
 
     const handleLogin = async () => {
         try {
-            const loginPost = 'https://desolate-atoll-42268-f37d5cfd51df.herokuapp.com/http://ec2-3-129-4-166.us-east-2.compute.amazonaws.com:8080/login'
+            const loginPost = 'https://claims-compass-cors-b01090e891ae.herokuapp.com/http://ec2-3-21-119-123.us-east-2.compute.amazonaws.com:8080/login';
             const response = await axios.post(loginPost, {
                 username,
                 password,
             });
             if (response.status === 200) {
                 setMessage(response.data);
-                const assignPost = 'https://desolate-atoll-42268-f37d5cfd51df.herokuapp.com/http://ec2-3-129-4-166.us-east-2.compute.amazonaws.com:8080/assign'
+                const assignPost = 'https://claims-compass-cors-b01090e891ae.herokuapp.com/http://ec2-3-21-119-123.us-east-2.compute.amazonaws.com:8080/assign';
                 const response2 = await axios.post(assignPost, {});
                 navigate('/dashboard', { state: { username } });
             } else {

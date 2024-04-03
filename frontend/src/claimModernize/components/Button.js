@@ -16,7 +16,8 @@ export const ActionButton= () => {
         console.log(claimId);
         try {
             // POST'ing to db, indicates claim has been processed
-            const updateClaimPost = 'https://desolate-atoll-42268-f37d5cfd51df.herokuapp.com/http://ec2-3-129-4-166.us-east-2.compute.amazonaws.com:8080/api/updateProcessedClaim'
+            
+            const updateClaimPost = 'https://claims-compass-cors-b01090e891ae.herokuapp.com/http://ec2-3-21-119-123.us-east-2.compute.amazonaws.com:8080/api/updateProcessedClaim';
             const response = await axios.post(updateClaimPost, {claimId});
         } catch (error) {
             // Log any errors

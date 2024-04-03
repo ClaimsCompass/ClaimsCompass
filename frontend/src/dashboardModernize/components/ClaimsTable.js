@@ -28,7 +28,7 @@ const ClaimsTable = () => {
             try {
                 // Fetch data from your API
                 let isProcessed = false;
-                const claimPost = 'https://desolate-atoll-42268-f37d5cfd51df.herokuapp.com/http://ec2-3-129-4-166.us-east-2.compute.amazonaws.com:8080/api/claims'
+                const claimPost = 'https://claims-compass-cors-b01090e891ae.herokuapp.com/http://ec2-3-21-119-123.us-east-2.compute.amazonaws.com:8080/api/claims';
                 const response = await axios.post(claimPost, {username, isProcessed});
                 // Update state with the fetched data
                 setClaimsDetailsArray(response.data);
@@ -51,7 +51,7 @@ const ClaimsTable = () => {
             //    apiURL = 'http://localhost:8080/api/processedClaims'
             //}
             //const response = await axios.get(apiURL);
-            const claimPost = 'https://desolate-atoll-42268-f37d5cfd51df.herokuapp.com/http://ec2-3-129-4-166.us-east-2.compute.amazonaws.com:8080/api/claims'
+            const claimPost = 'https://claims-compass-cors-b01090e891ae.herokuapp.com/http://ec2-3-21-119-123.us-east-2.compute.amazonaws.com:8080/api/claims';
             const response = await axios.post(claimPost, {username, isProcessed});
 
             // Update state with the fetched data
