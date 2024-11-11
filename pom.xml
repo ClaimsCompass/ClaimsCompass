@@ -23,14 +23,12 @@
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-api</artifactId>
 			<version>5.9.3</version>
 			<scope>test</scope>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-engine</artifactId>
@@ -71,8 +69,8 @@
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+
 		<!-- Dependencies for MLP Model -->
-		<!-- https://mvnrepository.com/artifact/org.tensorflow/tensorflow -->
 		<dependency>
 			<groupId>org.tensorflow</groupId>
 			<artifactId>tensorflow</artifactId>
@@ -88,6 +86,7 @@
 			<artifactId>deeplearning4j-modelimport</artifactId>
 			<version>1.0.0-beta2</version>
 		</dependency>
+		<!-- Use platform-independent version for ND4J -->
 		<dependency>
 			<groupId>org.nd4j</groupId>
 			<artifactId>nd4j-native-platform</artifactId>
@@ -97,56 +96,35 @@
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-server</artifactId>
 			<version>9.4.9.v20180320</version>
-		</dependency>  <dependency>
-		<groupId>com.google.cloud.dataflow</groupId>
-		<artifactId>google-cloud-dataflow-java-sdk-all</artifactId>
-		<version>2.2.0</version>
-	</dependency>
+		</dependency>
+		<dependency>
+			<groupId>com.google.cloud.dataflow</groupId>
+			<artifactId>google-cloud-dataflow-java-sdk-all</artifactId>
+			<version>2.2.0</version>
+		</dependency>
 	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>maven-central</id>
+			<url>https://repo.maven.apache.org/maven2</url>
+		</repository>
+		<repository>
+			<id>maven-restlet</id>
+			<url>https://maven.restlet.org</url>
+		</repository>
+		<repository>
+			<id>scala-tools</id>
+			<url>https://repo.scala-sbt.org/scalasbt/maven-releases</url>
+		</repository>
+	</repositories>
+
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<!--
-			<plugin>
-				<groupId>com.github.eirslett</groupId>
-				<artifactId>frontend-maven-plugin</artifactId>
-				<version>1.12.0</version>
-				<configuration>
-					<installDirectory>target</installDirectory>
-				</configuration>
-				<executions>
-					<execution>
-						<id>install node and npm</id>
-						<goals>
-							<goal>install-node-and-npm</goal>
-						</goals>
-						<configuration>
-							<nodeVersion>v14.17.3</nodeVersion>
-							<npmVersion>7.18.1</npmVersion>
-						</configuration>
-					</execution>
-					<execution>
-						<id>npm install</id>
-						<goals>
-							<goal>npm</goal>
-						</goals>
-						<configuration>
-							<arguments>install</arguments>
-						</configuration>
-					</execution>
-					<execution>
-						<id>webpack build</id>
-						<goals>
-							<goal>webpack</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			-->
 		</plugins>
 	</build>
-
 </project>
