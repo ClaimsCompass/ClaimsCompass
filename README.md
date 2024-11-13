@@ -48,8 +48,10 @@ sudo systemctl start postgresql
 sudo -u postgres psql
 
 postgres=#CREATE USER securian WITH PASSWORD 'hello';
-postgres=#CREATE DATABASE ClaimsCompassMain OWNER securian;
+postgres=#CREATE DATABASE "ClaimsCompassMain" OWNER securian;
 ```
+* Note: If above line raises a "Permission denied" error, navigate to root directory before running it again.
+
 * Note: If you see "Ident authentication failed for user securian", follow this stack overflow post:
 https://stackoverflow.com/questions/18664074/getting-error-peer-authentication-failed-for-user-postgres-when-trying-to-ge
 
