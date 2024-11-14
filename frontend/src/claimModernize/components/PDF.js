@@ -19,7 +19,7 @@ const PDFViewer = () => {
                 <iframe
                     title="PDF Viewer"
                     className="pdf-iframe"
-                    src="https://drive.google.com/file/d/1pygVq2aoKgHIIaGWtYjfAJkh7HCSXgfJ/preview"
+                    src="https://drive.google.com/file/d/10FK4QePCQN4-ZXTNGohHJZnNLaKXaDw6/preview"
                     width="90%"
                     height="790vh"
                     allowFullScreen

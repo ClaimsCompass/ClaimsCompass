@@ -5,7 +5,7 @@
 -- Dumped from database version 16.0
 -- Dumped by pg_dump version 16.0
 
--- Started on 2023-12-06 19:23:46 EST
+-- Started on 2023-11-29 19:44:01 EST
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -18,33 +18,67 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
 --
--- TOC entry 3596 (class 0 OID 73897)
--- Dependencies: 221
+-- TOC entry 217 (class 1259 OID 49299)
+-- Name: claims; Type: TABLE; Schema: public; Owner: securian
+--
+DROP TABLE IF EXISTS public.claims;
+
+CREATE TABLE public.claims (
+    id integer NOT NULL,
+    claim_type character varying(255) NOT NULL,
+    claim_amt real NOT NULL,
+    claim_details character varying(255),
+    complexity_score integer,
+    urgency_score integer,
+    total_score integer,
+    processed boolean,
+    creation_date_time timestamp without time zone,
+    examiner character varying,
+    state character varying
+);
+
+
+ALTER TABLE public.claims OWNER TO securian;
+
+--
+-- TOC entry 3599 (class 0 OID 49299)
+-- Dependencies: 217
 -- Data for Name: claims; Type: TABLE DATA; Schema: public; Owner: securian
 --
 
-INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (20000, 'Life', 18500, 'Life', 0, 0, 0, false, '2023-12-04 15:00:00', NULL, NULL);
-INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (22222, 'Disability', 100000, 'Disability CompletedDocuments:N AccurateDocuments:N', 0, 0, 0, false, '2023-12-04 15:00:00', NULL, NULL);
-INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (30000, 'Life', 16500, 'Disability', 0, 0, 0, false, '2023-12-04 15:00:00', NULL, NULL);
-INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (33333, 'Life', 80500, 'AccurateDocuments:N', 0, 0, 0, false, '2023-12-04 15:00:00', NULL, NULL);
-INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (40000, 'Life', 78500, 'Life', 0, 0, 0, false, '2023-12-04 15:00:00', NULL, NULL);
-INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (44444, 'Life', 80500, 'Life', 0, 0, 0, false, '2023-12-04 15:00:00', NULL, NULL);
-INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (55555, 'Unemployment', 100000, 'Unemployment CompletedDocuments:N', 0, 0, 0, false, '2023-12-04 15:00:00', NULL, NULL);
-INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (66666, 'Disability', 100000, 'Disability AccurateDocuments:N ', 0, 0, 0, false, '2023-12-04 15:00:00', NULL, NULL);
-INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (77777, 'Life', 90500, 'None', 0, 0, 0, false, '2023-12-04 15:00:00', NULL, NULL);
-INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (88888, 'Disability', 100000, 'Disability CompletedDocuments:N AccurateDocuments:N', 0, 0, 0, false, '2023-12-04 15:00:00', NULL, NULL);
-INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (99999, 'Unemployment', 100000, 'Disability CompletedDocuments:N AccurateDocuments:N', 0, 0, 0, false, '2023-12-04 15:00:00', NULL, NULL);
-INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (90000, 'Life', 14500, 'Life', 0, 0, 0, false, '2023-12-04 15:00:00', NULL, NULL);
-INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (80000, 'Life', 11500, 'Life', 0, 0, 0, false, '2023-12-04 15:00:00', NULL, NULL);
-INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (70000, 'Life', 90500, 'Life', 0, 0, 0, false, '2023-12-04 15:00:00', NULL, NULL);
-INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (60000, 'Unemployment', 68500, 'Unemployment CompletedDocuments:N', 0, 0, 0, false, '2023-12-04 15:00:00', NULL, NULL);
-INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (50000, 'Disability', 78500, 'Disability', 0, 0, 0, false, '2023-12-04 15:00:00', NULL, NULL);
+INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (1287392, 'disability', 100000, 'Some details...', 8, 0, 0, true, '2023-11-17 08:00:00', 'janeDoe', NULL);
+INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (1423567, 'employment
+', 7000, 'Some details...', 5, 0, 0, false, '2023-11-17 15:00:00', 'bobDoe', NULL);
+INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (1523467, 'life
+', 5000, 'Some details...', 3, 0, 0, false, '2023-11-16 00:00:00', 'bobDoe', NULL);
+INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (1623457, 'life
+', 5000, 'Some details...', 2, 0, 0, false, '2023-11-17 08:00:00', 'bobDoe', NULL);
+INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (1927301, 'life', 3000, 'details from form', 2, 0, 0, false, '2023-11-10 00:00:00', 'janeDoe', NULL);
+INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (2635372, 'disability', 100000, 'Some details...', 8, 0, 0, false, '2023-11-14 00:00:00', 'janeDoe', NULL);
+INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (2828010, 'disability', 100000, 'Some details...', 8, 0, 0, false, '2023-11-17 08:00:00', 'janeDoe', NULL);
+INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (1324567, 'employment
+', 7000, 'Some details...', 5, 0, 0, false, '2023-11-17 15:00:00', 'janeDoe', NULL);
+INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (1237658, 'disability
+', 200000, 'Some details...', 8, 0, 100, false, '2023-11-16 00:00:00', 'janeDoe', NULL);
+INSERT INTO public.claims (id, claim_type, claim_amt, claim_details, complexity_score, urgency_score, total_score, processed, creation_date_time, examiner, state) VALUES (1234567, 'employment
+', 7000, 'Some details...', 5, 0, 0, false, '2023-11-17 15:00:00', 'janeDoe', NULL);
 
 
--- Completed on 2023-12-06 19:23:46 EST
+--
+-- TOC entry 3455 (class 2606 OID 49305)
+-- Name: claims claims_pkey; Type: CONSTRAINT; Schema: public; Owner: securian
+--
+
+ALTER TABLE ONLY public.claims
+    ADD CONSTRAINT claims_pkey PRIMARY KEY (id);
+
+
+-- Completed on 2023-11-29 19:44:01 EST
 
 --
 -- PostgreSQL database dump complete
---
-
